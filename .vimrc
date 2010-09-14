@@ -219,6 +219,10 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
+" Symfony
+map <leader>sa :Saction <CR>
+map <leader>sv :Sview <CR>
+
 "Latex
 
 let g:Tex_ViewRule_pdf = 'okular'

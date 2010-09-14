@@ -37,3 +37,6 @@
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/vim-symfony"]
+	path = bundle/vim-symfony
+	url = git://github.com/soh335/vim-symfony.git
