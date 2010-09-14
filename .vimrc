@@ -59,6 +59,9 @@ set title                         " Set the terminal's title
 set visualbell                    " No beeping.
 set noerrorbells         " don't beep
 
+" Backspace behave as expected
+set backspace=indent,eol,start
+
 set backupdir=~/.vim/tmp/,~/.tmp,~/tmp,/var/tmp,/tmp   " Keep swap files in one location
 set directory=~/.vim/tmp/,~/.tmp,~/tmp,/var/tmp,/tmp   " Keep swap files in one location
 
@@ -160,6 +163,11 @@ command! StripTrailingWS call StripTrailingWS()
 
 " PHP
 let php_htmlInStrings = 1 "Coloration des balises HTML
+
+" Indent PHP templates as HTML files
+nmap <leader>= :set ft=html<cr>mhgg=G'h:set ft=php<cr>
+" Indent whole PHP file
+nmap <leader>i <Esc>mygg=G'y
 
 " phpdoc
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
