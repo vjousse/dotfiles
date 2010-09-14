@@ -178,14 +178,21 @@ let g:symfony_fuf = 1
 let Tlist_Show_One_File = 1
 nnoremap <silent> <F7> :TlistToggle<CR>
 
+" Nerd Tree
+map <Leader>nf :NERDTree<Enter>
+map <Leader>nr :NERDTree %:p:h<Enter>
+let NERDTreeQuitOnOpen=1
 
 " Syntastic
-" SyntasticEnable
-"let g:syntastic_enable_signs = 1
-"let g:syntastic_auto_loc_list = 1
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_quiet_warnings=0
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Snipmate
+let g:snips_author = 'Thibault Duplessis <thibault.duplessis@gmail.com>'
 
 " Encoding
 set statusline+=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
