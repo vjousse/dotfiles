@@ -165,9 +165,9 @@ command! StripTrailingWS call StripTrailingWS()
 let php_htmlInStrings = 1 "Coloration des balises HTML
 
 " Indent PHP templates as HTML files
-nmap <leader>= :set ft=html<cr>mhgg=G'h:set ft=php<cr>
+map <leader>= :set ft=html<cr>mhgg=G'h:set ft=php<cr>
 " Indent whole PHP file
-nmap <leader>i <Esc>mygg=G'y
+map <leader>i <Esc>mygg=G'y
 
 " phpdoc
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
@@ -210,6 +210,22 @@ set statusline+=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\
 map <C-h> <C-T>
 map <C-l> <C-]>
 map <C-m> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+
+
+" CTAGS
+" Explore tags for the word under the cursor
+map <C-l> <C-]>
+" Back to previous location after browsing tags
+map <C-h> <C-T>
+" Jump to next tag match
+map ]t :tnext<CR>
+" Jump to previous tag match
+map [t :tprevious<CR>
+" Open tag command
+map <C-T> :tag 
+let g:Tlist_Ctags_Cmd = 'ctags'
+" Rebuild tag index
+nnoremap <silent> <C-F7> :silent !ctags -h ".php" --PHP-kinds=+cf --recurse --exclude=*/cache/* --exclude=*/logs/* --exclude=*/data/* --exclude="\.git" --exclude="\.svn" --languages=PHP &<cr>
 
 
 "jquery color
