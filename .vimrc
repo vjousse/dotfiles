@@ -85,8 +85,8 @@ set history=1000
 set undolevels=1000 
 
 " Toggle whitespace visibility
-set listchars=tab:>-,trail:·,eol:$
-nmap <silent> <leader>z :set nolist!<CR>
+" set listchars=tab:>-,trail:·,eol:$
+" nmap <silent> <leader>z :set nolist!<CR>
 
 " Useful status information at bottom of screen
 " set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
@@ -203,7 +203,7 @@ set statusline+=%*
 let g:snips_author = 'Thibault Duplessis <thibault.duplessis@gmail.com>'
 
 " Encoding
-set statusline+=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+set statusline+=%<%f\ [%{GitBranch()}]\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
 
 
 " CTAGS
