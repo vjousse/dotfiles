@@ -40,3 +40,6 @@
 [submodule "bundle/vim-symfony"]
 	path = bundle/vim-symfony
 	url = git://github.com/soh335/vim-symfony.git
+[submodule "bundle/vimlatex"]
+	path = bundle/vimlatex
+	url = git://github.com/jcf/vim-latex.git
