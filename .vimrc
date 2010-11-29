@@ -27,12 +27,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<C
 
 
 " Colorsheme
-if has("gui_running")
-  let g:moria_style="dark"
-  colorscheme moria
-else
-  colorscheme ornicar
-endif
+colorscheme vitamins
 
 " Set title on X window
 set title
@@ -165,8 +160,10 @@ command! StripTrailingWS call StripTrailingWS()
 let php_htmlInStrings = 1 "Coloration des balises HTML
 
 " Indent PHP templates as HTML files
+nnoremap <leader>= :set ft=html<cr>mhgg=G'h:set ft=php<cr>
 map <leader>= :set ft=html<cr>mhgg=G'h:set ft=php<cr>
 " Indent whole PHP file
+nnoremap <leader>i <Esc>mygg=G'y
 map <leader>i <Esc>mygg=G'y
 
 " phpdoc
