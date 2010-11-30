@@ -114,10 +114,11 @@ vmap Q gq
 nmap Q gqap
 
 " When I'll be a VIM master, I'll comment out those lines :)
-"map <up> <nop>
-"map <down> <nop>
-"map <left> <nop>
-"map <right> <nop>
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
 
 " Easy window navigation
 map <C-h> <C-w>h
