@@ -12,22 +12,11 @@ call pathogen#runtime_append_all_bundles()
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<C
- 
-
-" Do awesome stuff on MacVim
-"if has("gui")
-  " Disable toolbar on MacVim
-"  set go-=T
-
- " colorscheme morning 
-  " MacVim font and color scheme
-  " set guifont=Inconsolata:h13
-  " colorscheme torte
-"endif
-
 
 " Colorsheme
-colorscheme vitamins
+set t_Co=256
+colorscheme aldmeris255
+"colorscheme vitamins
 
 " Set title on X window
 set title
