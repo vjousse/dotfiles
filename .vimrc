@@ -15,8 +15,8 @@ nmap <silent> <leader>sv :so $MYVIMRC<C
 
 " Colorsheme
 set t_Co=256
-colorscheme aldmeris255
-"colorscheme vitamins
+"colorscheme aldmeris255
+colorscheme vitamins
 
 " Set title on X window
 set title
