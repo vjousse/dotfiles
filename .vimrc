@@ -15,6 +15,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<C
 
 " Colorsheme
 set t_Co=256
+set guifont=Monospace\ 8
 "colorscheme aldmeris255
 colorscheme vitamins
 
