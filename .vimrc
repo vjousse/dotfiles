@@ -15,9 +15,11 @@ nmap <silent> <leader>sv :so $MYVIMRC<C
 
 " Colorsheme
 set t_Co=256
-set guifont=Monospace\ 8
+set guifont=Monospace\ 10
 "colorscheme aldmeris255
-colorscheme vitamins
+" colorscheme vitamins
+set background=dark
+colorscheme solarized
 
 " Set title on X window
 set title
