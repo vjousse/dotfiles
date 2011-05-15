@@ -87,6 +87,8 @@ set copyindent    " copy the previous indentation on autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set showmatch     " set show matching parenthesis
 
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+
 
 syntax enable                     " Turn on syntax highlighting.
 filetype on
