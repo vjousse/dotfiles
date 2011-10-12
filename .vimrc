@@ -23,8 +23,12 @@ set t_Co=256
 "    colorscheme aldmeris255
 "endif
 
-colorscheme vitamins
 "colorscheme vitamins
+set guifont=Monospace\ 10
+"colorscheme aldmeris255
+" colorscheme vitamins
+set background=dark
+colorscheme solarized
 
 " Set title on X window
 set title
@@ -91,6 +95,8 @@ set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set showmatch     " set show matching parenthesis
+
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 
 
 syntax enable                     " Turn on syntax highlighting.
