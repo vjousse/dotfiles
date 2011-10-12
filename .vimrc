@@ -275,4 +275,17 @@ endfunction
 noremap <F10> :call ToggleSpell()<cr>
 inoremap <F10> <Esc>:call ToggleSpell()<cr>a
 
+
+" define surround mappings myself
+" does not work well with bépo
+let g:surround_no_mappings = 1
+
+nmap ds <Plug>Dsurround
+nmap és <Plug>Csurround
+nmap ys <Plug>Ysurround
+nmap yS <Plug>YSurround
+nmap yss <Plug>Yssurround
+nmap ySs <Plug>YSsurround
+nmap ySS <Plug>YSsurround
+
 source .vimrc.bepo
