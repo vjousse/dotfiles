@@ -15,7 +15,15 @@ nmap <silent> <leader>sv :so $MYVIMRC<C
 
 " Colorsheme
 set t_Co=256
-colorscheme aldmeris255
+
+" Do awesome stuff on MacVim
+"if has("gui")
+"    colorscheme aldmeris
+"else
+"    colorscheme aldmeris255
+"endif
+
+colorscheme vitamins
 "colorscheme vitamins
 
 " Set title on X window
@@ -156,6 +164,9 @@ map <leader>= :set ft=html<cr>mhgg=G'h:set ft=php<cr>
 nnoremap <leader>i <Esc>mygg=G'y
 map <leader>i <Esc>mygg=G'y
 
+" Detect twig filetype
+au BufNewFile,BufRead *.twig setf htmljinja
+
 " phpdoc
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <C-P> :call PhpDocSingle()<CR> 
@@ -187,7 +198,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " Snipmate
-let g:snips_author = 'Thibault Duplessis <thibault.duplessis@gmail.com>'
+let g:snips_author = 'Vincent Jousse <vincent@jousse.org>'
 
 " Encoding
 set statusline+=%<%f\ [%{GitBranch()}]\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
@@ -257,3 +268,5 @@ endfunction
 
 noremap <F10> :call ToggleSpell()<cr>
 inoremap <F10> <Esc>:call ToggleSpell()<cr>a
+
+source .vimrc.bepo
