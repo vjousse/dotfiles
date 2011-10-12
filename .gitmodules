@@ -46,3 +46,6 @@
 [submodule "bundle/gitvim"]
 	path = bundle/gitvim
 	url = http://github.com/motemen/git-vim.git
+[submodule "bundle/vim-scala"]
+	path = bundle/vim-scala
+	url = git://github.com/ornicar/vim-scala.git
