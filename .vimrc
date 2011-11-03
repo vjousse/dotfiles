@@ -16,15 +16,13 @@ nmap <silent> <leader>sv :so $MYVIMRC<C
 " Colorsheme
 set t_Co=256
 
-" Do awesome stuff on MacVim
-"if has("gui")
-"    colorscheme aldmeris
-"else
-"    colorscheme aldmeris255
-"endif
+if has("gui")
+    set guifont=Menlo\ Regular:h13
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+endif
 
 "colorscheme vitamins
-set guifont=Monospace\ 10
 "colorscheme aldmeris255
 " colorscheme vitamins
 set background=dark
@@ -281,7 +279,7 @@ inoremap <F10> <Esc>:call ToggleSpell()<cr>a
 let g:surround_no_mappings = 1
 
 nmap ds <Plug>Dsurround
-nmap és <Plug>Csurround
+nmap ès <Plug>Csurround
 nmap ys <Plug>Ysurround
 nmap yS <Plug>YSurround
 nmap yss <Plug>Yssurround
