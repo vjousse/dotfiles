@@ -1,0 +1,8 @@
+set show-date = relative
+set show-rev-graph = yes
+set line-graphics = yes
+
+# bépo
+bind generic s move-up
+bind generic t move-down
+bind generic v view-tree
