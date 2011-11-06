@@ -286,4 +286,4 @@ nmap yss <Plug>Yssurround
 nmap ySs <Plug>YSsurround
 nmap ySS <Plug>YSsurround
 
-source ~/.vim/.vimrc.bepo
+source ~/.vim/vimrc.bepo
