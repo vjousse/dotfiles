@@ -1,48 +1,48 @@
-[submodule "bundle/nerdtree"]
+[submodule "vim/bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "bundle/syntastic"]
+[submodule "vim/bundle/syntastic"]
 	path = bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
-[submodule "bundle/nerdcommenter"]
+[submodule "vim/bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
-[submodule "bundle/taglist"]
+[submodule "vim/bundle/taglist"]
 	path = bundle/taglist
 	url = git://github.com/esukram/taglist.vim.git
-[submodule "bundle/lusty"]
+[submodule "vim/bundle/lusty"]
 	path = bundle/lusty
 	url = git://github.com/sjbach/lusty.git
-[submodule "bundle/ack"]
+[submodule "vim/bundle/ack"]
 	path = bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
-[submodule "bundle/surround"]
+[submodule "vim/bundle/surround"]
 	path = bundle/surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "bundle/matchit"]
+[submodule "vim/bundle/matchit"]
 	path = bundle/matchit
 	url = git://github.com/edsono/vim-matchit.git
-[submodule "bundle/supertab"]
+[submodule "vim/bundle/supertab"]
 	path = bundle/supertab
 	url = git://github.com/tsaleh/vim-supertab.git
-[submodule "bundle/dirdo"]
+[submodule "vim/bundle/dirdo"]
 	path = bundle/dirdo
 	url = git://github.com/ornicar/vim-dirdo.git
-[submodule "bundle/commandt"]
+[submodule "vim/bundle/commandt"]
 	path = bundle/commandt
 	url = git://github.com/wincent/Command-T.git
-[submodule "bundle/unimpaired"]
+[submodule "vim/bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "bundle/vim-symfony"]
+[submodule "vim/bundle/vim-symfony"]
 	path = bundle/vim-symfony
 	url = git://github.com/soh335/vim-symfony.git
-[submodule "bundle/vimlatex"]
+[submodule "vim/bundle/vimlatex"]
 	path = bundle/vimlatex
 	url = git://github.com/jcf/vim-latex.git
-[submodule "bundle/gitvim"]
+[submodule "vim/bundle/gitvim"]
 	path = bundle/gitvim
 	url = http://github.com/motemen/git-vim.git
-[submodule "bundle/vim-scala"]
+[submodule "vim/bundle/vim-scala"]
 	path = bundle/vim-scala
 	url = git://github.com/ornicar/vim-scala.git
