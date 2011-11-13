@@ -8,6 +8,7 @@ main = do
     xmonad $ defaultConfig
         { 
           terminal      = "urxvtc"
+        , modMask       = mod4Mask
         , layoutHook    = myLayoutHook
         , keys          = newKeys
         }
