@@ -22,9 +22,11 @@ if has("gui")
     set guioptions-=T  "remove toolbar
 endif
 
-"colorscheme vitamins
-"colorscheme aldmeris255
-" colorscheme vitamins
+" Colorsheme
+let g:solarized_termcolors=16
+let g:solarized_termtrans=0
+let g:solarized_menu=0
+let g:solarized_italic=0
 set background=dark
 colorscheme solarized
 
