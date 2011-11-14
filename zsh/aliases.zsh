@@ -6,8 +6,8 @@ alias po='popd'
 alias ...='cd ../..'
 alias -- -='cd -'
 
-# Super user
-alias _='sudo'
+# Super user and preserve env vars
+alias _='sudo -E'
 
 alias psg='ps aux | grep'
 
