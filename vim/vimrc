@@ -33,6 +33,8 @@ colorscheme solarized
 " Set title on X window
 set title
 
+set clipboard=unnamedplus         " Alias unnamed register to the + register, which is the X Window clipboard.
+
 " Hide buffer instead of abandoning when unloading
 set hidden ruler wmnu
 set wildmenu                      " Enhanced command line completion.
