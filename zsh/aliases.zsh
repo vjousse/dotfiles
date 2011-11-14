@@ -19,3 +19,9 @@ alias lr='ls --color=auto -altr'
 
 #Preserve my lovely env when in root
 alias su='su -m'
+
+alias g='git'
+alias t='tig'
+alias ya='yaourt'
+alias s='source'
+alias v='vim'
