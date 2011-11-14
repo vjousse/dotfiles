@@ -1,6 +1,10 @@
 *.swp
 .VimballRecord
 *.so
+*.o
 bundle/commandt/ruby/command-t/Makefile
 private
 .netrwhist
+xmonad.errors
+xmonad.hi
+xmonad-*
