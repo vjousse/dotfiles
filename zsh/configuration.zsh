@@ -1,8 +1,3 @@
-autoload -U promptinit
-promptinit
-
-prompt clint
-
 # Export common variables
 export PATH="$PATH:$HOME/usr/bin:$DOTFILES/scripts"
 export BROWSER="firefox"
