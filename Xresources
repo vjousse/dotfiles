@@ -35,3 +35,5 @@ URxvt*urgentOnBell:    true
 
 URxvt*cursorBlink:     true
 
+!Stop using my shortcuts
+URxvt.searchable-scrollback: CM-s
