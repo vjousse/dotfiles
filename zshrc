@@ -7,3 +7,5 @@ for zsh_file ($DOTFILES/zsh/*.zsh) source $zsh_file
 
 # Add fish-like syntax highlighting
 source $DOTFILES/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source /etc/profile.d/autojump.zsh
