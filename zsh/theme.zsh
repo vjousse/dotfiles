@@ -9,6 +9,6 @@ RPROMPT='[%*]'
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg_no_bold[yellow]%}%B"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%b%{$fg_bold[blue]%})%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=""
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[red]%}*"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[red]%}✗"
 MODE_INDICATOR="%{$fg[yellow]%}<VI>%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_SHA_BEFORE="%{$reset_color%}%{$fg[cyan]%} "
