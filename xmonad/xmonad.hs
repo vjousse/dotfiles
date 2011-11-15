@@ -1,6 +1,7 @@
 import XMonad
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Accordion
+import XMonad.Actions.CycleWS
 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
@@ -51,4 +52,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) =
     
         -- Swap the focused window with the previous window
         , ((modMask .|. shiftMask, xK_s     ), windows W.swapUp    )
+
+        -- Move between workspaces
+
+        , ((modMask, xK_v), nextWS)
+        , ((modMask, xK_d), prevWS)
+        , ((modMask .|. shiftMask, xK_v), shiftToNext >> nextWS)
+        , ((modMask .|. shiftMask, xK_d), shiftToPrev >> prevWS)
     ]
