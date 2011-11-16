@@ -3,3 +3,5 @@ sudo rc.d start nginx
 sudo rc.d start redis
 sudo rc.d start mongodb
 sudo rc.d start mysqld
+sudo rc.d start httpd
+sudo rc.d start postgresql
