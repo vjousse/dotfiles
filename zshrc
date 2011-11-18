@@ -25,4 +25,4 @@ setopt correctall
 
 source /etc/profile.d/autojump.zsh
 
-eval `dircolors $HOME/dotfiles/dircolors-solarized/dircolors.256dark`
+eval `dircolors $HOME/dotfiles/dircolors-solarized/dircolors.ansi-dark`
