@@ -4,8 +4,8 @@ DOTFILES=$HOME/dotfiles
 
 # Load all of the config files in oh-my-zsh that end in .zsh
 for config_file ($DOTFILES/oh-my-zsh/lib/*.zsh) source $config_file
-#
-# # Load chosen oh-my-zsh plugins
+
+# Load chosen oh-my-zsh plugins
 for plugin in archlinux extract; do
  source $DOTFILES/oh-my-zsh/plugins/$plugin/$plugin.plugin.zsh
 done
@@ -27,4 +27,8 @@ source /etc/profile.d/autojump.zsh
 
 eval `dircolors $HOME/dotfiles/dircolors-solarized/dircolors.ansi-dark`
 
-[[ $TERM != "screen" ]] && tmux && exit
+if [[ $TERM != "screen" ]]
+then
+    tmux && exit
+fi
+
