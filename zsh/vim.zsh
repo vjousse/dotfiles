@@ -48,7 +48,7 @@ bindkey -a h vi-change
 bindkey -a H vi-change-eol
 bindkey -a dd vi-change-whole-line
 bindkey -a l vi-replace-chars
-bindkey -a L vi-replace
+#bindkey -a L vi-replace
 bindkey -a k vi-substitute
 bindkey -a é vi-forward-word
 bindkey -a É vi-forward-blank-word
