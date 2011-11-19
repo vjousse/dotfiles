@@ -74,6 +74,9 @@ nmap <Leader>w :w<CR>
 nnoremap <C-e> 3<C-e>             
 nnoremap <C-y> 3<C-y>
 
+" Press i to enter insert mode, and ii to exit.
+:inoremap ii <Esc>
+
 " Remap the marker char
 nnoremap ' `
 nnoremap ` '
