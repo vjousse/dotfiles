@@ -21,6 +21,7 @@ alias lr='ls --color=auto -altr'
 alias su='su -m'
 
 alias g='git'
+alias gs='git status'
 alias t='tig'
 alias ya='yaourt'
 alias s='source'
