@@ -3,10 +3,16 @@ set focuscontent
 set hintinputs="label,name"
 set hintmatching="wordstartswith"
 
+" Press i to enter insert mode, and ii to exit.
+inoremap ii <Esc>
+
+let mapleader = ","
+
 nnoremap T gT
 nnoremap S gt
 
 noremap e f
+noremap E F
 
 " {W} -> [É]
 noremap é w
@@ -19,8 +25,8 @@ noremap W <C-w><C-w>
 " [HJKL] -> {CTSR}
 noremap c h
 noremap r l
-noremap t j
-noremap s k
+noremap t 3j
+noremap s 3k
 
 noremap C H
 noremap R L
