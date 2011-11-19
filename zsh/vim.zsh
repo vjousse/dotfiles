@@ -27,8 +27,6 @@ function accept_line {
   builtin zle .accept-line
 }
 
-zle -N zle-line-init
-zle -N zle-keymap-select
 zle -N accept_line
 zle -N edit-command-line
 
