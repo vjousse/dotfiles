@@ -26,3 +26,5 @@ setopt correctall
 source /etc/profile.d/autojump.zsh
 
 eval `dircolors $HOME/dotfiles/dircolors-solarized/dircolors.ansi-dark`
+
+[[ $TERM != "screen" ]] && tmux && exit
