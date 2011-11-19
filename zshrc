@@ -31,7 +31,8 @@ source /etc/profile.d/autojump.zsh
 
 eval `dircolors $HOME/dotfiles/dircolors-solarized/dircolors.ansi-dark`
 
-if [[ $TERM != "screen" ]]
+# Keep tty2 safe
+if [[ $TERM != "screen" && $(tty) != /dev/tty2 ]]
 then
-    tmux && exit
+    tmux attach && exit
 fi
