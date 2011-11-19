@@ -26,3 +26,6 @@ alias ya='yaourt'
 alias s='source'
 alias v='vim'
 alias taf='tail -f'
+
+# Reload zshrc conf
+alias zreload='. ~/.zshrc'
