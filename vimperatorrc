@@ -6,6 +6,8 @@ set hintmatching="wordstartswith"
 nnoremap T gT
 nnoremap S gt
 
+noremap e f
+
 " {W} -> [É]
 noremap é w
 noremap É W
