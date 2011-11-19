@@ -54,12 +54,6 @@ noremap [k [s
 " ligne écran précédente / suivante (à l'intérieur d'une phrase)
 noremap gs gk
 noremap gt gj
-" onglet précédant / suivant
-noremap gb gT
-noremap gé gt
-" optionnel : {gB} / {gÉ} pour aller au premier / dernier onglet
-noremap gB :exe "silent! tabfirst"<CR>
-noremap gÉ :exe "silent! tablast"<CR>
 " optionnel : {g"} pour aller au début de la ligne écran
 noremap g" g0
  
