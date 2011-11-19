@@ -3,9 +3,6 @@ set focuscontent
 set hintinputs="label,name"
 set hintmatching="wordstartswith"
 
-" Press i to enter insert mode, and ii to exit.
-inoremap ii <Esc>
-
 let mapleader = ","
 
 nnoremap T gT
