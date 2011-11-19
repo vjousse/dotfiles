@@ -23,4 +23,6 @@ urxvtd -q -f -o                             # start urxvt server
 
 urxvtc &
 
+$HOME/dotfiles/scripts/external-screen
+
 xmonad
