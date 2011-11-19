@@ -6,7 +6,7 @@ DOTFILES=$HOME/dotfiles
 for config_file ($DOTFILES/oh-my-zsh/lib/*.zsh) source $config_file
 
 # Load chosen oh-my-zsh plugins
-for plugin in archlinux extract; do
+for plugin in archlinux extract vi-mode; do
  source $DOTFILES/oh-my-zsh/plugins/$plugin/$plugin.plugin.zsh
 done
 
@@ -31,4 +31,3 @@ if [[ $TERM != "screen" ]]
 then
     tmux && exit
 fi
-
