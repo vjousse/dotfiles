@@ -38,6 +38,7 @@ set clipboard=unnamedplus         " Alias unnamed register to the + register, wh
 set hidden ruler wmnu
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
+set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc,*.pyo,**/vendor/**/vendor/**,*/project/*,*/target/*,*.hi,tags
 
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
@@ -70,8 +71,8 @@ set wildmode=list:longest         " Make command completion behave like a shell
 nmap <Leader>w :w<CR>
 
 " Make the view port scroll faster
-nnoremap <C-e> 3<C-e>             
-nnoremap <C-y> 3<C-y>
+nnoremap <C-e> 5<C-e>             
+nnoremap <C-y> 5<C-y>
 
 " Press i to enter insert mode, and ii to exit.
 :inoremap éé <Esc>
@@ -102,7 +103,6 @@ set showmatch     " set show matching parenthesis
 
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 
-
 syntax enable                     " Turn on syntax highlighting.
 filetype on
 filetype plugin on
@@ -120,13 +120,6 @@ set pastetoggle=<F2>
 vmap Q gq
 nmap Q gqap
 
-" When I'll be a VIM master, I'll comment out those lines :)
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
-
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -139,10 +132,8 @@ nmap <silent> ,/ :let @/=""<CR>
 " Use w!! when you've forgotten to open your file as root
 cmap w!! w !sudo tee % >/dev/null
 
-
 " Allow extended digraphs
 set encoding=utf-8
-
 
 " Enable folding by indentation
 " Use: zc, zo, zC, zO, zR, zM
@@ -158,11 +149,9 @@ iab xname Vincent Jousse
 iab xsigp Vincent Jousse
 iab xsigw Vincent Jousse
 
-" Strip trailing whitespace in whole file
-func! StripTrailingWS()
-%s/\s\+$//
-endfunc
-command! StripTrailingWS call StripTrailingWS()
+" Remove trailing whitespaces and ^M chars
+autocmd FileType c,cpp,java,php,js,css,html,xml,yml,vim,scala,haskell,py
+    \ autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 " PHP
 let php_htmlInStrings = 1 "Coloration des balises HTML
@@ -181,14 +170,10 @@ au BufNewFile,BufRead *.twig setf htmljinja
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <C-P> :call PhpDocSingle()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR> 
-let g:pdv_cfg_Author = "Vincent Jousse <vincent.jousse@devorigin.fr>"
-let g:pdv_cfg_Copyright = "2010 Devorigin"
+let g:pdv_cfg_Author = "Vincent Jousse <vincent@jousse.org>"
 let g:pdv_cfg_License = "LGPL 3.0 {@link http://www.opensource.org/licenses/lgpl-3.0.html}"
 
 let mapleader = ","
-
-" Symfony plugin
-let g:symfony_fuf = 1
 
 " TagList
 let Tlist_Show_One_File = 1
@@ -238,22 +223,6 @@ nnoremap <silent> <C-F7> :silent !ctags -h ".php" --PHP-kinds=+cf --recurse --ex
 
 "jquery color
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-
-
-" Tab mappings.
-map <leader>tt :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tf :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tm :tabmove
-
-" Symfony
-map <leader>sa :Saction <CR>
-map <leader>sv :Sview <CR>
 
 "Latex
 
