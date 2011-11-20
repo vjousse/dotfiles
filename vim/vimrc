@@ -8,7 +8,6 @@ set nocompatible                  " Must come first because it changes other opt
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<C
@@ -75,7 +74,7 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 " Press i to enter insert mode, and ii to exit.
-:inoremap ii <Esc>
+:inoremap éé <Esc>
 
 " Remap the marker char
 nnoremap ' `
