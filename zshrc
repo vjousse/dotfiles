@@ -24,6 +24,9 @@ source $DOTFILES/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 autoload -U compinit
 compinit -i
 
+# Load private configuration
+[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+
 # Auto correct
 setopt correctall
 
