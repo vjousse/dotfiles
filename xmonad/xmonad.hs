@@ -29,6 +29,8 @@ main = do
         -- Mute
         , ((0 , 0x1008ff12), spawn "amixer -q set PCM toggle")
 
+        , ((0, xK_Print), spawn "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/'")
+
         -- Move focus to the next window
         , ((mod4Mask,               xK_Tab   ), windows W.focusDown)
 
