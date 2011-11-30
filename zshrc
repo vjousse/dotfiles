@@ -17,6 +17,10 @@ done
 # Load all my zsh files
 for zsh_file ($DOTFILES/zsh/*.zsh) source $zsh_file
 
+
+# Add cool history search
+source $DOTFILES/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+
 # Add fish-like syntax highlighting
 source $DOTFILES/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 

@@ -40,3 +40,9 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "vim/bundle/vim-align"]
+	path = vim/bundle/vim-align
+	url = git://github.com/tsaleh/vim-align.git
+[submodule "zsh/zsh-history-substring-search"]
+	path = zsh/zsh-history-substring-search
+	url = git://github.com/zsh-users/zsh-history-substring-search.git
