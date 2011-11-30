@@ -38,7 +38,7 @@ set clipboard=unnamedplus         " Alias unnamed register to the + register, wh
 set hidden ruler wmnu
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
-set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc,*.pyo,**/vendor/**/vendor/**,*/project/*,*/target/*,*.hi,tags
+set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc,*.pyo,**/vendor/**/vendor/**,*/project/*,*/target/*,*.hi
 
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
@@ -71,7 +71,7 @@ set wildmode=list:longest         " Make command completion behave like a shell
 nmap <Leader>w :w<CR>
 
 " Make the view port scroll faster
-nnoremap <C-e> 5<C-e>             
+nnoremap <C-e> 5<C-e>
 nnoremap <C-y> 5<C-y>
 
 " Press i to enter insert mode, and ii to exit.
@@ -83,7 +83,7 @@ nnoremap ` '
 
 " Command and search pattern history
 set history=1000
-set undolevels=1000 
+set undolevels=1000
 
 " Toggle whitespace visibility
 " set listchars=tab:>-,trail:·,eol:$
@@ -145,7 +145,7 @@ set fillchars=fold:⋯
 
 " My information
 iab xdate =strftime("%d/%m/%Y %H:%M:%S")
-iab xname Vincent Jousse 
+iab xname Vincent Jousse
 iab xsigp Vincent Jousse
 iab xsigw Vincent Jousse
 
@@ -167,9 +167,9 @@ map <leader>i <Esc>mygg=G'y
 au BufNewFile,BufRead *.twig setf htmljinja
 
 " phpdoc
-inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
-nnoremap <C-P> :call PhpDocSingle()<CR> 
-vnoremap <C-P> :call PhpDocRange()<CR> 
+inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
+nnoremap <C-P> :call PhpDocSingle()<CR>
+vnoremap <C-P> :call PhpDocRange()<CR>
 let g:pdv_cfg_Author = "Vincent Jousse <vincent@jousse.org>"
 let g:pdv_cfg_License = "LGPL 3.0 {@link http://www.opensource.org/licenses/lgpl-3.0.html}"
 
@@ -215,7 +215,7 @@ map ]t :tnext<CR>
 " Jump to previous tag match
 map [t :tprevious<CR>
 " Open tag command
-map <C-T> :tag 
+map <C-T> :tag
 let g:Tlist_Ctags_Cmd = 'ctags'
 " Rebuild tag index
 nnoremap <silent> <C-F7> :silent !ctags -h ".php" --PHP-kinds=+cf --recurse --exclude=*/cache/* --exclude=*/logs/* --exclude=*/data/* --exclude="\.git" --exclude="\.svn" --languages=PHP &<cr>
@@ -260,5 +260,9 @@ nmap yS <Plug>YSurround
 nmap yss <Plug>Yssurround
 nmap ySs <Plug>YSsurround
 nmap ySS <Plug>YSsurround
+
+" Align
+" Disable default mappings
+let g:loaded_AlignMapsPlugin=1
 
 source ~/.vim/vimrc.bepo
