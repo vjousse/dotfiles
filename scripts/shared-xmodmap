@@ -1,0 +1,9 @@
+! Redefine left Alt and left Win
+clear mod1
+clear mod4
+clear shift
+clear control
+add mod1 = Alt_L
+add mod4 = Super_L
+add control = Control_L
+add shift = Shift_R
