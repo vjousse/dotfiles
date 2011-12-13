@@ -21,7 +21,7 @@ main = do
         , keys          = newKeys
         }
         `additionalKeys` [
-        ((mod4Mask,               xK_p   ), spawn "~/.scripts/path-dmenu")
+        ((mod4Mask,               xK_l   ), spawn "~/.scripts/path-dmenu")
         -- Increase volume
         , ((0 , 0x1008ff11), spawn "amixer -q set PCM 2- unmute")
         -- Decrease Volume
