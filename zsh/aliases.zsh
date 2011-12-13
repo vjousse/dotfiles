@@ -41,8 +41,6 @@ alias zreload='. ~/.zshrc'
 
 #Suffix aliases
 alias -s html=vim
-alias -s php=vim
-alias -s scala=vim
 alias -s pdf=apvlv
 
 alias -s png=feh
