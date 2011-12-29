@@ -265,4 +265,9 @@ nmap ySS <Plug>YSsurround
 " Disable default mappings
 let g:loaded_AlignMapsPlugin=1
 
+" Use Scalariform to format scala files
+
+
+au BufEnter *.scala setl formatprg=scala\ -cp\ /home/vjousse/usr/lib/scalariform_2.9.0-0.1.1.jar\ scalariform.commandline.Main\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ --forceOutput
+
 source ~/.vim/vimrc.bepo
