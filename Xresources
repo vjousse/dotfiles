@@ -12,25 +12,29 @@ Xft.hintstyle: hintfull
 ! }}}
 
 ! Urxvt {{{
-urxvt.font                  : xft           : Inconsolata-g : size=13
-urxvt.boldFont              : xft           : Inconsolata-g : size=13
+urxvt.font:  xft:Inconsolata-g:size=13
+urxvt.boldFont:   xft:Inconsolata-g:size=13
+!urxvt.font:  xft:DejaVuSansMono:size=11
+!URxvt.font: xft:monaco:bold:size=10
 
-URxvt*scrollBar             : false
-URxvt*jumpScroll            : true
-URxvt*skipScroll            : true
-URxvt*saveLines             : 32767
-URxvt*visualBell            : false
+URxvt*scrollBar:  false
+URxvt*jumpScroll: true
+URxvt*skipScroll: true
+URxvt*saveLines:  32767
+URxvt*visualBell: false
 
-URxvt*depth                 : 24
-URxvt*buffered              : true
-URxvt*transparent           : false
-URxvt*shading               : 100
+URxvt*depth:       24
+URxvt*buffered:    true
+!URxvt*foreground:  #f0f0f0
+!URxvt*background:  #000000
+URxvt*transparent: false
+URxvt*shading:     100
 
-URxvt*intensityStyles       : true
-URxvt*termName              : rxvt-256color
-URxvt*urgentOnBell          : true
+URxvt*intensityStyles: true
+URxvt*termName:        rxvt-256color
+URxvt*urgentOnBell:    true
 
-URxvt*cursorBlink           : true
+URxvt*cursorBlink:     true
 
 !Stop using my shortcuts
-URxvt.searchable-scrollback : CM-s
+URxvt.searchable-scrollback: CM-s
