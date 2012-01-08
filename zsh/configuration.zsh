@@ -3,3 +3,4 @@ export PATH="$PATH:$HOME/usr/bin:$DOTFILES/scripts:$DOTFILES/scripts/private:$HO
 export BROWSER="firefox"
 export EDITOR='vim'
 export GIT_EDITOR='vim'
+export CLASSPATH=$CLASSPATH:$HOME/usr/lib
