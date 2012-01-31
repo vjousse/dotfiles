@@ -1,0 +1,32 @@
+[user]
+  name = Vincent Jousse
+  email = vincent@jousse.org
+
+[color]
+  ui = true
+
+[color "diff"]
+  whitespace = red reverse
+
+[core]
+  editor = vim
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
+[web]
+  browser = firefox
+
+[push]
+  # 'git push' will push the current branch to its tracking branch
+  # the usual default is to push all branches
+  default = tracking 
+
+[apply]
+  whitespace = nowarn
+
+[branch]
+  autosetupmerge = true
+
+[diff]
+  # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
+  # instead of a/b/c/d as prefixes for patches
+  mnemonicprefix = true
