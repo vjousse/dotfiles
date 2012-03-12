@@ -1,8 +1,8 @@
-if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="white"; fi
+if [[ $HOST == "marty.clubzogo.com" ]]; then NCOLOR="red"; else NCOLOR="white"; fi
 
 returncode="%(?.%{$fg[green]%}.%{$fg[red]%})"
 
-PROMPT='%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[blue]%}%B%c/%b%{$reset_color%} $(git_prompt_info_custom)${returncode}%(!.#.$)%{$reset_color%} '
+PROMPT='%{$fg[$NCOLOR]%}%B%m@%n%b%{$reset_color%}:%{$fg[blue]%}%B%c/%b%{$reset_color%} $(git_prompt_info_custom)${returncode}%(!.#.$)%{$reset_color%} '
 RPROMPT='$(vi_mode_prompt_info)[%*]'
 
 # git theming
