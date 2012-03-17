@@ -13,7 +13,8 @@ import qualified XMonad.StackSet as W
 
 
 main = do
-    xmonad $ defaultConfig
+    xmonad $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "darkgreen", "-xs", "1"] }
+           $ defaultConfig
         {
           terminal      = "urxvtc"
         , modMask       = mod4Mask
