@@ -17,12 +17,15 @@ done
 # Load all my zsh files
 for zsh_file ($DOTFILES/zsh/*.zsh) source $zsh_file
 
-
 # Add cool history search
 source $DOTFILES/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Add fish-like syntax highlighting
 source $DOTFILES/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Check if my TypeMatrix keyboard is connected
+# If not, modify default bindings for the macbook air keyboard
+source $DOTFILES/scripts/check-typematrix.zsh
 
 # Enable completion after all plugins are loaded
 autoload -U compinit
