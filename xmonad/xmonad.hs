@@ -59,10 +59,10 @@ main = do
 
         -- Move between workspaces
 
-        , ((mod4Mask, xK_v), nextWS)
-        , ((mod4Mask, xK_d), prevWS)
-        , ((mod4Mask .|. shiftMask, xK_v), shiftToNext >> nextWS)
-        , ((mod4Mask .|. shiftMask, xK_d), shiftToPrev >> prevWS)
+        , ((mod4Mask, xK_d), nextWS)
+        , ((mod4Mask, xK_v), prevWS)
+        , ((mod4Mask .|. shiftMask, xK_d), shiftToNext >> nextWS)
+        , ((mod4Mask .|. shiftMask, xK_v), shiftToPrev >> prevWS)
         ]
 
 
