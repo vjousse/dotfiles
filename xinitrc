@@ -21,8 +21,6 @@ xset -b                                     # Disable system bell
 xset r rate 280 50                          # Repeat keys way faster please
 urxvtd -q -f -o                             # start urxvt server
 
-urxvtc &
-
 $HOME/dotfiles/scripts/external-screen
 
 xmonad

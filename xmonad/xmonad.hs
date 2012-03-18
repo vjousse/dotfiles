@@ -26,7 +26,8 @@ main = do
         , keys          = newKeys
         , logHook       = dynamicLogWithPP $ defaultPP { ppOutput = hPutStrLn dzen }
         , manageHook    = myManageHook
-        , workspaces = ["1:main", "2:chat", "3:web", "4", "5", "6", "7", "8", "9:mail"]
+        , workspaces    = ["1:main", "2:chat", "3:web", "4", "5", "6", "7", "8", "9:mail"]
+        , startupHook   = myStartupHook
         }
         `additionalKeys` [
         ((mod4Mask,               xK_l   ), spawn "~/.scripts/path-dmenu")
@@ -70,6 +71,8 @@ main = do
 
 
 myLayoutHook = noBorders (Full ||| Accordion)
+
+myStartupHook = spawn "urxvtc"
 
 -- http://www.chipstips.com/?p=488
 myManageHook = composeAll
