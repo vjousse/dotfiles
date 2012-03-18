@@ -84,6 +84,7 @@ myManageHook = composeAll
     ] <+> manageHook defaultConfig
 
 -- Taken from http://www.haskell.org/haskellwiki/Xmonad/Config_archive/And1%27s_xmonad.hs
+-- TODO: https://leohart.wordpress.com/2011/02/20/pomodoro-technique-for-xmonad-users/
 -- Color, font and iconpath definitions:
 myFont = "-*-inconsolata-medium-r-normal-*-14-*-*-*-c-*-*-*"
 
