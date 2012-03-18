@@ -3,9 +3,11 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Accordion
 import XMonad.Actions.CycleWS
 import XMonad.Util.EZConfig
+import XMonad.Util.Run
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.ManageDocks
 import Graphics.X11.ExtraTypes.XF86
 
 import qualified Data.Map as M
@@ -13,13 +15,15 @@ import qualified XMonad.StackSet as W
 
 
 main = do
+    dzen <- spawnPipe myStatusBar
     xmonad $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "darkgreen", "-xs", "1"] }
            $ defaultConfig
         {
           terminal      = "urxvtc"
         , modMask       = mod4Mask
-        , layoutHook    = myLayoutHook
+        , layoutHook    = avoidStruts $ myLayoutHook
         , keys          = newKeys
+        , logHook       = dynamicLogWithPP $ defaultPP { ppOutput = hPutStrLn dzen }
         }
         `additionalKeys` [
         ((mod4Mask,               xK_l   ), spawn "~/.scripts/path-dmenu")
@@ -64,6 +68,14 @@ main = do
 
 myLayoutHook = noBorders (Full ||| Accordion)
 
+-- Taken from http://www.haskell.org/haskellwiki/Xmonad/Config_archive/And1%27s_xmonad.hs
+-- Color, font and iconpath definitions:
+myFont = "-*-inconsolata-medium-r-normal-*-14-*-*-*-c-*-*-*"
+
+myDzenFGColor = "#839496"
+myDzenBGColor = "#073642"
+
+myStatusBar = "dzen2 -x '0' -y '0' -h '18' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
 newKeys x = M.union (keys defaultConfig x) (M.fromList (myKeys x))
 
 ------------------------------------------------------------------------
