@@ -16,6 +16,7 @@ import qualified XMonad.StackSet as W
 
 main = do
     dzen <- spawnPipe myStatusBar
+    dzen <- spawnPipe myStatusBar
     xmonad $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "darkgreen", "-xs", "1"] }
            $ defaultConfig
         {
@@ -24,6 +25,8 @@ main = do
         , layoutHook    = avoidStruts $ myLayoutHook
         , keys          = newKeys
         , logHook       = dynamicLogWithPP $ defaultPP { ppOutput = hPutStrLn dzen }
+        , manageHook    = myManageHook
+        , workspaces = ["1:main", "2:chat", "3:web", "4", "5", "6", "7", "8", "9:mail"]
         }
         `additionalKeys` [
         ((mod4Mask,               xK_l   ), spawn "~/.scripts/path-dmenu")
@@ -67,6 +70,15 @@ main = do
 
 
 myLayoutHook = noBorders (Full ||| Accordion)
+
+-- http://www.chipstips.com/?p=488
+myManageHook = composeAll
+    [ className =? "Gimp"           --> doFloat
+    , className =? "Pidgin"         --> doF (W.shift "2:chat")
+    , className =? "Skype"          --> doF (W.shift "2:chat")
+    , className =? "Thunderbird"    --> doF (W.shift "9:mail")
+    , manageDocks
+    ] <+> manageHook defaultConfig
 
 -- Taken from http://www.haskell.org/haskellwiki/Xmonad/Config_archive/And1%27s_xmonad.hs
 -- Color, font and iconpath definitions:
