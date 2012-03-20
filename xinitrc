@@ -5,22 +5,19 @@ setxkbmap fr bepo
 # Kill X with C-A-BS
 setxkbmap -option terminate:ctrl_alt_bksp
 
-# Remap keys
-#xmodmap $HOME/.Xmodmap &&
-
-export TERM=rxvt-256color
 xsetroot -cursor_name left_ptr
 
-#xrdb $HOME/.Xdefaults                       # load Xdefaults
 xrdb -merge $HOME/.Xresources
 xsetroot -solid black                       # black background
-#xset fp+ /usr/share/fonts/local             # add local fonts
 xset s 300 300                              # set monitor to sleep
-#xset s off                                  # disable screensaver
 xset -b                                     # Disable system bell
 xset r rate 280 50                          # Repeat keys way faster please
 urxvtd -q -f -o                             # start urxvt server
 
 $HOME/dotfiles/scripts/external-screen
 
-xmonad
+# Check if my TypeMatrix keyboard is connected
+# If not, modify default bindings for the macbook air keyboard
+$HOME/dotfiles/scripts/check-typematrix.zsh
+
+exec xmonad

@@ -32,8 +32,9 @@ URxvt*transparent: false
 URxvt*shading:     100
 
 URxvt*intensityStyles: true
-URxvt*termName:        rxvt-256color
+URxvt*termName:        rxvt-unicode
 URxvt*urgentOnBell:    true
+URxvt.imLocale: en_US.utf8
 
 URxvt*cursorBlink:     true
 

@@ -23,9 +23,6 @@ source $DOTFILES/zsh/zsh-history-substring-search/zsh-history-substring-search.z
 # Add fish-like syntax highlighting
 source $DOTFILES/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Check if my TypeMatrix keyboard is connected
-# If not, modify default bindings for the macbook air keyboard
-source $DOTFILES/scripts/check-typematrix.zsh
 
 # Enable completion after all plugins are loaded
 autoload -U compinit
