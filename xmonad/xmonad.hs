@@ -16,6 +16,7 @@ import qualified XMonad.StackSet as W
 
 main = do
     dzenPipe <- spawnPipe myStatusBar
+    pomodoro <- spawnPipe myPomodoroBar
     xmonad $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "darkgreen", "-xs", "1"] }
            $ defaultConfig
         {
@@ -87,8 +88,8 @@ myFont = "-*-inconsolata-medium-r-normal-*-14-*-*-*-c-*-*-*"
 myDzenFGColor = "#839496"
 myDzenBGColor = "#073642"
 
-myStatusBar = "dzen2 -x '0' -y '0' -h '18' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
---myStatusBar = "/home/vjousse/dotfiles/scripts/dzen.sh | dzen2 -x '0' -y '0' -h '18' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
+myStatusBar = "dzen2 -x '150' -y '0' -h '18' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
+myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py | dzen2 -x '0' -w '150' -y '0' -h '18' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
 
 myDzenPP outputPipe =  defaultPP {
     ppOutput = hPutStrLn outputPipe
