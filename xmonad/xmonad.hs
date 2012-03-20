@@ -60,6 +60,10 @@ main = do
         -- Swap the focused window with the previous window
         , ((mod4Mask .|. shiftMask, xK_s     ), windows W.swapUp    )
 
+        -- Move focus to the master window
+        , ((mod4Mask,               xK_n     ), spawn "touch ~/.pomodoro_session" )
+
+        , ((mod4Mask,               xK_r     ), spawn "rm ~/.pomodoro_session" )
         -- Move between workspaces
 
         , ((mod4Mask, xK_d), nextWS)
