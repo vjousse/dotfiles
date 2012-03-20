@@ -12,10 +12,11 @@ Xft.hintstyle: hintfull
 ! }}}
 
 ! Urxvt {{{
-urxvt.font:  xft:Inconsolata-g:size=13
-urxvt.boldFont:   xft:Inconsolata-g:size=13
-!urxvt.font:  xft:DejaVuSansMono:size=11
-!URxvt.font: xft:monaco:bold:size=10
+!urxvt.font:  xft:Inconsolata:size=13
+!urxvt.boldFont:   xft:Inconsolata:size=13
+urxvt.font:  xft:DejaVuSansMono:size=11
+!urxvt.font:  xft:DroidSansMono:size=11
+!urxvt.font:  xft:Monaco:size=10
 
 URxvt*scrollBar:  false
 URxvt*jumpScroll: true
