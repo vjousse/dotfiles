@@ -15,8 +15,7 @@ import qualified XMonad.StackSet as W
 
 
 main = do
-    dzen <- spawnPipe myStatusBar
-    dzen <- spawnPipe myStatusBar
+    dzenPipe <- spawnPipe myStatusBar
     xmonad $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "darkgreen", "-xs", "1"] }
            $ defaultConfig
         {
@@ -24,10 +23,9 @@ main = do
         , modMask       = mod4Mask
         , layoutHook    = avoidStruts $ myLayoutHook
         , keys          = newKeys
-        , logHook       = dynamicLogWithPP $ defaultPP { ppOutput = hPutStrLn dzen }
+        , logHook       = dynamicLogWithPP $ myDzenPP dzenPipe
         , manageHook    = myManageHook
         , workspaces    = ["1:main", "2:chat", "3:web", "4", "5", "6", "7", "8", "9:mail"]
-        , startupHook   = myStartupHook
         }
         `additionalKeys` [
         ((mod4Mask,               xK_l   ), spawn "~/.scripts/path-dmenu")
@@ -72,8 +70,6 @@ main = do
 
 myLayoutHook = noBorders (Full ||| Accordion)
 
-myStartupHook = spawn "urxvtc"
-
 -- http://www.chipstips.com/?p=488
 myManageHook = composeAll
     [ className =? "Gimp"           --> doFloat
@@ -92,6 +88,13 @@ myDzenFGColor = "#839496"
 myDzenBGColor = "#073642"
 
 myStatusBar = "dzen2 -x '0' -y '0' -h '18' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
+--myStatusBar = "/home/vjousse/dotfiles/scripts/dzen.sh | dzen2 -x '0' -y '0' -h '18' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
+
+myDzenPP outputPipe =  defaultPP {
+    ppOutput = hPutStrLn outputPipe
+    }
+
+
 newKeys x = M.union (keys defaultConfig x) (M.fromList (myKeys x))
 
 ------------------------------------------------------------------------
