@@ -37,7 +37,7 @@ main = do
         -- Mute
         , ((0 , 0x1008ff12), spawn "amixer -q set PCM toggle")
 
-        , ((0, xK_Print), spawn "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/'")
+        , ((0, xK_Print), spawn "scrot '%Y-%m-%d-%H%M%S_$wx$h.png' -e 'mv $f ~/'")
 
         -- Move focus to the next window
         , ((mod4Mask,               xK_Tab   ), windows W.focusDown)
@@ -87,13 +87,13 @@ myManageHook = composeAll
 -- Taken from http://www.haskell.org/haskellwiki/Xmonad/Config_archive/And1%27s_xmonad.hs
 -- TODO: https://leohart.wordpress.com/2011/02/20/pomodoro-technique-for-xmonad-users/
 -- Color, font and iconpath definitions:
-myFont = "-*-DejaVuSansMono-medium-r-normal-*-14-*-*-*-c-*-*-*"
+myFont = "-*-DejaVuSansMono-medium-r-normal-*-12-*-*-*-c-*-*-*"
 
 myDzenFGColor = "#839496"
 myDzenBGColor = "#073642"
 
-myStatusBar = "dzen2 -x '150' -y '0' -h '18' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
-myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py | dzen2 -x '0' -w '150' -y '0' -h '18' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
+myStatusBar = "dzen2 -x '150' -y '0' -h '14' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
+myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py | dzen2 -x '0' -w '150' -y '0' -h '14' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
 
 myDzenPP outputPipe =  defaultPP {
     ppOutput = hPutStrLn outputPipe
