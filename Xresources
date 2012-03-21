@@ -15,6 +15,7 @@ Xft.hintstyle: hintfull
 !urxvt.font:  xft:Inconsolata:size=13
 !urxvt.boldFont:   xft:Inconsolata:size=13
 urxvt.font:  xft:DejaVuSansMono:size=11
+urxvt.boldFont:  xft:DejaVuSansMono:size=11
 !urxvt.font:  xft:DroidSansMono:size=11
 !urxvt.font:  xft:Monaco:size=10
 
