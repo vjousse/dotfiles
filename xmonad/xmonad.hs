@@ -66,10 +66,11 @@ main = do
         , ((mod4Mask,               xK_r     ), spawn "rm ~/.pomodoro_session" )
         -- Move between workspaces
 
-        , ((mod4Mask, xK_d), nextWS)
-        , ((mod4Mask, xK_v), prevWS)
-        , ((mod4Mask .|. shiftMask, xK_d), shiftToNext >> nextWS)
-        , ((mod4Mask .|. shiftMask, xK_v), shiftToPrev >> prevWS)
+        , ((mod4Mask,               xK_d     ), nextWS)
+        , ((mod4Mask,               xK_v     ), prevWS)
+        , ((mod4Mask .|. shiftMask, xK_d     ), shiftToNext >> nextWS)
+        , ((mod4Mask .|. shiftMask, xK_v     ), shiftToPrev >> prevWS)
+        , ((mod4Mask .|. shiftMask, xK_q     ), spawn "killall dzen2 && xmonad --recompile && xmonad --restart") -- restart xmonad
         ]
 
 
