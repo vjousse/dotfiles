@@ -17,6 +17,7 @@ import qualified XMonad.StackSet as W
 main = do
     dzenPipe <- spawnPipe myStatusBar
     pomodoro <- spawnPipe myPomodoroBar
+    rightBar   <- spawnPipe myRightBar
     xmonad $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "darkgreen", "-xs", "1"] }
            $ defaultConfig
         {
@@ -88,14 +89,16 @@ myManageHook = composeAll
 -- Taken from http://www.haskell.org/haskellwiki/Xmonad/Config_archive/And1%27s_xmonad.hs
 -- TODO: https://leohart.wordpress.com/2011/02/20/pomodoro-technique-for-xmonad-users/
 -- Color, font and iconpath definitions:
---myFont = "-*-DejaVuSansMono-medium-r-normal-*-12-*-*-*-c-*-*-*"
-myFont = "DejaVuSansMono=11"
+myFont = "DejaVuSansMono:size=11"
 
 myDzenFGColor = "#839496"
 myDzenBGColor = "#073642"
+myDzenHeight = "16"
 
-myStatusBar = "dzen2 -x '215' -y '0' -h '20' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
-myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py --tick | dzen2 -x '0' -w '215' -y '0' -h '20' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
+myStatusBar = "dzen2 -x '215' -y '0' -w '785' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
+myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py --tick | dzen2 -x '0' -w '215' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
+
+myRightBar = "/home/vjousse/dotfiles/scripts/dzen-status.zsh | dzen2 -x '992' -w '450' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'r' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
 
 myDzenPP outputPipe =  defaultPP {
     ppOutput = hPutStrLn outputPipe
