@@ -87,13 +87,14 @@ myManageHook = composeAll
 -- Taken from http://www.haskell.org/haskellwiki/Xmonad/Config_archive/And1%27s_xmonad.hs
 -- TODO: https://leohart.wordpress.com/2011/02/20/pomodoro-technique-for-xmonad-users/
 -- Color, font and iconpath definitions:
-myFont = "-*-DejaVuSansMono-medium-r-normal-*-12-*-*-*-c-*-*-*"
+--myFont = "-*-DejaVuSansMono-medium-r-normal-*-12-*-*-*-c-*-*-*"
+myFont = "DejaVuSansMono=11"
 
 myDzenFGColor = "#839496"
 myDzenBGColor = "#073642"
 
-myStatusBar = "dzen2 -x '150' -y '0' -h '14' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
-myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py | dzen2 -x '0' -w '150' -y '0' -h '14' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
+myStatusBar = "dzen2 -x '215' -y '0' -h '20' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
+myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py --tick | dzen2 -x '0' -w '215' -y '0' -h '20' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
 
 myDzenPP outputPipe =  defaultPP {
     ppOutput = hPutStrLn outputPipe
