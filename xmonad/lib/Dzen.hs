@@ -32,6 +32,7 @@ module Dzen (
     -- * API
     , dzen
     , dzenArgs
+    , screenWidth
     -- * Example Dzens
     , defaultDzen
     , defaultDzenXft
@@ -227,15 +228,15 @@ defaultDzen :: DzenConf
 defaultDzen = nothingDzen
     { alignment = Just LeftAlign
     , font      = Just "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
-    , fgColor   = Just "#FFFFFF"
-    , bgColor   = Just "#333333"
+    , fgColor   = Just "#839496"
+    , bgColor   = Just "#073642"
     , exec      = ["onstart=lower"]
     , addargs   = ["-p"]
     }
 
 -- | Same thing but with an XFT font (Verdana)
 defaultDzenXft :: DzenConf
-defaultDzenXft = defaultDzen { font = Just "Verdana-8" }
+defaultDzenXft = defaultDzen { font = Just "DejaVuSansMono:size=11" }
 
 -- | A dzen with all options as 'Nothing' or the empty list.
 nothingDzen :: DzenConf
