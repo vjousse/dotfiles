@@ -6,5 +6,5 @@ bundle/commandt/ruby/command-t/Makefile
 private
 .netrwhist
 xmonad.errors
-xmonad.hi
+*.hi
 xmonad-*
