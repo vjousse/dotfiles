@@ -17,10 +17,11 @@ import Dzen (DzenConf(..), TextAlign(..), defaultDzenXft,
                 spawnDzen, spawnToDzen, screenWidth)
 
 main = do
+    -- Some help from IRC: http://hpaste.org/65912#line8
     width    <- screenWidth 0
     dzenPipe <- spawnPipe $ myStatusBar width
     pomodoro <- spawnPipe myPomodoroBar
-    rightBar <- spawnPipe myRightBar
+    rightBar <- spawnPipe $ myRightBar width
     xmonad $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "darkgreen", "-xs", "1"] }
            $ defaultConfig
         {
@@ -99,12 +100,15 @@ myDzenBGColor = "#073642"
 myDzenHeight = "16"
 
 -- To read for flexible width: https://bbs.archlinux.org/viewtopic.php?pid=907346#p907346
-myStatusBar :: Double -> String
-myStatusBar width = "dzen2 -x '215' -y '0' -w '" ++ show width ++ "' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e ''"
+myStatusBar :: Double -> String
+myStatusBar width = "dzen2 -x '215' -y '0' -w '795' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e ''"
 
+myPomodoroBar :: String
 myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py --tick | dzen2 -x '0' -w '215' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e''"
 
-myRightBar = "/home/vjousse/dotfiles/scripts/dzen-status.zsh | dzen2 -x '992' -w '450' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'r' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e''"
+myRightBarWidth = 430
+myRightBar :: Double -> String
+myRightBar screenWidth = "/home/vjousse/dotfiles/scripts/dzen-status.zsh | dzen2 -x '" ++ show (screenWidth - myRightBarWidth) ++ "' -w '" ++ show (myRightBarWidth) ++ "' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'r' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e''"
 
 myDzenPP outputPipe =  defaultPP {
     ppOutput = hPutStrLn outputPipe
