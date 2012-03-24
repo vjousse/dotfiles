@@ -13,11 +13,14 @@ import Graphics.X11.ExtraTypes.XF86
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
 
+import Dzen (DzenConf(..), TextAlign(..), defaultDzenXft,
+                spawnDzen, spawnToDzen, screenWidth)
 
 main = do
-    dzenPipe <- spawnPipe myStatusBar
+    width    <- screenWidth 0
+    dzenPipe <- spawnPipe $ myStatusBar width
     pomodoro <- spawnPipe myPomodoroBar
-    rightBar   <- spawnPipe myRightBar
+    rightBar <- spawnPipe myRightBar
     xmonad $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "darkgreen", "-xs", "1"] }
            $ defaultConfig
         {
@@ -95,10 +98,13 @@ myDzenFGColor = "#839496"
 myDzenBGColor = "#073642"
 myDzenHeight = "16"
 
-myStatusBar = "dzen2 -x '215' -y '0' -w '785' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
-myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py --tick | dzen2 -x '0' -w '215' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
+-- To read for flexible width: https://bbs.archlinux.org/viewtopic.php?pid=907346#p907346
+myStatusBar :: Double -> String
+myStatusBar width = "dzen2 -x '215' -y '0' -w '" ++ show width ++ "' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e ''"
 
-myRightBar = "/home/vjousse/dotfiles/scripts/dzen-status.zsh | dzen2 -x '992' -w '450' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'r' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "'"
+myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py --tick | dzen2 -x '0' -w '215' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e''"
+
+myRightBar = "/home/vjousse/dotfiles/scripts/dzen-status.zsh | dzen2 -x '992' -w '450' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'r' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e''"
 
 myDzenPP outputPipe =  defaultPP {
     ppOutput = hPutStrLn outputPipe
