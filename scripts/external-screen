@@ -2,6 +2,6 @@
 connected=`xrandr | grep 'HDMI1 connected' | wc -l`
 if [ $connected -eq 1 ]
 then
-    xrandr --output HDMI1 --mode 1920x1080
+    xrandr --output HDMI1 --mode 1920x1080 --primary
     xrandr --output eDP1 --off
 fi
