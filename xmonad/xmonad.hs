@@ -31,7 +31,7 @@ main = do
         , keys          = newKeys
         , logHook       = dynamicLogWithPP $ myDzenPP dzenPipe
         , manageHook    = myManageHook
-        , workspaces    = ["1:main", "2:chat", "3:web", "4", "5", "6", "7", "8", "9:mail"]
+        , workspaces    = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
         }
         `additionalKeys` [
         ((mod4Mask,               xK_l   ), spawn "~/.scripts/path-dmenu")
@@ -84,9 +84,9 @@ myLayoutHook = noBorders (Full ||| Accordion)
 -- http://www.chipstips.com/?p=488
 myManageHook = composeAll
     [ className =? "Gimp"           --> doFloat
-    , className =? "Pidgin"         --> doF (W.shift "2:chat")
-    , className =? "Skype"          --> doF (W.shift "2:chat")
-    , className =? "Thunderbird"    --> doF (W.shift "9:mail")
+    , className =? "Pidgin"         --> doF (W.shift "2")
+    , className =? "Skype"          --> doF (W.shift "2")
+    , className =? "Thunderbird"    --> doF (W.shift "9")
     , manageDocks
     ] <+> manageHook defaultConfig
 
@@ -101,10 +101,10 @@ myDzenHeight = "16"
 
 -- To read for flexible width: https://bbs.archlinux.org/viewtopic.php?pid=907346#p907346
 myStatusBar :: Double -> String
-myStatusBar width = "dzen2 -x '215' -y '0' -w '795' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e ''"
+myStatusBar width = "dzen2 -x '190' -y '0' -w '820' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e ''"
 
 myPomodoroBar :: String
-myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py --tick | dzen2 -x '0' -w '215' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e''"
+myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py --tick | dzen2 -x '0' -w '190' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e''"
 
 myRightBarWidth = 430
 myRightBar :: Double -> String
