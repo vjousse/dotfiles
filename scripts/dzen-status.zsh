@@ -131,7 +131,7 @@ while true; do
    fi
 
    # print out the rates with some nice formatting
-   echo -n "^fg($rxColor)${RXR} Ko/s^p(3)^i(${ICONPATH}/arr_down.xbm)^fg($txColor)${TXR} Ko/s^i(${ICONPATH}/arr_up.xbm)^fg() "
+   echo -n "^fg($rxColor)${RXR} K^p(3)^i(${ICONPATH}/arr_down.xbm)^fg($txColor)${TXR} K^i(${ICONPATH}/arr_up.xbm)^fg() "
 
    # reset old rates
    RXB=$RXBN; TXB=$TXBN
