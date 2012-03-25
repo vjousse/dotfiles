@@ -97,16 +97,19 @@ myFont = "DejaVuSansMono:size=11"
 
 myDzenFGColor = "#839496"
 myDzenBGColor = "#073642"
-myDzenHeight = "16"
+myDzenHeight = "18"
+
+
+myRightBarWidth = 800
+myPomodoroBarWidth = 190
 
 -- To read for flexible width: https://bbs.archlinux.org/viewtopic.php?pid=907346#p907346
 myStatusBar :: Double -> String
-myStatusBar width = "dzen2 -x '190' -y '0' -w '820' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e ''"
+myStatusBar screenWidth = "dzen2 -x '" ++ show myPomodoroBarWidth ++ "' -y '0' -w '" ++ show (screenWidth - (myRightBarWidth + myPomodoroBarWidth)) ++ "' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e ''"
 
 myPomodoroBar :: String
-myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py --tick | dzen2 -x '0' -w '190' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e''"
+myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py --tick | dzen2 -x '0' -w '" ++ show myPomodoroBarWidth ++ "' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e''"
 
-myRightBarWidth = 430
 myRightBar :: Double -> String
 myRightBar screenWidth = "/home/vjousse/dotfiles/scripts/dzen-status.zsh | dzen2 -x '" ++ show (screenWidth - myRightBarWidth) ++ "' -w '" ++ show (myRightBarWidth) ++ "' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'r' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e''"
 
