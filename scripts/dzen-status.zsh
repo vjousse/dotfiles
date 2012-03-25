@@ -57,6 +57,20 @@ fload() {
     printf "%s%.01f l^fg()" "^fg(#6c71c4)" "$load"
 }
 
+
+fmem() {
+    # MEMORY
+
+    memory=$(free | awk '/buffers\/cache:/ {printf "%.0f", 100*$3/($3 + $4)}')
+    if [ "$memory" -gt 90 ]; then modifier="^bg(#dc322f)^fg(white)"
+    elif [ "$memory" -gt 80 ]; then modifier="^bg(#cb4b16)^fg(white)"
+    elif [ "$memory" -gt 70 ]; then modifier="^fg(#b58900)"
+    else modifier="^fg(#859900)"
+    fi
+    printf "%s%s%% █^fg()" "$modifier" "$memory"
+}
+
+
 # Main
  
 # initialize data
@@ -79,9 +93,10 @@ while true; do
    fi
 
    LOAD=$(fload)
+   MEM=$(fmem)
  
    # Arrange and print the status line
-   print "$PBAT $LOAD $PGTIME ^fg(white)${PDATE}^fg()"
+   print "$PBAT $LOAD $MEM $PGTIME ^fg(white)${PDATE}^fg()"
  
    DATECOUNTER=$((DATECOUNTER+1))
    GTIMECOUNTER=$((GTIMECOUNTER+1))
