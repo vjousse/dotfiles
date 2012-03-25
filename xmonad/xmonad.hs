@@ -110,9 +110,13 @@ myRightBarWidth = 430
 myRightBar :: Double -> String
 myRightBar screenWidth = "/home/vjousse/dotfiles/scripts/dzen-status.zsh | dzen2 -x '" ++ show (screenWidth - myRightBarWidth) ++ "' -w '" ++ show (myRightBarWidth) ++ "' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'r' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e''"
 
-myDzenPP outputPipe =  defaultPP {
-    ppOutput = hPutStrLn outputPipe
-    }
+-- Customize the display of xmonad informations
+myDzenPP outputPipe =
+    defaultPP { ppOutput    = hPutStrLn outputPipe
+              -- Only display worspace and discard layout name 'l' and
+              -- window title name 't'
+              , ppOrder     = \(ws:l:t:_)   -> [ws]
+              }
 
 
 newKeys x = M.union (keys defaultConfig x) (M.fromList (myKeys x))
