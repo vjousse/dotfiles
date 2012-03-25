@@ -23,7 +23,7 @@ fdate() {
 }
  
 fgtime() {
-    print -n "NY:" $(TZ='America/New_York' date +'%H:%M')' '
+    print -n "— NY:" $(TZ='America/New_York' date +'%H:%M')
 }
 
 
@@ -50,6 +50,13 @@ fbattery() {
     printf "$modifier%s%s^fg()^bg()" "$percent" "$sign"
 }
 
+# LOAD AVERAGE
+
+fload() {
+    load=$(awk '{print $1}' /proc/loadavg)
+    printf "%s%.01f l^fg()" "^fg(#6c71c4)" "$load"
+}
+
 # Main
  
 # initialize data
@@ -70,9 +77,11 @@ while true; do
      PBAT=$(fbattery)
      BATCOUNTER=0
    fi
+
+   LOAD=$(fload)
  
    # Arrange and print the status line
-   print "$PBAT $PGTIME ^fg(white)${PDATE}^fg()"
+   print "$PBAT $LOAD $PGTIME ^fg(white)${PDATE}^fg()"
  
    DATECOUNTER=$((DATECOUNTER+1))
    GTIMECOUNTER=$((GTIMECOUNTER+1))
