@@ -6,20 +6,15 @@
 # Configuration
 DATE_FORMAT='%a %d %b %H:%M'
 TIME_ZONES=(Europe/London America/New_York)
-DZEN_ICONPATH=
+DZEN_ICONPATH=$HOME/dotfiles/icons
 #MAILDIR=
  
 # Main loop interval in seconds
 INTERVAL=1
  
-# function calling intervals in seconds
-DATEIVAL=1
-GTIMEIVAL=60
-BATIVAL=1
- 
 # Functions
 fdate() {
-    icon='^i(/home/vjousse/dotfiles/icons/clock.xpm)'
+    icon="^i($DZEN_ICONPATH/clock.xpm)"
     today=$(date +$DATE_FORMAT)
     printf "^fg(white)%s %s^fg()" "$icon" "$today"
 }
@@ -87,25 +82,10 @@ ICONPATH=/home/vjousse/dotfiles/icons
 RXB=`cat /sys/class/net/${INTERFACE}/statistics/rx_bytes`
 TXB=`cat /sys/class/net/${INTERFACE}/statistics/tx_bytes`
 
-# initialize data
-DATECOUNTER=$DATEIVAL;GTIMECOUNTER=$GTIMEIVAL;BATCOUNTER=$BATIVAL;
- 
 while true; do
-   if [ $DATECOUNTER -ge $DATEIVAL ]; then
-     PDATE=$(fdate)
-     DATECOUNTER=0
-   fi
- 
-   if [ $GTIMECOUNTER -ge $GTIMEIVAL ]; then
-     PGTIME=$(fgtime)
-     GTIMECOUNTER=0
-   fi
- 
-   if [ $BATCOUNTER -ge $BATIVAL ]; then
-     PBAT=$(fbattery)
-     BATCOUNTER=0
-   fi
-
+   PGTIME=$(fgtime)
+   PDATE=$(fdate)
+   PBAT=$(fbattery)
    LOAD=$(fload)
    MEM=$(fmem)
 
@@ -138,10 +118,6 @@ while true; do
 
    # Arrange and print the status line
    print "— $PBAT $LOAD $MEM — $PGTIME $PDATE"
- 
-   DATECOUNTER=$((DATECOUNTER+1))
-   GTIMECOUNTER=$((GTIMECOUNTER+1))
-   BATCOUNTER=$((BATCOUNTER+1))
  
    sleep $INTERVAL
 done
