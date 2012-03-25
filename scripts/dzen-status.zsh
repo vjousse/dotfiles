@@ -19,11 +19,13 @@ BATIVAL=1
  
 # Functions
 fdate() {
-    date +$DATE_FORMAT
+    icon='^i(/home/vjousse/dotfiles/icons/clock.xpm)'
+    today=$(date +$DATE_FORMAT)
+    printf "^fg(white)%s %s^fg()" "$icon" "$today"
 }
  
 fgtime() {
-    print -n "— NY:" $(TZ='America/New_York' date +'%H:%M')
+    print -n "NY:" $(TZ='America/New_York' date +'%H:%M')
 }
 
 
@@ -40,13 +42,16 @@ fbattery() {
 
     percent="$percent%"
 
-    case $state in
-        "Charging") sign="|+|";;
-        "Discharging") sign="|-|" ;;
-        "Unknown") sign=" ⚡";;
-        "Full") sign="⚡"; percent= ;;
-        *) sign="$state" ;;
-    esac
+#    case $state in
+#        "Charging") sign="|+|";;
+#        "Discharging") sign="|-|" ;;
+#        "Unknown") sign=" ⚡";;
+#        "Full") sign="⚡"; percent= ;;
+#        *) sign="$state" ;;
+#    esac
+
+    sign='^i(/home/vjousse/dotfiles/icons/power-bat.xbm)'
+
     printf "$modifier%s%s^fg()^bg()" "$percent" "$sign"
 }
 
@@ -54,7 +59,8 @@ fbattery() {
 
 fload() {
     load=$(awk '{print $1}' /proc/loadavg)
-    printf "%s%.01f l^fg()" "^fg(#6c71c4)" "$load"
+    icon='^i(/home/vjousse/dotfiles/icons/load.xbm)'
+    printf "%s%.01f %s^fg()" "^fg(#6c71c4)" "$load" "$icon"
 }
 
 
@@ -67,12 +73,20 @@ fmem() {
     elif [ "$memory" -gt 70 ]; then modifier="^fg(#b58900)"
     else modifier="^fg(#859900)"
     fi
-    printf "%s%s%% █^fg()" "$modifier" "$memory"
+
+    icon='^i(/home/vjousse/dotfiles/icons/mem.xbm)'
+    printf "%s%s%% %s^fg()" "$modifier" "$memory" "$icon"
 }
 
 
 # Main
- 
+INTERFACE=wlan0
+ICONPATH=/home/vjousse/dotfiles/icons
+
+# Here we remember the previous rx/tx counts
+RXB=`cat /sys/class/net/${INTERFACE}/statistics/rx_bytes`
+TXB=`cat /sys/class/net/${INTERFACE}/statistics/tx_bytes`
+
 # initialize data
 DATECOUNTER=$DATEIVAL;GTIMECOUNTER=$GTIMEIVAL;BATCOUNTER=$BATIVAL;
  
@@ -94,9 +108,36 @@ while true; do
 
    LOAD=$(fload)
    MEM=$(fmem)
- 
+
+   # get new rx/tx counts
+   RXBN=`cat /sys/class/net/${INTERFACE}/statistics/rx_bytes`
+   TXBN=`cat /sys/class/net/${INTERFACE}/statistics/tx_bytes`
+
+   # calculate the rates
+   # format the values to 4 digit fields
+   RXR=$(printf "%4d\n" $(echo "($RXBN - $RXB) / 1024/${INTERVAL}" | bc))
+   TXR=$(printf "%4d\n" $(echo "($TXBN - $TXB) / 1024/${INTERVAL}" | bc))
+
+   if [ $RXR -eq 0 ]; then
+       rxColor=""
+   else
+       rxColor="#859900"
+   fi
+
+   if [ $TXR -eq 0 ]; then
+       txColor=""
+   else
+       txColor="#dc322f"
+   fi
+
+   # print out the rates with some nice formatting
+   echo -n "^fg($rxColor)${RXR} Ko/s^p(3)^i(${ICONPATH}/arr_down.xbm)^fg($txColor)${TXR} Ko/s^i(${ICONPATH}/arr_up.xbm)^fg() "
+
+   # reset old rates
+   RXB=$RXBN; TXB=$TXBN
+
    # Arrange and print the status line
-   print "$PBAT $LOAD $MEM $PGTIME ^fg(white)${PDATE}^fg()"
+   print "— $PBAT $LOAD $MEM — $PGTIME $PDATE"
  
    DATECOUNTER=$((DATECOUNTER+1))
    GTIMECOUNTER=$((GTIMECOUNTER+1))
