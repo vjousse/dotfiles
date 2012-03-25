@@ -100,7 +100,7 @@ myDzenBGColor = "#073642"
 myDzenHeight = "18"
 
 
-myRightBarWidth = 800
+myRightBarWidth = 620
 myPomodoroBarWidth = 190
 
 -- To read for flexible width: https://bbs.archlinux.org/viewtopic.php?pid=907346#p907346
@@ -118,7 +118,7 @@ myDzenPP outputPipe =
     defaultPP { ppOutput    = hPutStrLn outputPipe
               -- Only display worspace and discard layout name 'l' and
               -- window title name 't'
-              , ppOrder     = \(ws:l:t:_)   -> [ws]
+              , ppOrder     = \(ws:l:t:_)   -> [ws,t]
               }
 
 
