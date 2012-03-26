@@ -7,7 +7,10 @@ alias ...='cd ../..'
 alias -- -='cd -'
 
 # Super user and preserve env vars
-alias _='sudo -E'
+# Add a space at the end to preserve aliases, cf:
+# http://www.gnu.org/software/bash/manual/bashref.html#Aliases
+# https://github.com/janmoesen/tilde/commit/805e8117fd0fb429055d280509e14be8427c226b
+alias _='sudo -E '
 
 alias psg='ps aux | grep'
 
