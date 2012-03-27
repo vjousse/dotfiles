@@ -117,7 +117,7 @@ while true; do
    RXB=$RXBN; TXB=$TXBN
 
    # Arrange and print the status line
-   print "— $PBAT $LOAD $MEM — $PGTIME $PDATE"
+   print "| $PBAT $LOAD $MEM | $PGTIME $PDATE"
  
    sleep $INTERVAL
 done
