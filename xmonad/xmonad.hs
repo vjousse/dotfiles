@@ -87,6 +87,7 @@ myManageHook = composeAll
     , className =? "Pidgin"         --> doF (W.shift "2")
     , className =? "Skype"          --> doF (W.shift "2")
     , className =? "Thunderbird"    --> doF (W.shift "9")
+    , className =? "Firefox"        --> doF (W.shift "1")
     , manageDocks
     ] <+> manageHook defaultConfig
 
@@ -108,7 +109,7 @@ myStatusBar :: Double -> String
 myStatusBar screenWidth = "dzen2 -x '" ++ show myPomodoroBarWidth ++ "' -y '0' -w '" ++ show (screenWidth - (myRightBarWidth + myPomodoroBarWidth)) ++ "' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e ''"
 
 myPomodoroBar :: String
-myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py --tick | dzen2 -x '0' -w '" ++ show myPomodoroBarWidth ++ "' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e''"
+myPomodoroBar = "python2 ~/.pymodoro/pymodoro.py | dzen2 -x '0' -w '" ++ show myPomodoroBarWidth ++ "' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'l' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e''"
 
 myRightBar :: Double -> String
 myRightBar screenWidth = "/home/vjousse/dotfiles/scripts/dzen-status.zsh | dzen2 -x '" ++ show (screenWidth - myRightBarWidth) ++ "' -w '" ++ show (myRightBarWidth) ++ "' -y '0' -h '" ++ myDzenHeight ++ "' -ta 'r' -fg '" ++ myDzenFGColor ++ "' -bg '" ++ myDzenBGColor ++ "' -fn '" ++ myFont ++ "' -p -e''"

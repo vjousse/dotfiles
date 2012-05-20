@@ -70,7 +70,7 @@ fmem() {
     fi
 
     icon='^i(/home/vjousse/dotfiles/icons/mem.xbm)'
-    printf "%s%s%% %s^fg()" "$modifier" "$memory" "$icon"
+    printf "%s%s%% %s^fg()^bg()" "$modifier" "$memory" "$icon"
 }
 
 
