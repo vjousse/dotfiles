@@ -19,4 +19,5 @@ urxvtd -q -f -o                             # start urxvt server
 # If not, modify default bindings for the macbook air keyboard
 $HOME/dotfiles/scripts/check-typematrix.zsh
 
-exec xmonad
+exec $HOME/.cabal/bin/xmonad
+#exec ck-launch-session startxfce4
