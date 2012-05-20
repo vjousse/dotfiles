@@ -16,7 +16,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<C
 set t_Co=256
 
 if has("gui")
-    set guifont=Menlo\ Regular:h13
+    set guifont=DejaVuSansMono
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
 endif
@@ -274,3 +274,12 @@ au BufEnter *.scala setl formatprg=scala\ -cp\ /home/vjousse/usr/lib/scalariform
 nmap <leader>i mygggqG'y:w<cr>
 
 source ~/.vim/vimrc.bepo
+
+"  Clean code function
+function! CleanCode()
+  %retab          " Replace tabs with spaces
+  %s/\r/\r/eg     " Turn DOS returns ^M into real returns
+  %s=  *$==e      " Delete end of line blanks
+  echo "Cleaned up this mess."
+endfunction
+nmap <leader>cc :call CleanCode()<cr>
