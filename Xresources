@@ -42,3 +42,9 @@ URxvt*cursorBlink:     true
 
 !Stop using my shortcuts
 URxvt.searchable-scrollback: CM-s
+
+URxvt.perl-ext:      default,selection,url-select,clipboard
+URxvt.keysym.M-u:    perl:url-select:select_next
+URxvt.urlLauncher:   firefox-beta-bin
+URxvt.underlineURLs: true
+URxvt.keysym.M-p:    perl:clipboard:paste
