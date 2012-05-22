@@ -276,8 +276,6 @@ au BufEnter *.scala setl formatprg=scala\ -cp\ /home/vjousse/usr/lib/scalariform
 " Format with scalariform then save
 nmap <leader>i mygggqG'y:w<cr>
 
-source ~/.vim/vimrc.bepo
-
 "  Clean code function
 function! CleanCode()
   %retab          " Replace tabs with spaces
@@ -298,3 +296,7 @@ nmap <leader>jA mA:Ack "<C-r>=expand("<cWORD>")<cr>"
 " Navigate in quickfix window
 nmap <leader>t :<C-U>exe "cnext ".(v:count ? v:count : "")<cr>
 nmap <leader>s :<C-U>exe "cprevious ".(v:count ? v:count : "")<cr>
+
+nmap <leader>d :!tig<cr>
+
+source ~/.vim/vimrc.bepo
