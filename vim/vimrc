@@ -126,6 +126,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Close other windows
+map <leader>wo :only<cr>
+
 " Pressing ,/ will clear the search buffer
 nmap <silent> ,/ :let @/=""<CR>
 
@@ -283,3 +286,15 @@ function! CleanCode()
   echo "Cleaned up this mess."
 endfunction
 nmap <leader>cc :call CleanCode()<cr>
+
+" Ack
+let g:ackprg="ack -H --nocolor --nogroup --column"
+" Set a mark then search with Ack
+nmap <leader>j mA:Ack<space>
+" Set a mark, then pull word under cursor into Ack for a global search
+nmap <leader>ja mA:Ack "<C-r>=expand("<cword>")<cr>"
+nmap <leader>jA mA:Ack "<C-r>=expand("<cWORD>")<cr>"
+
+" Navigate in quickfix window
+nmap <leader>t :<C-U>exe "cnext ".(v:count ? v:count : "")<cr>
+nmap <leader>s :<C-U>exe "cprevious ".(v:count ? v:count : "")<cr>
