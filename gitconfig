@@ -11,6 +11,7 @@
 [core]
   editor = vim
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	excludesfile = /home/vjousse/dotfiles/gitignore_global
 
 [web]
   browser = firefox
