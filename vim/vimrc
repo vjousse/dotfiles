@@ -283,7 +283,7 @@ function! CleanCode()
   %s=  *$==e      " Delete end of line blanks
   echo "Cleaned up this mess."
 endfunction
-nmap <leader>cc :call CleanCode()<cr>
+nmap <leader>tt :call CleanCode()<cr>
 
 " Ack
 let g:ackprg="ack -H --nocolor --nogroup --column"
@@ -299,4 +299,14 @@ nmap <leader>s :<C-U>exe "cprevious ".(v:count ? v:count : "")<cr>
 
 nmap <leader>d :!tig<cr>
 
+" CTAGS
+" Rebuild tags
+nmap <leader>ct :!ctags&<cr><cr>
+" Jump to next tag match
+nmap ]t :bd<cr>:tnext<cr>
+" Jump to previous tag match
+nmap [t :bd<cr>:tprevious<cr>
+nmap <leader>ts <C-]>
+
 source ~/.vim/vimrc.bepo
+
