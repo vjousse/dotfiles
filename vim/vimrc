@@ -202,28 +202,6 @@ let g:snips_author = 'Vincent Jousse <vincent@jousse.org>'
 set statusline+=%<%f\ [%{GitBranch()}]\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
 
 
-" CTAGS
-map <C-h> <C-T>
-map <C-l> <C-]>
-map <C-m> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-
-
-" CTAGS
-" Explore tags for the word under the cursor
-map <C-l> <C-]>
-" Back to previous location after browsing tags
-map <C-h> <C-T>
-" Jump to next tag match
-map ]t :tnext<CR>
-" Jump to previous tag match
-map [t :tprevious<CR>
-" Open tag command
-map <C-T> :tag
-let g:Tlist_Ctags_Cmd = 'ctags'
-" Rebuild tag index
-nnoremap <silent> <C-F7> :silent !ctags -h ".php" --PHP-kinds=+cf --recurse --exclude=*/cache/* --exclude=*/logs/* --exclude=*/data/* --exclude="\.git" --exclude="\.svn" --languages=PHP &<cr>
-
-
 "jquery color
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
