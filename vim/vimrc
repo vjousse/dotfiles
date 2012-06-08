@@ -280,3 +280,7 @@ nmap <leader>ts <C-]>
 
 source ~/.vim/vimrc.bepo
 
+" LaTeX specific mappings
+let g:Tex_ViewRule_pdf = 'evince'
+let g:Tex_DefaultTargetFormat = 'pdf'
+let b:atp_Viewer = "xpdf"
