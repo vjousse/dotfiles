@@ -222,13 +222,13 @@ function! ToggleSpell()
   if &spell
     set nospell
   else
-    set spell
+    set spell spelllang=fr
   end
 endfunction
 
 noremap <F10> :call ToggleSpell()<cr>
 inoremap <F10> <Esc>:call ToggleSpell()<cr>a
-
+nmap <leader>ss  :call ToggleSpell()<cr>
 
 " define surround mappings myself
 " does not work well with bépo
