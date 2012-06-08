@@ -8,3 +8,5 @@ private
 xmonad.errors
 *.hi
 xmonad-*
+*.sug
+*.spl
