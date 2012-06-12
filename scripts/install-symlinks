@@ -23,3 +23,4 @@ link vim/vimrc ~/.vimrc
 link xcolors ~/.xcolors
 link xinitrc ~/.xinitrc
 link zshrc ~/.zshrc
+link weechat ~/.weechat

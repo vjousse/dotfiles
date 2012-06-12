@@ -10,3 +10,16 @@ xmonad.errors
 xmonad-*
 *.sug
 *.spl
+weechat/logs/*
+weechat/irc.conf
+weechat/jabber.conf
+weechat/logger.conf
+weechat/plugins.conf
+weechat/relay.conf
+weechat/rmodifier.conf
+weechat/xfer.conf
+weechat/charset.conf
+weechat/alias.conf
+weechat/aspell.conf
+weechat/charset.conf
+*.log
