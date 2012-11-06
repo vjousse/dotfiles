@@ -32,12 +32,12 @@ main = do
                 }
                 `additionalKeys` [
                     ((mod4Mask,               xK_l   ), spawn "~/.scripts/path-dmenu")
-                    -- Increase volume
-                    , ((0 , 0x1008ff11), spawn "amixer -q set PCM 2- unmute")
-                    -- Decrease Volume
-                    , ((0 , 0x1008ff13), spawn "amixer -q set PCM 2+ unmute")
+                    -- Decrease volume
+                    , ((0 , 0x1008ff11), spawn "~/.scripts/volume.rb down")
+                    -- Increase Volume
+                    , ((0 , 0x1008ff13), spawn "~/.scripts/volume.rb up")
                     -- Mute
-                    , ((0 , 0x1008ff12), spawn "amixer -q set PCM toggle")
+                    , ((0 , 0x1008ff12), spawn "~/.scripts/volume.rb toggle")
 
                     , ((0, xK_Print), spawn "scrot '%Y-%m-%d-%H%M%S_$wx$h.png' -e 'mv $f ~/'")
 
