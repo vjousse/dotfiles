@@ -8,9 +8,10 @@ Config { font = "xft:inconsolata:size=11:antialias=true"
                     , Run Cpu ["-H","50","--high","#dc322f"] 10
                     , Run Memory ["-t","Mem: <usedratio>%","-H","80","--high","#dc322f"] 10
                     , Run Date "<fc=#ffffff>%a %b %_d %Y %H:%M</fc>" "date" 10
+                    , Run MPD ["-t", "<artist> - <fc=#ffffff><title></fc> (<album>)", "--", "-P", ">>", "-Z", "|", "-S", "><"] 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% %memory% | %wlan0%%eth0% | %date%"
+       , template = "%StdinReader% }{ %mpd% | %cpu% %memory% | %wlan0%%eth0% | %date%"
        }
