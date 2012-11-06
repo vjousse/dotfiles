@@ -1,0 +1,16 @@
+Config { font = "xft:inconsolata:size=11:antialias=true"
+       , bgColor = "#073642"
+       , fgColor = "#839496"
+       , position = Top
+       , lowerOnStart = True
+       , commands = [ Run Network "eth0" ["-t", "<dev>: <fc=#859900><rx> ↓</fc> <fc=#dc322f><tx> ↑</fc>","-S","True"] 10
+                    , Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","#dc322f"] 10
+                    , Run Cpu ["-H","50","--high","#dc322f"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%","-H","80","--high","#dc322f"] 10
+                    , Run Date "<fc=#ffffff>%a %b %_d %Y %H:%M</fc>" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %cpu% %memory% | %wlan0%%eth0% | %date%"
+       }
