@@ -16,6 +16,7 @@ import XMonad.Util.WorkspaceCompare
 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
+import qualified Network.MPD as MPD
 
 main = do
     -- Some help from IRC: http://hpaste.org/65912#line8
@@ -32,13 +33,6 @@ main = do
                 }
                 `additionalKeys` [
                     ((mod4Mask,               xK_l   ), spawn "~/.scripts/path-dmenu")
-                    -- Decrease volume
-                    , ((0 , 0x1008ff11), spawn "~/.scripts/volume.rb down")
-                    -- Increase Volume
-                    , ((0 , 0x1008ff13), spawn "~/.scripts/volume.rb up")
-                    -- Mute
-                    , ((0 , 0x1008ff12), spawn "~/.scripts/volume.rb toggle")
-
                     , ((0, xK_Print), spawn "scrot '%Y-%m-%d-%H%M%S_$wx$h.png' -e 'mv $f ~/'")
 
                     -- Move focus to the next window
@@ -62,10 +56,6 @@ main = do
                     -- Swap the focused window with the previous window
                     , ((mod4Mask .|. shiftMask, xK_s     ), windows W.swapUp    )
 
-                    -- Move focus to the master window
-                    , ((mod4Mask,               xK_n     ), spawn "touch ~/.pomodoro_session" )
-
-                    , ((mod4Mask,               xK_r     ), spawn "rm ~/.pomodoro_session" )
                     -- Move between workspaces
                     , ((mod4Mask,               xK_d     ), nextWS)
                     , ((mod4Mask,               xK_v     ), prevWS)
@@ -73,11 +63,30 @@ main = do
                     , ((mod4Mask,               xK_g     ), windows $ W.view "vm")
                     , ((mod4Mask,               xK_h     ), windows $ W.view "misc")
                     , ((mod4Mask,               xK_f     ), windows $ W.view "comm")
-
-                    , ((mod4Mask,               xK_v     ), prevWS)
                     , ((mod4Mask .|. shiftMask, xK_d     ), shiftToNext >> nextWS)
                     , ((mod4Mask .|. shiftMask, xK_v     ), shiftToPrev >> prevWS)
-                    , ((mod4Mask .|. shiftMask, xK_q     ), spawn "killall xmobar && /home/vjousse/.cabal/bin/xmonad --recompile && /home/vjousse/.cabal/bin/xmonad --restart") -- restart xmonad
+
+                    -- mpd
+                    , ((mod4Mask,                xK_r     ), spawn "ncmpcpp prev")
+                    , ((mod4Mask,                xK_n     ), spawn "ncmpcpp next")
+                    , ((mod4Mask,                xK_c     ), spawn "ncmpcpp toggle")
+                    -- restart xmonad
+                    , ((mod4Mask .|. shiftMask, xK_q     ), spawn "/home/vjousse/.cabal/bin/xmonad --recompile && /home/vjousse/.cabal/bin/xmonad --restart") -- restart xmonad
+
+                    -- Mute (doesn't work with <XF86AudioMute>
+                    , ((0 , 0x1008ff12), spawn "~/.scripts/volume.rb toggle")
+                ]
+                -- Can be helpful: http://en.gentoo-wiki.com/wiki/Multimedia_Keys
+                `additionalKeysP` [
+                    ("<XF86AudioPlay>"                     , spawn "ncmpcpp toggle")
+                    , ("<XF86AudioStop>"                   , spawn "ncmpcpp toggle")
+                    , ("<XF86AudioNext>"                   , spawn "ncmpcpp next")
+                    , ("<XF86AudioStop>"                   , spawn "ncmpcpp toggle")
+                    , ("<XF86AudioMute>"                   , spawn "ncmpcpp next")
+                    , ("<XF86AudioRaiseVolume>"            , spawn "~/.scripts/volume.rb up")
+                    , ("<XF86AudioLowerVolume>"            , spawn "~/.scripts/volume.rb down")
+
+
                 ]
     xmonad conf
 
