@@ -20,4 +20,4 @@ urxvtd -q -f -o                             # start urxvt server
 $HOME/dotfiles/scripts/check-typematrix.zsh
 
 exec $HOME/.cabal/bin/xmonad
-#exec ck-launch-session startxfce4
+#exec startxfce4
