@@ -40,9 +40,3 @@ eval `dircolors $HOME/dotfiles/dircolors-solarized/dircolors.ansi-dark`
 
 
 [[ -s "/home/vjousse/.rvm/scripts/rvm" ]] && source "/home/vjousse/.rvm/scripts/rvm"  # This loads RVM into a shell session.
-
-# Keep tty2 safe
-if [[ $TERM != "screen" && $(tty) != /dev/tty2 ]]
-then
-    tmux attach && exit
-fi
