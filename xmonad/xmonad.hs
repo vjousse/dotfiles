@@ -73,8 +73,6 @@ main = do
                     -- restart xmonad
                     , ((mod4Mask .|. shiftMask, xK_q     ), spawn "/home/vjousse/.cabal/bin/xmonad --recompile && /home/vjousse/.cabal/bin/xmonad --restart") -- restart xmonad
 
-                    -- Mute (doesn't work with <XF86AudioMute>
-                    , ((0 , 0x1008ff12), spawn "~/.scripts/volume.rb toggle")
                 ]
                 -- Can be helpful: http://en.gentoo-wiki.com/wiki/Multimedia_Keys
                 `additionalKeysP` [
@@ -82,7 +80,7 @@ main = do
                     , ("<XF86AudioStop>"                   , spawn "ncmpcpp toggle")
                     , ("<XF86AudioNext>"                   , spawn "ncmpcpp next")
                     , ("<XF86AudioStop>"                   , spawn "ncmpcpp toggle")
-                    , ("<XF86AudioMute>"                   , spawn "ncmpcpp next")
+                    , ("<XF86AudioMute>"                   , spawn "~/.scripts/volume.rb toggle")
                     , ("<XF86AudioRaiseVolume>"            , spawn "~/.scripts/volume.rb up")
                     , ("<XF86AudioLowerVolume>"            , spawn "~/.scripts/volume.rb down")
 
