@@ -18,6 +18,7 @@ urxvtd -q -f -o                             # start urxvt server
 # Check if my TypeMatrix keyboard is connected
 # If not, modify default bindings for the macbook air keyboard
 $HOME/dotfiles/scripts/check-typematrix.zsh
+mpd
 
 exec $HOME/.cabal/bin/xmonad
 #exec startxfce4
