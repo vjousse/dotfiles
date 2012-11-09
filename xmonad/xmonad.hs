@@ -5,6 +5,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.EwmhDesktops
 
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Accordion
@@ -25,7 +26,6 @@ main = do
                     terminal      = "urxvtc"
                     , modMask       = mod4Mask
                     , layoutHook    = avoidStruts $ myLayoutHook
-                    , keys          = newKeys
                     , manageHook    = myManageHook <+> manageDocks
                     , workspaces    = ["work", "vm", "misc", "comm"]
                 }
@@ -84,7 +84,7 @@ main = do
 
 
                 ]
-    xmonad conf
+    xmonad $ ewmh conf
 
 -- Command to launch the bar.
 myBar = "/home/vjousse/.cabal/bin/xmobar /home/vjousse/.xmobarrc"
@@ -106,15 +106,6 @@ myManageHook = composeAll
     , className =? "Thunderbird"    --> doF (W.shift "comm")
     , className =? "Firefox"        --> doF (W.shift "work")
     ] <+> manageHook defaultConfig
-
-newKeys x = M.union (keys defaultConfig x) (M.fromList (myKeys x))
-
-------------------------------------------------------------------------
--- Key bindings. Add, modify or remove key bindings here.
---
-myKeys conf@(XConfig {XMonad.modMask = modMask}) =
-    [
-    ]
 
 
 -- | The unexported X.H.DynamicLog.toggleStrutsKey
