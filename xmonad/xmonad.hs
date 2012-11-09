@@ -11,8 +11,6 @@ import XMonad.Layout.Accordion
 
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
-import XMonad.Util.NamedScratchpad
-import XMonad.Util.WorkspaceCompare
 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
@@ -28,7 +26,7 @@ main = do
                     , modMask       = mod4Mask
                     , layoutHook    = avoidStruts $ myLayoutHook
                     , keys          = newKeys
-                    , manageHook    = myManageHook
+                    , manageHook    = myManageHook <+> manageDocks
                     , workspaces    = ["work", "vm", "misc", "comm"]
                 }
                 `additionalKeys` [
@@ -69,7 +67,7 @@ main = do
                     -- mpd
                     , ((mod4Mask,                xK_r     ), spawn "ncmpcpp prev")
                     , ((mod4Mask,                xK_n     ), spawn "ncmpcpp next")
-                    , ((mod4Mask,                xK_c     ), spawn "ncmpcpp toggle")
+                    , ((mod4Mask,                xK_m     ), spawn "ncmpcpp toggle")
                     -- restart xmonad
                     , ((mod4Mask .|. shiftMask, xK_q     ), spawn "/home/vjousse/.cabal/bin/xmonad --recompile && /home/vjousse/.cabal/bin/xmonad --restart") -- restart xmonad
 
@@ -78,8 +76,8 @@ main = do
                 `additionalKeysP` [
                     ("<XF86AudioPlay>"                     , spawn "ncmpcpp toggle")
                     , ("<XF86AudioStop>"                   , spawn "ncmpcpp toggle")
+                    , ("<XF86AudioPrevious>"               , spawn "ncmpcpp prev")
                     , ("<XF86AudioNext>"                   , spawn "ncmpcpp next")
-                    , ("<XF86AudioStop>"                   , spawn "ncmpcpp toggle")
                     , ("<XF86AudioMute>"                   , spawn "~/.scripts/volume.rb toggle")
                     , ("<XF86AudioRaiseVolume>"            , spawn "~/.scripts/volume.rb up")
                     , ("<XF86AudioLowerVolume>"            , spawn "~/.scripts/volume.rb down")
@@ -89,7 +87,7 @@ main = do
     xmonad conf
 
 -- Command to launch the bar.
-myBar = "xmobar"
+myBar = "/home/vjousse/.cabal/bin/xmobar /home/vjousse/.xmobarrc"
 
 -- Custom PP, configure it as you like. It determines what is being written to the bar.
 myPP = xmobarPP {
@@ -107,7 +105,6 @@ myManageHook = composeAll
     , className =? "Skype"          --> doF (W.shift "comm")
     , className =? "Thunderbird"    --> doF (W.shift "comm")
     , className =? "Firefox"        --> doF (W.shift "work")
-    , manageDocks
     ] <+> manageHook defaultConfig
 
 newKeys x = M.union (keys defaultConfig x) (M.fromList (myKeys x))
