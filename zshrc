@@ -2,7 +2,7 @@ if [[ -z $DISPLAY && $(tty) = /dev/tty1 ]]; then
     startx
 fi
 
-eval `keychain --eval --agents ssh --nogui -Q -q id_rsa`
+#eval `keychain --eval --agents ssh --nogui -Q -q id_rsa`
 
 DOTFILES=$HOME/dotfiles
 
