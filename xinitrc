@@ -32,6 +32,14 @@ export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
 export GNOME_KEYRING_PID
 
+# Bacground image
+exec xloadimage -onroot -center -fit -fullscreen -quiet /usr/share/archlinux/wallpaper/archlinux-simplyblack.png &
+
+# Screen saver
+/usr/bin/xscreensaver -no-splash &
+
+# Load rescuetime
+/usr/bin/python2 /home/vjousse/usr/src/python/rescuetime-linux-uploader/run.py > /dev/null 2>&1 &
 
 exec $HOME/.cabal/bin/xmonad
 #exec startxfce4
