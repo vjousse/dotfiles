@@ -32,8 +32,8 @@ export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
 export GNOME_KEYRING_PID
 
-# Bacground image
-exec xloadimage -onroot -center -fit -fullscreen -quiet /usr/share/archlinux/wallpaper/archlinux-simplyblack.png &
+# Background color (solarized)
+xsetroot -solid "#002b36"
 
 # Screen saver
 /usr/bin/xscreensaver -no-splash &
