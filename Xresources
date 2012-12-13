@@ -28,8 +28,8 @@ Urxvt.urgentOnBell: true
 
 URxvt*depth:       24
 URxvt*buffered:    true
-!URxvt*foreground:  #f0f0f0
-!URxvt*background:  #000000
+URxvt*foreground:  #839496
+URxvt*background:  #002630
 URxvt*transparent: false
 URxvt*shading:     100
 
