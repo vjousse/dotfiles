@@ -46,3 +46,6 @@
 [submodule "vim/bundle/vimclojure"]
 	path = vim/bundle/vimclojure
 	url = git://github.com/vim-scripts/VimClojure.git
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
