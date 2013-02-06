@@ -8,6 +8,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 
 import XMonad.Layout.NoBorders
+import XMonad.Layout.Fullscreen
 import XMonad.Layout.Accordion
 
 import XMonad.Util.EZConfig
@@ -23,11 +24,13 @@ main = do
                 $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "darkgreen", "-xs", "1"] }
                 $ defaultConfig
                 {
-                    terminal      = "urxvtc"
-                    , modMask       = mod4Mask
-                    , layoutHook    = avoidStruts $ myLayoutHook
-                    , manageHook    = myManageHook <+> manageDocks
-                    , workspaces    = ["work", "vm", "misc", "comm"]
+                    terminal          = "urxvtc"
+                    , modMask         = mod4Mask
+                    , layoutHook      = avoidStruts $ myLayoutHook
+                    , manageHook      = myManageHook <+> manageDocks
+                    , workspaces      = ["work", "vm", "misc", "comm"]
+                    , handleEventHook = XMonad.Hooks.EwmhDesktops.fullscreenEventHook
+                    , borderWidth = 0
                 }
                 `additionalKeys` [
                     ((mod4Mask,               xK_l   ), spawn "~/.scripts/path-dmenu")
@@ -64,6 +67,10 @@ main = do
                     , ((mod4Mask .|. shiftMask, xK_d     ), shiftToNext >> nextWS)
                     , ((mod4Mask .|. shiftMask, xK_v     ), shiftToPrev >> prevWS)
 
+                    -- Pymodoro
+                    , ((mod4Mask .|. shiftMask, xK_n     ), spawn "touch ~/.pomodoro_session")
+                    , ((mod4Mask .|. shiftMask, xK_r     ), spawn "rm ~/.pomodoro_session")
+
                     -- mpd
                     , ((mod4Mask,                xK_r     ), spawn "ncmpcpp prev")
                     , ((mod4Mask,                xK_n     ), spawn "ncmpcpp next")
@@ -97,7 +104,7 @@ myPP = xmobarPP {
     , ppOrder     = \(ws:l:t:_)   -> [ws,t]
 }
 
-myLayoutHook = noBorders (Full ||| Accordion)
+myLayoutHook = noBorders (fullscreenFull Full)
 
 -- http://www.chipstips.com/?p=488
 myManageHook = composeAll
