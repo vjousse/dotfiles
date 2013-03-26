@@ -1,4 +1,3 @@
 sudo systemctl start php-fpm
-sudo rc.d start nginx
-sudo rc.d start redis
-sudo rc.d start postgresql
+sudo systemctl start nginx
+sudo systemctl start mysqld
