@@ -241,7 +241,7 @@ let g:loaded_AlignMapsPlugin=1
 " Use Scalariform to format scala files
 
 
-au BufEnter *.scala setl formatprg=scala\ -cp\ /home/vjousse/usr/lib/scalariform_2.9.0-0.1.1.jar\ scalariform.commandline.Main\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +rewriteArrowSymbols\ --forceOutput
+au BufEnter *.scala setl formatprg=java\ -jar\ /home/vjousse/usr/lib/scalariform.jar\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +rewriteArrowSymbols\ --stdin\ --stdout
 
 " Format with scalariform then save
 nmap <leader>i mygggqG'y:w<cr>
