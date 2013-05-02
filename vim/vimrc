@@ -191,7 +191,7 @@ let NERDTreeQuitOnOpen=1
 let g:snips_author = 'Vincent Jousse <vincent@jousse.org>'
 
 " Encoding
-set statusline+=%<%f\ [%{GitBranch()}]\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+set statusline+=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
 
 
 "jquery color
@@ -284,3 +284,6 @@ source ~/.vim/vimrc.bepo
 let g:Tex_ViewRule_pdf = 'evince'
 let g:Tex_DefaultTargetFormat = 'pdf'
 let b:atp_Viewer = "xpdf"
+
+" CtrlP config
+let g:ctrlp_map = '<leader>c'

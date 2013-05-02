@@ -1,12 +1,3 @@
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/nerdcommenter"]
-	path = vim/bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/taglist"]
-	path = vim/bundle/taglist
-	url = git://github.com/esukram/taglist.vim.git
 [submodule "vim/bundle/lusty"]
 	path = vim/bundle/lusty
 	url = git://github.com/sjbach/lusty.git
@@ -19,12 +10,6 @@
 [submodule "vim/bundle/matchit"]
 	path = vim/bundle/matchit
 	url = git://github.com/edsono/vim-matchit.git
-[submodule "vim/bundle/commandt"]
-	path = vim/bundle/commandt
-	url = git://github.com/wincent/Command-T.git
-[submodule "vim/bundle/gitvim"]
-	path = vim/bundle/gitvim
-	url = http://github.com/motemen/git-vim.git
 [submodule "vim/bundle/vim-scala"]
 	path = vim/bundle/vim-scala
 	url = git://github.com/ornicar/vim-scala.git
@@ -43,12 +28,6 @@
 [submodule "zsh/zsh-history-substring-search"]
 	path = zsh/zsh-history-substring-search
 	url = git://github.com/zsh-users/zsh-history-substring-search.git
-[submodule "vim/bundle/vimclojure"]
-	path = vim/bundle/vimclojure
-	url = git://github.com/vim-scripts/VimClojure.git
-[submodule "vim/bundle/vim-markdown"]
-	path = vim/bundle/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
 [submodule "vim/bundle/ctrlp"]
 	path = vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
