@@ -5,8 +5,24 @@ set nocompatible                  " Must come first because it changes other opt
 
 " Use pathogen to easily modify the runtime path to include all
 " plugins under the ~/.vim/bundle directory
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
+"call pathogen#runtime_append_all_bundles()
+
+ set rtp+=~/.vim/bundle/vundle/
+ call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+Bundle 'derekwyatt/vim-scala'
+Bundle 'mileszs/ack.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'hallison/vim-markdown'
+Bundle 'tpope/vim-surround'
+Bundle 'LustyExplorer'
+Bundle 'matchit'
+Bundle 'Align'
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
