@@ -3,6 +3,7 @@
 *.so
 *.o
 bundle/commandt/ruby/command-t/Makefile
+vim/bundle/*
 private
 .netrwhist
 xmonad.errors
