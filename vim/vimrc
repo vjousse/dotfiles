@@ -101,13 +101,6 @@ nnoremap ` '
 set history=1000
 set undolevels=1000
 
-" Toggle whitespace visibility
-" set listchars=tab:>-,trail:·,eol:$
-" nmap <silent> <leader>z :set nolist!<CR>
-
-" Useful status information at bottom of screen
-" set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-
 " Tabs and indentation.
 set tabstop=4
 set shiftwidth=4
@@ -256,8 +249,7 @@ let g:loaded_AlignMapsPlugin=1
 
 " Use Scalariform to format scala files
 
-
-au BufEnter *.scala setl formatprg=java\ -jar\ /home/vjousse/usr/lib/scalariform.jar\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +rewriteArrowSymbols\ --stdin\ --stdout
+au BufEnter *.scala setl formatprg=java\ -jar\ /home/vjousse/usr/lib/scalariform.jar\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ --stdin\ --stdout
 
 " Format with scalariform then save
 nmap <leader>i mygggqG'y:w<cr>
@@ -265,7 +257,7 @@ nmap <leader>i mygggqG'y:w<cr>
 "  Clean code function
 function! CleanCode()
   %retab          " Replace tabs with spaces
-  %s/\r/\r/eg     " Turn DOS returns ^M into real returns
+  %s///eg     " Turn DOS returns ^M into real returns
   %s=  *$==e      " Delete end of line blanks
   echo "Cleaned up this mess."
 endfunction
