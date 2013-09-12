@@ -15,6 +15,8 @@ xset -b                                     # Disable system bell
 xset r rate 280 50                          # Repeat keys way faster please
 urxvtd -q -f -o                             # start urxvt server
 
+pulseaudio --start
+
 # Check if my TypeMatrix keyboard is connected
 # If not, modify default bindings for the macbook air keyboard
 $HOME/dotfiles/scripts/check-typematrix.zsh
