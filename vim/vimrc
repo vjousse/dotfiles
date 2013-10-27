@@ -20,6 +20,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'hallison/vim-markdown'
 Bundle 'tpope/vim-surround'
+Bundle 'mikewest/vimroom'
 Bundle 'LustyExplorer'
 Bundle 'matchit'
 Bundle 'Align'
@@ -28,22 +29,35 @@ Bundle 'Align'
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<C
 
-" Colorsheme
-set t_Co=256
 
-if has("gui")
-    set guifont=DejaVuSansMono
+
+
+" When writing, I'm using gvim and light theme
+if has('gui_running')
+    set background=light
+    colorscheme iawriter
+
+    set guifont=Droid\ Sans\ Mono\ 12
+    "set guifont=Cousine\ 13
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right scroll bar
+    set guioptions-=L  "remove left scroll bar
+    let g:vimroom_guibackground="white"
+    setlocal spell spelllang=fr
+else
+    " Colorsheme
+    set t_Co=256
+    set background=dark
+    colorscheme solarized
+
+    " Colorsheme
+    let g:solarized_termcolors=16
+    let g:solarized_termtrans=0
+    let g:solarized_menu=0
+    let g:solarized_italic=0
 endif
 
-" Colorsheme
-let g:solarized_termcolors=16
-let g:solarized_termtrans=0
-let g:solarized_menu=0
-let g:solarized_italic=0
-set background=dark
-colorscheme solarized
 
 " Set title on X window
 set title
@@ -118,7 +132,7 @@ filetype plugin on
 filetype indent on
 
 "highlight whitespaces
-set list
+"set list " not compatible with vimroom linebreak
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 autocmd filetype html,xml set listchars-=tab:>.
 

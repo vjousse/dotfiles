@@ -7,12 +7,12 @@ noremap É W
 " Use {W} as Ctrl+W :
 noremap w <C-w>
 noremap W <C-w><C-w>
- 
+
 " [HJKL] -> {CTSR}
 noremap c h
 noremap r l
-noremap t j
-noremap s k
+noremap t gj
+noremap s gk
 
 noremap C H
 noremap R L
@@ -22,7 +22,7 @@ noremap S K
 
 noremap zs zj
 noremap zt zk
- 
+
 " {HJKL} <- [CTSR]
 " {J} = « Until »              (j = next, J = previous)
 noremap j t
@@ -39,7 +39,7 @@ noremap K S
 " Spell checking
 noremap ]k ]s
 noremap [k [s
- 
+
 " Next/prev screen line
 noremap gs gk
 noremap gt gj
