@@ -22,6 +22,11 @@ link vim ~/.vim
 link vim/vimrc ~/.vimrc
 link xcolors ~/.xcolors
 link xinitrc ~/.xinitrc
+link Xresources ~/.Xresources
 link xmobarrc ~/.xmobarrc
 link zshrc ~/.zshrc
 link weechat ~/.weechat
+link tmux ~/.tmux
+link tmux/tmux.conf ~/.tmux.conf
+link scripts ~/.scripts
+link xmonad ~/.xmonad
