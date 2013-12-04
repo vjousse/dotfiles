@@ -18,6 +18,7 @@ link (){
 }
 
 link tigrc ~/.tigrc
+link vimperatorrc ~/.vimperatorrc
 link vim ~/.vim
 link vim/vimrc ~/.vimrc
 link xcolors ~/.xcolors
@@ -30,3 +31,5 @@ link tmux ~/.tmux
 link tmux/tmux.conf ~/.tmux.conf
 link scripts ~/.scripts
 link xmonad ~/.xmonad
+mkdir -p ~/.config/solarized/
+link colors.ini ~/.config/solarized/colors.ini
