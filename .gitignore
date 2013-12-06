@@ -24,3 +24,6 @@ weechat/alias.conf
 weechat/aspell.conf
 weechat/charset.conf
 *.log
+mpd/mpd.db
+mpd/mpd.pid
+mpd/mpdstate
