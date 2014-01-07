@@ -1,4 +1,4 @@
-Config { font = "xft:DejaVuSansMono:size=8:antialias=true"
+Config { font = "xft:DejaVuSansMono:size=7:antialias=true"
        , bgColor = "#073642"
        , fgColor = "#839496"
        , position = Top
