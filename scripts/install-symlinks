@@ -37,3 +37,4 @@ mkdir -p ~/.config/solarized/
 link colors.ini ~/.config/solarized/colors.ini
 mkdir -p ~/.ncmpcpp/
 link ncmpcpp.keys ~/.ncmpcpp/keys
+link oh-my-zsh ~/.oh-my-zsh
