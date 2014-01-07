@@ -15,7 +15,7 @@ Xft.dpi:       220
 ! Urxvt {{{
 !urxvt.font:  xft:Inconsolata:size=13
 !urxvt.boldFont:   xft:Inconsolata:size=13
-urxvt.font:  xft:DejaVuSansMono:size=8
+urxvt.font:  xft:DejaVuSansMonoForPowerLine:size=8
 !urxvt.boldFont:  xft:DejaVuSansMono:size=11
 !urxvt.font:  xft:DroidSansMono:size=11
 !urxvt.font:  xft:Monaco:size=10
