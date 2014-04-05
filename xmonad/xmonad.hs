@@ -102,7 +102,7 @@ myBar = "/home/vjousse/.cabal/bin/xmobar /home/vjousse/.xmobarrc"
 -- Custom PP, configure it as you like. It determines what is being written to the bar.
 myPP = xmobarPP {
       ppCurrent = xmobarColor "#839496" "" . wrap "[" "]"
-    , ppTitle = xmobarColor "white" "" . shorten 110
+    , ppTitle = xmobarColor "#073642" "" . shorten 110
     , ppOrder     = \(ws:l:t:_)   -> [ws,t]
 }
 
