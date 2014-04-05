@@ -88,8 +88,10 @@ main = do
                     , ("<XF86AudioMute>"                   , spawn "~/.scripts/volume.rb toggle")
                     , ("<XF86AudioRaiseVolume>"            , spawn "~/.scripts/volume.rb up")
                     , ("<XF86AudioLowerVolume>"            , spawn "~/.scripts/volume.rb down")
-                    , ("<XF86MonBrightnessDown>"           , spawn "/home/vjousse/.scripts/screen-brightness.zsh down")
-                    , ("<XF86MonBrightnessUp>"             , spawn "/home/vjousse/.scripts/screen-brightness.zsh up")
+                    , ("<XF86MonBrightnessDown>"           , spawn "/usr/bin/xbacklight -dec 10")
+                    , ("<XF86MonBrightnessUp>"             , spawn "/usr/bin/xbacklight -inc 10")
+                    , ("<XF86KbdBrightnessDown>"           , spawn "/usr/bin/kbdlight down")
+                    , ("<XF86KbdBrightnessUp>"             , spawn "/usr/bin/kbdlight up")
 
                 ]
     xmonad $ ewmh conf
