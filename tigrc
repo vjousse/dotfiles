@@ -1,7 +1,12 @@
-set show-date = relative
-set show-rev-graph = yes
 set line-graphics = yes
 
+set blame-view = date:relative author:full file-name:auto id:yes,color line-number:no,interval=5 text
+set grep-view = file-name:no line-number:yes,interval=1 text
+set main-view = line-number:no,interval=5 id:no date:relative author:full commit-title:yes,graph,refs,overflow=no
+set refs-view = date:default author:full ref commit-title
+set stash-view = line-number:no,interval=5 id:no date:relative author:full commit-title
+set status-view = line-number:no,interval=5 status:short file-name
+set tree-view = line-number:no,interval=5 mode author:full file-size date:relative id:no file-name
 # bépo
 bind generic s move-up
 bind generic t move-down
