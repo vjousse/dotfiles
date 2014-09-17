@@ -8,22 +8,25 @@ set nocompatible                  " Must come first because it changes other opt
 "call pathogen#helptags()
 "call pathogen#runtime_append_all_bundles()
 
- set rtp+=~/.vim/bundle/vundle/
- call vundle#rc()
+ set rtp+=~/.vim/bundle/Vundle.vim/
+ call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
-Bundle 'derekwyatt/vim-scala'
-Bundle 'mileszs/ack.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'hallison/vim-markdown'
-Bundle 'tpope/vim-surround'
-Bundle 'mikewest/vimroom'
-Bundle 'LustyExplorer'
-Bundle 'matchit'
-Bundle 'Align'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'mileszs/ack.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'hallison/vim-markdown'
+Plugin 'tpope/vim-surround'
+Plugin 'mikewest/vimroom'
+Plugin 'LustyExplorer'
+Plugin 'matchit'
+Plugin 'Align'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -48,7 +51,7 @@ if has('gui_running')
 else
     " Colorsheme
     set t_Co=256
-    set background=dark
+    set background=light
     colorscheme solarized
 
     " Colorsheme
