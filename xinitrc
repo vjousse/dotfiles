@@ -1,5 +1,5 @@
 #!/bin/sh
-$HOME/dotfiles/scripts/external-screen
+#$HOME/dotfiles/scripts/external-screen
 
 setxkbmap fr bepo
 
@@ -15,33 +15,37 @@ xset -b                                     # Disable system bell
 xset r rate 280 50                          # Repeat keys way faster please
 urxvtd -q -f -o                             # start urxvt server
 
-pulseaudio --start
+#pulseaudio --start
 
 # Check if my TypeMatrix keyboard is connected
 # If not, modify default bindings for the macbook air keyboard
-$HOME/dotfiles/scripts/check-typematrix.zsh
-mpd
+#$HOME/dotfiles/scripts/check-typematrix.zsh
+#mpd
 
 
 # Taken from https://wiki.archlinux.org/index.php/GNOME_Keyring
 # Start a D-Bus session
-source /etc/X11/xinit/xinitrc.d/30-dbus
+#source /etc/X11/xinit/xinitrc.d/30-dbus
 # Start GNOME Keyring
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+#eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 # You probably need to do this too:
-export SSH_AUTH_SOCK
-export GPG_AGENT_INFO
-export GNOME_KEYRING_CONTROL
-export GNOME_KEYRING_PID
+#export SSH_AUTH_SOCK
+#export GPG_AGENT_INFO
+#export GNOME_KEYRING_CONTROL
+#export GNOME_KEYRING_PID
 
-# Background color (solarized)
-xsetroot -solid "#002b36"
+# Dark Background color (solarized)
+#xsetroot -solid "#002b36"
+# Light Background color (solarized)
+#xsetroot -solid "#fdf6e3"
+
 
 # Screen saver
-/usr/bin/xscreensaver -no-splash &
+#/usr/bin/xscreensaver -no-splash &
 
 # Load rescuetime
-/usr/bin/python2 /home/vjousse/usr/src/python/rescuetime-linux-uploader/run.py > /dev/null 2>&1 &
+#/usr/bin/python2 /home/vjousse/usr/src/python/rescuetime-linux-uploader/run.py > /dev/null 2>&1 &
 
-exec $HOME/.cabal/bin/xmonad
+#exec $HOME/.cabal/bin/xmonad
 #exec startxfce4
+exec i3

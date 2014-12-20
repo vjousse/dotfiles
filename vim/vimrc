@@ -32,34 +32,32 @@ call vundle#end()            " required
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<C
 
-
-
-
 " When writing, I'm using gvim and light theme
-if has('gui_running')
-    set background=light
-    colorscheme iawriter
-
-    set guifont=Droid\ Sans\ Mono\ 12
-    "set guifont=Cousine\ 13
-    set guioptions-=m  "remove menu bar
-    set guioptions-=T  "remove toolbar
-    set guioptions-=r  "remove right scroll bar
-    set guioptions-=L  "remove left scroll bar
-    let g:vimroom_guibackground="white"
-    setlocal spell spelllang=fr
-else
+"if has('gui_running')
+"    set background=light
+"    colorscheme iawriter
+"
+"    set guifont=Droid\ Sans\ Mono\ 12
+"    "set guifont=Cousine\ 13
+"    set guioptions-=m  "remove menu bar
+"    set guioptions-=T  "remove toolbar
+"    set guioptions-=r  "remove right scroll bar
+"    set guioptions-=L  "remove left scroll bar
+"    let g:vimroom_guibackground="white"
+"    setlocal spell spelllang=fr
+"else
     " Colorsheme
-    set t_Co=256
-    set background=light
-    colorscheme solarized
+    set t_Co=16
 
     " Colorsheme
     let g:solarized_termcolors=16
     let g:solarized_termtrans=0
     let g:solarized_menu=0
     let g:solarized_italic=0
-endif
+    colorscheme solarized
+    set background=light
+
+"endif
 
 
 " Set title on X window

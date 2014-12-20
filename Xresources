@@ -4,6 +4,7 @@ Xcursor.theme: CG
 ! Colors
 #include "/home/vjousse/.xcolors/solarized.light.xcolors"
 
+
 ! Fonts {{{
 Xft.antialias: true
 Xft.hinting:   true
@@ -13,9 +14,10 @@ Xft.dpi:       220
 ! }}}
 
 ! Urxvt {{{
-!urxvt.font:  xft:Inconsolata:size=13
-!urxvt.boldFont:   xft:Inconsolata:size=13
+!urxvt.font:  xft:Inconsolata:size=8
+!urxvt.boldFont:   xft:Inconsolata:size=8
 urxvt.font:  xft:DejaVuSansMonoForPowerLine:size=8
+urxvt.boldFont:  xft:DejaVuSansMonoForPowerLine:size=8
 !urxvt.boldFont:  xft:DejaVuSansMono:size=11
 !urxvt.font:  xft:DroidSansMono:size=11
 !urxvt.font:  xft:Monaco:size=10
@@ -32,7 +34,7 @@ URxvt*buffered:    true
 URxvt*transparent: false
 URxvt*shading:     100
 
-URxvt*intensityStyles: true
+URxvt*intensityStyles: false
 URxvt*termName:        rxvt-unicode-256color
 URxvt*urgentOnBell:    true
 URxvt.imLocale: en_US.utf8
@@ -44,5 +46,5 @@ URxvt.searchable-scrollback: CM-s
 
 URxvt.perl-ext:      default,url-select
 URxvt.keysym.M-u:    perl:url-select:select_next
-URxvt.url-select.launcher:   /usr/bin/firefox-beta-bin -new-tab
+URxvt.url-select.launcher:   /usr/bin/firefox -new-tab
 URxvt.url-select.underline: true
