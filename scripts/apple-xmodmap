@@ -4,3 +4,4 @@ keycode 66 = Shift_L
 keycode 108 = Super_L
 keycode 133 = Alt_L Meta_L
 keycode 134 = ISO_Level3_Shift
+keycode 37 = Super_L
