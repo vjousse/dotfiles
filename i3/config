@@ -30,10 +30,10 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+k kill
+bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+i exec dmenu_run
+bindsym $mod+space exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -64,24 +64,24 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+c split h
+#bindsym $mod+c split h
 
 # split in vertical orientation
 bindsym $mod+period split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+e fullscreen
+bindsym $mod+m fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+u layout stacking
-bindsym $mod+eacute layout tabbed
-bindsym $mod+p layout toggle split
+bindsym $mod+j layout stacking
+bindsym $mod+l layout tabbed
+bindsym $mod+d layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+i focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -151,3 +151,7 @@ bindsym $mod+o mode "resize"
 bar {
         status_command i3status
 }
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 -- +10% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -- -10% && killall -SIGUSR1 i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
