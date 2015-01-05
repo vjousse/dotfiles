@@ -149,7 +149,7 @@ bindsym $mod+o mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command /home/vjousse/dotfiles/scripts/i3/measure-net-speed-i3status.bash
 }
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 -- +10% && killall -SIGUSR1 i3status
