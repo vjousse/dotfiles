@@ -5,14 +5,14 @@ general {
 }
 
 order += "disk /"
-order += "wireless wlp2s0"
+order += "wireless wlp0s20u5u1"
 order += "ethernet enp10s0"
 order += "battery 0"
 order += "load"
 order += "tztime local"
 
 
-wireless wlp2s0 {
+wireless wlp0s20u5u1 {
         format_up = "W: (%quality at %essid, %bitrate) %ip"
         format_down = "W: down"
 }
