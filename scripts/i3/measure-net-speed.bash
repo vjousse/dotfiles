@@ -13,12 +13,24 @@ path="/dev/shm/measure-net-speed"
 #  find /sys/devices -name statistics
 # If you have more (or less) than two adapters, simply adjust the script here
 # and in the next block. 
-eth0="/sys/class/net/enp10s0/statistics"
+eth0="/sys/class/net/ens9/statistics"
 wlan0="/sys/class/net/wlp0s20u5u1/statistics"
-read eth0_rx < "${eth0}/rx_bytes"
-read eth0_tx < "${eth0}/tx_bytes"
-read wlan0_rx < "${wlan0}/rx_bytes"
-read wlan0_tx < "${wlan0}/tx_bytes"
+
+eth0_rx=0
+eth0_tx=0
+wlan0_rx=0
+wlan0_tx=0
+
+if [ -d $eth0 ]
+then
+    read eth0_rx < "${eth0}/rx_bytes"
+    read eth0_tx < "${eth0}/tx_bytes"
+fi
+if [ -d $wlan0 ]
+then
+    read wlan0_rx < "${wlan0}/rx_bytes"
+    read wlan0_tx < "${wlan0}/tx_bytes"
+fi
 
 # get time and sum of rx/tx for combined display
 time=$(date +%s)
