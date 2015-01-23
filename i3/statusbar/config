@@ -6,7 +6,7 @@ general {
 
 order += "disk /"
 order += "wireless wlp0s20u5u1"
-order += "ethernet enp10s0"
+order += "ethernet ens9"
 order += "battery 0"
 order += "load"
 order += "tztime local"
@@ -17,7 +17,7 @@ wireless wlp0s20u5u1 {
         format_down = "W: down"
 }
 
-ethernet enp10s0 {
+ethernet ens9 {
         # if you use %speed, i3status requires the cap_net_admin capability
         format_up = "E: %ip (%speed)"
         format_down = "E: down"
