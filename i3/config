@@ -152,6 +152,6 @@ bar {
         status_command /home/vjousse/dotfiles/scripts/i3/measure-net-speed-i3status.bash
 }
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 -- +4% && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -- -4% && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +4% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -4% && killall -SIGUSR1 i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
