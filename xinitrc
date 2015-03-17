@@ -24,7 +24,7 @@ $HOME/dotfiles/scripts/check-typematrix.zsh
 
 # Taken from https://wiki.archlinux.org/index.php/GNOME_Keyring
 # Start a D-Bus session
-source /etc/X11/xinit/xinitrc.d/30-dbus
+source /etc/X11/xinit/xinitrc.d/30-dbus.sh
 # Start GNOME Keyring
 eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 # You probably need to do this too:
