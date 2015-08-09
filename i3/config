@@ -39,6 +39,11 @@ bindsym $mod+space exec /home/vjousse/dotfiles/scripts/path-dmenu
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# stop a pomodoro
+bindsym $mod+Shift+f exec rm ~/.pomodoro_session
+# start/reset a pomodoro
+bindsym $mod+Shift+h exec touch ~/.pomodoro_session
+
 # change focus
 bindsym $mod+t focus left
 bindsym $mod+s focus down
