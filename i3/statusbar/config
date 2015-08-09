@@ -4,11 +4,14 @@ general {
         interval = 2
 }
 
+order += "netdata"
 order += "disk /"
-order += "wireless wlp0s20u5u1"
-order += "ethernet ens9"
+#order += "wireless wlp0s20u5u1"
+#order += "ethernet ens9"
 order += "battery 0"
 order += "load"
+order += "online_status"
+order += "pymodoro"
 order += "tztime local"
 
 
@@ -40,4 +43,12 @@ load {
 
 disk "/" {
         format = "%free"
+}
+
+pomodoro {
+    display_bar = true
+}
+
+netdata {
+    nic = "wlp0s20u5u1"
 }
