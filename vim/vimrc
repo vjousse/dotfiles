@@ -24,6 +24,7 @@ Plugin 'mikewest/vimroom'
 Plugin 'LustyExplorer'
 Plugin 'matchit'
 Plugin 'Align'
+Plugin 'pangloss/vim-javascript'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -54,8 +55,8 @@ nmap <silent> <leader>sv :so $MYVIMRC<C
     let g:solarized_termtrans=0
     let g:solarized_menu=0
     let g:solarized_italic=0
+    set background=dark
     colorscheme solarized
-    set background=light
 
 "endif
 
@@ -309,4 +310,4 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 let b:atp_Viewer = "xpdf"
 
 " CtrlP config
-let g:ctrlp_map = '<leader>c'
+let g:ctrlp_map = '<leader>p'

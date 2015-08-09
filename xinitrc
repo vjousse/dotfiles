@@ -7,7 +7,7 @@ setxkbmap fr bepo
 setxkbmap -option terminate:ctrl_alt_bksp
 
 # Light Background color (solarized)
-xsetroot -solid "#fdf6e3"
+xsetroot -solid "#002630"
 xrdb -merge $HOME/.Xresources
 xset s 300 300                              # set monitor to sleep
 xset -b                                     # Disable system bell

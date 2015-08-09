@@ -2,7 +2,7 @@
 Xcursor.theme: CG
 
 ! Colors
-#include "/home/vjousse/.xcolors/solarized.light.xcolors"
+#include "/home/vjousse/.xcolors/solarized.dark.xcolors"
 
 
 ! Fonts {{{
@@ -10,14 +10,15 @@ Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
 Xft.hintstyle: hintfull
-Xft.dpi:       220
+Xft.dpi:       180
+!Xft.dpi:       96
 ! }}}
 
 ! Urxvt {{{
 !urxvt.font:  xft:Inconsolata:size=8
 !urxvt.boldFont:   xft:Inconsolata:size=8
-urxvt.font:  xft:DejaVuSansMonoForPowerLine:size=8
-urxvt.boldFont:  xft:DejaVuSansMonoForPowerLine:size=8
+urxvt.font:  xft:DejaVuSansMonoForPowerLine:size=10
+urxvt.boldFont:  xft:DejaVuSansMonoForPowerLine:size=10
 !urxvt.boldFont:  xft:DejaVuSansMono:size=11
 !urxvt.font:  xft:DroidSansMono:size=11
 !urxvt.font:  xft:Monaco:size=10
