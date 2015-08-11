@@ -11,7 +11,7 @@ order += "disk /"
 order += "battery 0"
 order += "load"
 order += "online_status"
-order += "pymodoro"
+order += "pymodoroi3"
 order += "tztime local"
 
 
@@ -43,10 +43,6 @@ load {
 
 disk "/" {
         format = "%free"
-}
-
-pomodoro {
-    display_bar = true
 }
 
 netdata {
