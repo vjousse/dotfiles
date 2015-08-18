@@ -157,6 +157,17 @@ bindsym $mod+o mode "resize"
 bar {
         font pango:DejaVu Sans Mono 14
         status_command py3status -i /home/vjousse/usr/src/python/pymodoro
+
+        colors {
+            background #002b36
+            statusline #93a1a1
+            separator #666666
+
+            focused_workspace  #4c7899 #285577 #ffffff
+            active_workspace   #333333 #5f676a #ffffff
+            inactive_workspace #333333 #222222 #888888
+            urgent_workspace   #2f343a #900000 #ffffff
+        }
 }
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id /home/vjousse/dotfiles/scripts/volume_pa.pl 1 up 4 && killall -SIGUSR1 i3status
