@@ -4,7 +4,7 @@ general {
         interval = 2
 }
 
-order += "netdata"
+order += "net_rate"
 order += "disk /"
 #order += "wireless wlp0s20u5u1"
 #order += "ethernet ens9"
@@ -45,6 +45,6 @@ disk "/" {
         format = "%free"
 }
 
-netdata {
-    nic = "wlp0s20u5u1"
+net_rate {
+    format = "{up}↑ {down}↓"
 }
