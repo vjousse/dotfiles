@@ -156,7 +156,7 @@ bindsym $mod+o mode "resize"
 # finds out, if available)
 bar {
         font pango:DejaVu Sans Mono 14
-        status_command py3status -d -i /home/vjousse/usr/src/python/pymodoro
+        status_command py3status -i /home/vjousse/usr/src/python/pymodoro
 }
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +4% && killall -SIGUSR1 i3status
