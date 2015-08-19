@@ -6,7 +6,14 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+# Theme from here: https://github.com/KuoE0/oh-my-zsh-solarized-powerline-theme
+
+ZSH_THEME="solarized-powerline"
+ZSH_POWERLINE_SHOW_OS="false"
+ZSH_POWERLINE_SINGLE_LINE="true"
+ZSH_POWERLINE_SHOW_USER="false"
+ZSH_POWERLINE_SHOW_IP="false"
 
 DEFAULT_USER="vjousse"
 
@@ -67,7 +74,6 @@ setopt correctall
 source $DOTFILES/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/configuration.zsh
-
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
