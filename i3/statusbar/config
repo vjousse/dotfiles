@@ -9,9 +9,15 @@ order += "disk /"
 order += "battery_level"
 order += "load"
 order += "online_status"
+order += "volume master"
 order += "pymodoroi3"
 order += "tztime local"
 
+volume master {
+	format = "♪: %volume"
+	format_muted = "♪: muted (%volume)"
+	device = "pulse"
+}
 
 wireless wlp0s20u5u1 {
         format_up = "W: (%quality at %essid, %bitrate) %ip"
