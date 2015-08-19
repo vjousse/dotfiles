@@ -60,6 +60,11 @@ nmap <silent> <leader>sv :so $MYVIMRC<C
 
 "endif
 
+if (&background == 'light')
+  let g:Powerline_colorscheme='solarizedLightLC'
+else
+  let g:Powerline_colorscheme='solarizedDarkLC'
+endif
 
 " Set title on X window
 set title
