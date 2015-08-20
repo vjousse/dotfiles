@@ -131,7 +131,13 @@ set copyindent    " copy the previous indentation on autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set showmatch     " set show matching parenthesis
 
+" Tabs for ruby
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+
+" Tabs for python
+autocmd FileType python set sw=4
+autocmd FileType python set ts=4
+autocmd FileType python set sts=4
 
 syntax enable                     " Turn on syntax highlighting.
 filetype on
