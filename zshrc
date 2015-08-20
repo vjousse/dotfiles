@@ -11,7 +11,6 @@ ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="solarized-powerline-vjousse"
 ZSH_POWERLINE_SHOW_OS="false"
-ZSH_POWERLINE_SINGLE_LINE="true"
 ZSH_POWERLINE_SHOW_USER="false"
 ZSH_POWERLINE_SHOW_IP="false"
 ZSH_POWERLINE_DIRECTORY_DEPTH=5
@@ -74,6 +73,10 @@ setopt correctall
 source $DOTFILES/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/configuration.zsh
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/usr/src/python
+source $HOME/.local/bin/virtualenvwrapper.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
