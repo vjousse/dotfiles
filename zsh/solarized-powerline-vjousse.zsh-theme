@@ -182,7 +182,7 @@ arrow_color() {
 
 # single line or double lines
 if [ $ZSH_POWERLINE_SINGLE_LINE = false ]; then
-	PROMPT="${PROMPT} %E
+	PROMPT="${PROMPT} ${RESET}"'$(arrow_color)'"${ARROW_SYMBOL} ${BG_COLOR_BASE02}%E
   ${RESET}${FG_COLOR_BASE02}${ARROW_SYMBOL}"
 else
 	PROMPT="${PROMPT} ${RESET}"'$(arrow_color)'"${ARROW_SYMBOL}"
