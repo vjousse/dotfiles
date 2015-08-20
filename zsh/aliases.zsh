@@ -38,6 +38,8 @@ alias ya='yaourt'
 alias s='source'
 alias v='vim'
 alias taf='tail -f'
+alias w='workon'
+alias d='deactivate'
 
 # Reload zshrc conf
 alias zreload='. ~/.zshrc'
@@ -54,3 +56,4 @@ alias -s gif=feh
 alias -g G='|grep ' 
 alias -g L='|less ' 
 alias -g C='|wc -l' 
+
