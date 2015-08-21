@@ -30,13 +30,6 @@ ethernet ens9 {
         format_down = "E: down"
 }
 
-battery 0 {
-        format = "%status %percentage %remaining %emptytime"
-        path = "/sys/class/power_supply/BAT%d/uevent"
-        low_threshold = 10
-}
-
-
 tztime local {
         format = "%d-%m-%Y %H:%M:%S"
 }
