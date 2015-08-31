@@ -42,3 +42,5 @@ mkdir -p ~/.i3/
 mkdir -p ~/.config/i3status
 link i3/config ~/.i3/config
 link i3/statusbar/config ~/.config/i3status/config
+mkdir -p ~/.config/dunst/
+link dunstrc ~/.config/dunst/dunstrc
