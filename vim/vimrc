@@ -7,9 +7,10 @@ set nocompatible                  " Must come first because it changes other opt
 " plugins under the ~/.vim/bundle directory
 "call pathogen#helptags()
 "call pathogen#runtime_append_all_bundles()
+"
 
- set rtp+=~/.vim/bundle/Vundle.vim/
- call vundle#begin()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
@@ -25,6 +26,9 @@ Plugin 'LustyExplorer'
 Plugin 'Align'
 Plugin 'pangloss/vim-javascript'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -329,3 +333,14 @@ let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
 let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
 let g:ycm_complete_in_comments = 1 " Completion in comments
 let g:ycm_complete_in_strings = 1 " Completion in string
+
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
