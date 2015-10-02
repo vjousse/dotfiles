@@ -78,6 +78,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/usr/src/python
 source $HOME/.local/bin/virtualenvwrapper.sh
 
+eval $(keychain --eval -Q --nogui --quiet id_rsa)
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
