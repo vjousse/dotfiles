@@ -10,12 +10,15 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
-
 -- Pulseaudio widget
 local APW = require("apw/widget")
-
 -- For battery display
 local assault = require('assault')
+-- Pomodoro
+local pomodoro = require("pomodoro")
+-- init the pomodoro object
+pomodoro.init()
+pomodoro.widget:set_font("Inconsolata 12")
 
 myassault = assault({
   critical_level = 0.15,
@@ -209,6 +212,8 @@ for s = 1, screen.count() do
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(myassault)
     right_layout:add(APW)
+    right_layout:add(pomodoro.widget)
+    right_layout:add(pomodoro.icon_widget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
