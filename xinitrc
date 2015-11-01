@@ -26,6 +26,6 @@ $HOME/dotfiles/scripts/check-typematrix.zsh
 #mpd
 
 /bin/dropboxd &
-dunst &
 
-exec i3
+#exec i3
+exec awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr

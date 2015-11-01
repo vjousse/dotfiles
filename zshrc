@@ -80,6 +80,8 @@ source $HOME/.local/bin/virtualenvwrapper.sh
 
 eval $(keychain --eval -Q --nogui --quiet id_rsa)
 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/vjousse/usr/lib
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
