@@ -7,6 +7,7 @@ require("awful.autofocus")
 local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
+local lain = require("lain")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
@@ -57,7 +58,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("~/dotfiles/awesome/themes/default/theme.lua")
+beautiful.init("~/dotfiles/awesome/themes/starbreaker/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -128,8 +129,33 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- {{{ Wibox
+
+markup = lain.util.markup
+--
+-- Separators
+
+spacer = wibox.widget.textbox()
+spacer:set_text(" ")
+
+separator = wibox.widget.textbox()
+spacer:set_text(" | ")
+
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
+
+
+-- Net
+netdownicon = wibox.widget.imagebox(beautiful.widget_netdown)
+--netdownicon.align = "middle"
+netdowninfo = wibox.widget.textbox()
+netupicon = wibox.widget.imagebox(beautiful.widget_netup)
+--netupicon.align = "middle"
+netupinfo = lain.widgets.net({
+    settings = function()
+        widget:set_markup(markup("#e54c62", net_now.sent .. " "))
+        netdowninfo:set_markup(markup("#87af5f", net_now.received .. " "))
+    end
+})
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -210,10 +236,17 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(netdownicon)
+    right_layout:add(netdowninfo)
+    right_layout:add(netupicon)
+    right_layout:add(netupinfo)
     right_layout:add(myassault)
-    right_layout:add(APW)
+    right_layout:add(spacer)
     right_layout:add(pomodoro.widget)
+    right_layout:add(spacer)
     right_layout:add(pomodoro.icon_widget)
+    right_layout:add(spacer)
+    right_layout:add(APW)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
@@ -385,6 +418,7 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      raise = true,
                      keys = clientkeys,
+                     size_hints_honor = false,
                      buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
@@ -393,8 +427,8 @@ awful.rules.rules = {
     { rule = { class = "gimp" },
       properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
+    { rule = { class = "Firefox" },
+      properties = { tag = tags[1][2] } },
 }
 -- }}}
 
