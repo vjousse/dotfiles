@@ -160,9 +160,9 @@ netupinfo = lain.widgets.net({
 
 -- Create a promodoro widget {{{3
 pomodoro = awful.widget.progressbar()
-pomodoro:set_width(1)
+pomodoro:set_width(100);
 pomodoro:set_max_value(100)
-pomodoro:set_background_color(theme.bg_normal)
+pomodoro:set_background_color('#494B4F');
 pomodoro:set_color('#AECF96')
 -- awesome-3.4
 --pomodoro:set_gradient_colors({ '#AECF96', '#88A175', '#FF5656' })
@@ -170,6 +170,9 @@ pomodoro:set_color('#AECF96')
 pomodoro:set_color({ type = "linear", from = { 0, 0 }, to = { 100, 0 }, stops = { { 0, '#AECF96' }, { 0.25, "#88A175" }, { 1, "#FF5656" } }})
 pomodoro:set_ticks(true)
 
+
+pomodoro_text = wibox.widget.textbox()
+pomodoro_text:set_text(" 25:00")
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -256,6 +259,7 @@ for s = 1, screen.count() do
     right_layout:add(myassault)
     right_layout:add(spacer)
     right_layout:add(pomodoro)
+    right_layout:add(pomodoro_text)
     right_layout:add(spacer)
     right_layout:add(APW)
     right_layout:add(mytextclock)

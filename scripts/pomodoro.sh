@@ -30,7 +30,8 @@ clean_up() {
     # 计时改由在线的 Toggl 服务实现
     #$TODO_DIR/opt/toggl/toggl.py stop > /dev/null 2>&1
 
-    echo "pomodoro:set_background_color(theme.bg_normal);pomodoro:set_value(0);pomodoro:set_width(1);" | awesome-client
+    echo "pomodoro:set_background_color('#494B4F');pomodoro:set_value(0);" | awesome-client
+    echo "pomodoro_text:set_text(' 25:00')" | awesome-client
     should_tick=false
     pkill pomodoro.sh
 	exit 0
@@ -54,6 +55,8 @@ trap clean_up HUP INT TERM KILL
 
 work=$((25*60))
 #work=$((0.1*60))
+#Remove float part, just in case we're trying strange values
+work=${work%.*}
 rest=$((5*60))
 #rest=$((0.1*60))
 tdid=${1}
@@ -64,10 +67,19 @@ for t in $(seq ${turn}); do
 
     tick&
     tickpid=$!
-    # 工作时间开始
-    for i in $(seq 100); do
-        echo "pomodoro:set_value(${i})" | awesome-client
-        sleep $(echo "scale=3;${work}/100" | bc)
+    #for i in $(seq 100); do
+    #    echo "pomodoro:set_value(${i})" | awesome-client
+    #    sleep $(echo "scale=3;${work}/100" | bc)
+    #done
+
+    for i in $(seq $work); do
+        progress_value=$(( ($i * 100)/$work ))
+        seconds_left=$(($work-$i))
+        minutes_left=`date -u -d @${seconds_left} +"%M:%S"`
+        echo "pomodoro:set_value(${progress_value})" | awesome-client
+        echo "pomodoro_text:set_text(' ${minutes_left}')" | awesome-client
+        sleep 1
+        #sleep $(echo "scale=3;${work}/100" | bc)
     done
 
     should_tick=false
