@@ -16,10 +16,10 @@ local APW = require("apw/widget")
 -- For battery display
 local assault = require('assault')
 -- Pomodoro
-local pomodoro = require("pomodoro")
+--local pomodoro = require("pomodoro")
 -- init the pomodoro object
-pomodoro.init()
-pomodoro.widget:set_font("Inconsolata 12")
+--pomodoro.init()
+--pomodoro.widget:set_font("Inconsolata 12")
 
 myassault = assault({
   critical_level = 0.15,
@@ -157,6 +157,19 @@ netupinfo = lain.widgets.net({
     end
 })
 
+
+-- Create a promodoro widget {{{3
+pomodoro = awful.widget.progressbar()
+pomodoro:set_width(1)
+pomodoro:set_max_value(100)
+pomodoro:set_background_color(theme.bg_normal)
+pomodoro:set_color('#AECF96')
+-- awesome-3.4
+--pomodoro:set_gradient_colors({ '#AECF96', '#88A175', '#FF5656' })
+-- awesome-3.5
+pomodoro:set_color({ type = "linear", from = { 0, 0 }, to = { 100, 0 }, stops = { { 0, '#AECF96' }, { 0.25, "#88A175" }, { 1, "#FF5656" } }})
+pomodoro:set_ticks(true)
+
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -242,9 +255,7 @@ for s = 1, screen.count() do
     right_layout:add(netupinfo)
     right_layout:add(myassault)
     right_layout:add(spacer)
-    right_layout:add(pomodoro.widget)
-    right_layout:add(spacer)
-    right_layout:add(pomodoro.icon_widget)
+    right_layout:add(pomodoro)
     right_layout:add(spacer)
     right_layout:add(APW)
     right_layout:add(mytextclock)
@@ -331,7 +342,11 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "p", function() menubar.show() end),
+
+    -- Pomodoro
+    awful.key({ modkey, "Shift"   }, "f", function () awful.util.spawn("/home/vjousse/dotfiles/scripts/pomodoro.sh '' 1") end),
+    awful.key({ modkey, "Shift"   }, "h", function () awful.util.spawn("/bin/pkill pomodoro.sh") end)
 )
 
 clientkeys = awful.util.table.join(
