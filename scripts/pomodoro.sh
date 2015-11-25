@@ -53,9 +53,9 @@ tick() {
 trap clean_up HUP INT TERM KILL
 
 work=$((25*60))
-#work=$((0.5*60))
+#work=$((0.1*60))
 rest=$((5*60))
-#rest=$((0.5*60))
+#rest=$((0.1*60))
 tdid=${1}
 turn=${2}
 
@@ -63,6 +63,7 @@ for t in $(seq ${turn}); do
     echo "pomodoro:set_background_color('#494B4F');pomodoro:set_width(100);" | awesome-client
 
     tick&
+    tickpid=$!
     # 工作时间开始
     for i in $(seq 100); do
         echo "pomodoro:set_value(${i})" | awesome-client
@@ -70,6 +71,7 @@ for t in $(seq ${turn}); do
     done
 
     should_tick=false
+    kill $tickpid
     play /home/vjousse/dotfiles/pymodoro/session.wav > /dev/null 2>&1
     # 工作时间结束
     echo 'local naughty = require("naughty"); naughty.notify({ margin = 4, position = "bottom_left", timeout=300, text = "Time to stop work and take a little break."})' | awesome-client
