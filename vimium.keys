@@ -7,3 +7,5 @@ map <c-f> scrollPageDown
 map <c-b> scrollPageUp
 map d removeTab
 map u restoreTab
+map C goBack
+map R goForward
