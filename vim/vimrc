@@ -64,7 +64,8 @@ else
     let g:solarized_termtrans=0
     let g:solarized_menu=0
     let g:solarized_italic=0
-    set background=dark
+    "set background=dark
+    set background=light
     colorscheme solarized
 
 endif
@@ -147,6 +148,9 @@ autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType python set sw=4
 autocmd FileType python set ts=4
 autocmd FileType python set sts=4
+
+" Tabs for javascript
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 syntax enable                     " Turn on syntax highlighting.
 filetype on
