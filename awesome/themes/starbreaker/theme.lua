@@ -11,7 +11,8 @@
 theme                               = {}
 
 theme.confdir                       = os.getenv("HOME") .. "/.config/awesome/themes/starbreaker"
-theme.wallpaper                     = theme.confdir .. "/wall.jpg"
+--theme.wallpaper                     = theme.confdir .. "/wall.jpg"
+theme.wallpaper                     = theme.confdir .. "/journey.jpg"
 
 theme.font                          = "Inconsolata 12"
 --theme.taglist_font                =
