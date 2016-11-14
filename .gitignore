@@ -27,3 +27,4 @@ weechat/charset.conf
 mpd/mpd.db
 mpd/mpd.pid
 mpd/mpdstate
+*=

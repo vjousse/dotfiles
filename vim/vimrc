@@ -23,6 +23,7 @@ Plugin 'hallison/vim-markdown'
 Plugin 'tpope/vim-surround'
 Plugin 'mikewest/vimroom'
 Plugin 'LustyExplorer'
+Plugin 'jwhitley/vim-matchit'
 Plugin 'Align'
 Plugin 'pangloss/vim-javascript'
 "Plugin 'Valloric/YouCompleteMe'
@@ -32,6 +33,8 @@ Plugin 'ervandew/supertab'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'nvie/vim-flake8'
+Plugin 'ElmCast/elm-vim'
+Plugin 'elixir-lang/vim-elixir'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -41,21 +44,21 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<C
 
 " When writing, I'm using gvim and light theme
-if has('gui_running')
-    set background=dark
-    colorscheme iawriter
+"if has('gui_running')
+"    set background=dark
+"    colorscheme iawriter
 "
-    set guifont=Droid\ Sans\ Mono\ 13
-    "set guifont=Cousine\ 13
-    set guioptions-=m  "remove menu bar
-    set guioptions-=T  "remove toolbar
-    set guioptions-=r  "remove right scroll bar
-    set guioptions-=L  "remove left scroll bar
+"    set guifont=Droid\ Sans\ Mono\ 13
+"    "set guifont=Cousine\ 13
+"    set guioptions-=m  "remove menu bar
+"    set guioptions-=T  "remove toolbar
+"    set guioptions-=r  "remove right scroll bar
+"    set guioptions-=L  "remove left scroll bar
 "    let g:vimroom_guibackground="white"
-    setlocal spell spelllang=fr
-    autocmd VimEnter * Limelight
-    autocmd VimEnter * Goyo
-else
+"    setlocal spell spelllang=fr
+"    autocmd VimEnter * Limelight
+"    autocmd VimEnter * Goyo
+"else
     " Colorsheme
     set t_Co=16
 
@@ -68,7 +71,7 @@ else
     set background=light
     colorscheme solarized
 
-endif
+"endif
 
 if (&background == 'light')
   let g:Powerline_colorscheme='solarizedLightLC'
@@ -79,7 +82,7 @@ endif
 " Set title on X window
 set title
 
-set clipboard=unnamedplus         " Alias unnamed register to the + register, which is the X Window clipboard.
+set clipboard=unnamed         " Alias unnamed register to the + register, which is the X Window clipboard.
 
 " Hide buffer instead of abandoning when unloading
 set hidden ruler wmnu
@@ -169,11 +172,11 @@ set pastetoggle=<F2>
 vmap Q gq
 nmap Q gqap
 
-" Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" Easy window navigation for bépo
+map <C-c> <C-w>h
+map <C-t> <C-w>j
+map <C-s> <C-w>k
+map <C-r> <C-w>l
 
 " Close other windows
 map <leader>wo :only<cr>
@@ -276,7 +279,7 @@ nmap <leader>ss  :call ToggleSpell()<cr>
 let g:surround_no_mappings = 1
 
 nmap ds <Plug>Dsurround
-nmap ès <Plug>Csurround
+nmap fs <Plug>Csurround
 nmap ys <Plug>Ysurround
 nmap yS <Plug>YSurround
 nmap yss <Plug>Yssurround
@@ -358,3 +361,4 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-j>"
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 
 autocmd BufEnter,WinEnter *.py match OverLength /\%81v.\+/
+let g:elm_format_autosave = 1
