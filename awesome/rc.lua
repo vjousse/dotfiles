@@ -525,3 +525,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 awful.util.spawn_with_shell("/bin/hipchat")
+awful.util.spawn_with_shell("/bin/hubic status")

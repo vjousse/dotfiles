@@ -43,11 +43,11 @@ tick() {
     while true
     do 
         if [ "$should_tick" = true ] ; then
-            play /home/vjousse/dotfiles/pymodoro/tick.wav > /dev/null 2>&1
+            play /home/vjousse/dotfiles/pymodoro/fb/timing.wav > /dev/null 2>&1
         else
             echo 'not tick'
         fi
-        sleep 0.7
+        #sleep 0.7
     done
 }
 

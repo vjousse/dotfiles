@@ -27,6 +27,7 @@ Plugin 'jwhitley/vim-matchit'
 Plugin 'Align'
 Plugin 'pangloss/vim-javascript'
 "Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
@@ -35,6 +36,7 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'ElmCast/elm-vim'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,21 +46,22 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<C
 
 " When writing, I'm using gvim and light theme
-"if has('gui_running')
-"    set background=dark
-"    colorscheme iawriter
+if has('gui_running')
+    "set background=dark
+    "colorscheme iawriter
 "
-"    set guifont=Droid\ Sans\ Mono\ 13
-"    "set guifont=Cousine\ 13
-"    set guioptions-=m  "remove menu bar
-"    set guioptions-=T  "remove toolbar
-"    set guioptions-=r  "remove right scroll bar
-"    set guioptions-=L  "remove left scroll bar
+    set guifont=Droid\ Sans\ Mono\ 13
+    "set guifont=Cousine\ 13
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right scroll bar
+    set guioptions-=L  "remove left scroll bar
+    colorscheme solarized
 "    let g:vimroom_guibackground="white"
-"    setlocal spell spelllang=fr
-"    autocmd VimEnter * Limelight
-"    autocmd VimEnter * Goyo
-"else
+    setlocal spell spelllang=fr
+    "autocmd VimEnter * Limelight
+    "autocmd VimEnter * Goyo
+else
     " Colorsheme
     set t_Co=16
 
@@ -67,11 +70,17 @@ nmap <silent> <leader>sv :so $MYVIMRC<C
     let g:solarized_termtrans=0
     let g:solarized_menu=0
     let g:solarized_italic=0
-    "set background=dark
-    set background=light
+    set background=dark
+    "set background=light
     colorscheme solarized
 
-"endif
+endif
+
+let g:neocomplete#enable_at_startup = 1
+call neocomplete#util#set_default_dictionary(
+  \ 'g:neocomplete#sources#omni#input_patterns',
+  \ 'elm',
+  \ '\.')
 
 if (&background == 'light')
   let g:Powerline_colorscheme='solarizedLightLC'
@@ -346,7 +355,9 @@ let g:ctrlp_map = '<leader>p'
 "let g:ycm_complete_in_comments = 1 " Completion in comments
 "let g:ycm_complete_in_strings = 1 " Completion in string
 
-
+"let g:ycm_semantic_triggers = {
+"     \ 'elm' : ['.'],
+"     \}
 
 " make YCM compatible with UltiSnips (using supertab)
 "let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -362,3 +373,9 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 
 autocmd BufEnter,WinEnter *.py match OverLength /\%81v.\+/
 let g:elm_format_autosave = 1
+
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+let g:elm_syntastic_show_warnings = 1

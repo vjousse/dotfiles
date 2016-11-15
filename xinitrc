@@ -25,7 +25,8 @@ $HOME/dotfiles/scripts/check-typematrix.zsh
 
 #mpd
 
-/bin/dropboxd &
+#/bin/dropboxd &
 
 #exec i3
 exec awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
+#exec gnome-session

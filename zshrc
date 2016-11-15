@@ -96,4 +96,3 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/vjousse/usr/lib
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-

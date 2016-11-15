@@ -17,8 +17,14 @@ Xft.dpi:       180
 ! Urxvt {{{
 !urxvt.font:  xft:Inconsolata:size=8
 !urxvt.boldFont:   xft:Inconsolata:size=8
-urxvt.font:  xft:DejaVuSansMonoForPowerLine:size=10
-urxvt.boldFont:  xft:DejaVuSansMonoForPowerLine:size=10
+urxvt.font:  xft:DejaVuSansMonoForPowerLine:size=12, \
+             -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+
+!urxvt.boldFont:  xft:DejaVuSansMonoForPowerLine:size=10
+
+urxvt.boldFont:  xft:DejaVuSansMonoForPowerLine:size=12, \
+                 -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+
 !urxvt.boldFont:  xft:DejaVuSansMono:size=11
 !urxvt.font:  xft:DroidSansMono:size=11
 !urxvt.font:  xft:Monaco:size=10
@@ -47,5 +53,5 @@ URxvt.searchable-scrollback: CM-s
 
 URxvt.perl-ext:      default,url-select
 URxvt.keysym.M-u:    perl:url-select:select_next
-URxvt.url-select.launcher:   /usr/bin/firefox -new-tab
+URxvt.url-select.launcher:   /usr/bin/firefox-developer -new-tab
 URxvt.url-select.underline: true
