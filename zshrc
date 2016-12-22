@@ -9,12 +9,15 @@ ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="robbyrussell"
 # Theme from here: https://github.com/KuoE0/oh-my-zsh-solarized-powerline-theme
 
-ZSH_THEME="solarized-powerline-vjousse"
+ZSH_THEME="materialshell-oceanic"
 ZSH_POWERLINE_SHOW_OS="false"
 ZSH_POWERLINE_SHOW_USER="false"
 ZSH_POWERLINE_SHOW_IP="false"
 ZSH_POWERLINE_DIRECTORY_DEPTH=5
 DEFAULT_USER="vjousse"
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-material.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
