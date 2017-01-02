@@ -83,7 +83,9 @@ export PROJECT_HOME=$HOME/usr/src/python
 
 [ -f $HOME/.local/bin/virtualenvwrapper.sh ] && source $HOME/.local/bin/virtualenvwrapper.sh
 
-eval $(keychain --eval -Q --nogui --quiet id_rsa)
+if type "keychain" > /dev/null; then
+    eval $(keychain --eval -Q --nogui --quiet id_rsa)
+fi
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/vjousse/usr/lib
 
