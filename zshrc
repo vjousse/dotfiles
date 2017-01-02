@@ -9,6 +9,7 @@ ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="robbyrussell"
 # Theme from here: https://github.com/KuoE0/oh-my-zsh-solarized-powerline-theme
 
+ZSH_CUSTOM=$HOME/dotfiles/zsh_custom
 ZSH_THEME="materialshell-oceanic"
 ZSH_POWERLINE_SHOW_OS="false"
 ZSH_POWERLINE_SHOW_USER="false"
