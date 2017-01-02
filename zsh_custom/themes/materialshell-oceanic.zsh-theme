@@ -24,7 +24,7 @@ local _return_status="%{$red%}%(?..×)%{$reset_color%}"
 local _hist_no="%{$grey%}%h%{$reset_color%}"
 
 function _user_host() {
-  host_color=$grey
+  host_color=$yellow
   user_at_host="%{$red%}%n%{$reset_color%}%{$white%}%{$reset_color%} %{$white%}in "
   [[ -n $SSH_CONNECTION ]] && user_at_host="%{$red%}%n%{$reset_color%}%{$white%}@%{$host_color%}%m%{$reset_color%} %{$white%}in "
   echo $user_at_host
