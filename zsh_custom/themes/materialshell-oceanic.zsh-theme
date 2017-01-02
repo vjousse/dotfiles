@@ -9,9 +9,12 @@ eval magenta='$FG[204]'
 eval cyan='$FG[037]'
 eval white='$FG[231]'
 eval grey='$FG[145]'
+#
+# disables prompt mangling in virtual_env/bin/activate
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 PROMPT='
-$(_user_host)${_current_dir}$(git_prompt_info)
+$(_prompt_virtualenv)$(_user_host)${_current_dir}$(git_prompt_info)
 %{$white%}>%{$reset_color%} '
 
 PROMPT2='%{$grey%}◀%{$reset_color%} '
@@ -22,6 +25,14 @@ RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(git_prompt_short_sha) ${_return_status
 local _current_dir="%{$green%}%0~%{$reset_color%} "
 local _return_status="%{$red%}%(?..×)%{$reset_color%}"
 local _hist_no="%{$grey%}%h%{$reset_color%}"
+
+# Virtualenv: current working virtualenv
+function _prompt_virtualenv() {
+	local virtualenv_path="$VIRTUAL_ENV"
+    if [[ -n $virtualenv_path && -n $VIRTUAL_ENV_DISABLE_PROMPT ]]; then
+        echo -n "%{$red%}[%{$reset_color%}%{$grey%}`basename $virtualenv_path`%{$reset_color%}%{$red%}]%{$reset_color%} "
+    fi
+}
 
 function _user_host() {
   host_color=$yellow
