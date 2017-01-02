@@ -1,6 +1,6 @@
 [submodule "zsh/syntax-highlighting"]
 	path = zsh/syntax-highlighting
-	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git
@@ -9,4 +9,4 @@
 	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "zsh/zsh-history-substring-search"]
 	path = zsh/zsh-history-substring-search
-	url = git://github.com/zsh-users/zsh-history-substring-search.git
+	url = https://github.com/zsh-users/zsh-history-substring-search.git
