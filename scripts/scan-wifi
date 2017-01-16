@@ -1,0 +1,1 @@
+sudo iw dev wlp2s0 scan | awk -f scan.awk | sort
