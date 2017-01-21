@@ -17,56 +17,56 @@ call vundle#begin()
 " required!
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'derekwyatt/vim-scala'
 Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'hallison/vim-markdown'
 Plugin 'tpope/vim-surround'
-Plugin 'mikewest/vimroom'
 Plugin 'LustyExplorer'
 Plugin 'jwhitley/vim-matchit'
 Plugin 'Align'
 Plugin 'pangloss/vim-javascript'
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'ervandew/supertab'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'ElmCast/elm-vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/syntastic'
-Plugin 'w0ng/vim-hybrid'
+"Plugin 'w0ng/vim-hybrid'
+Plugin 'mhartington/oceanic-next'
+Plugin 'slashmili/alchemist.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<C
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 "if has("termguicolors")
 "    set termguicolors
 "endif
 
 "set t_ut=
-set t_Co=256
+"set t_Co=256
 "syntax enable
 "colorscheme colorsbox-material
 "colorscheme hybrid_material
 "
 "
-set background=dark
-colorscheme hybrid
+"set background=dark
+"colorscheme hybrid
 "highlight Normal ctermbg=0
 
-let g:neocomplete#enable_at_startup = 1
-call neocomplete#util#set_default_dictionary(
-  \ 'g:neocomplete#sources#omni#input_patterns',
-  \ 'elm',
-  \ '\.')
+
+ " Theme
+syntax enable
+" for vim 7
+set t_Co=256
+
+" for vim 8
+"if (has("termguicolors"))
+" set termguicolors
+"endif
+
+colorscheme OceanicNext
 
 if (&background == 'light')
   let g:Powerline_colorscheme='solarizedLightLC'
@@ -113,7 +113,7 @@ set laststatus=2                  " Show the status line all the time
 set wildmode=list:longest         " Make command completion behave like a shell
 
 " Fast write
-nmap <Leader>w :w<CR>
+nmap <leader>w :w<CR>
 
 " Make the view port scroll faster
 nnoremap <C-e> 5<C-e>
@@ -193,12 +193,6 @@ highlight Folded ctermfg=red
 highlight FoldColumn ctermfg=white
 set fillchars=fold:⋯
 
-" My information
-iab xdate =strftime("%d/%m/%Y %H:%M:%S")
-iab xname Vincent Jousse
-iab xsigp Vincent Jousse
-iab xsigw Vincent Jousse
-
 " Remove trailing whitespaces and ^M chars
 autocmd FileType c,cpp,java,php,js,css,html,xml,yml,vim,scala,haskell,py
     \ autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
@@ -216,39 +210,17 @@ map <leader>i <Esc>mygg=G'y
 " Detect twig filetype
 au BufNewFile,BufRead *.twig setf htmljinja
 
-" phpdoc
-inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
-nnoremap <C-P> :call PhpDocSingle()<CR>
-vnoremap <C-P> :call PhpDocRange()<CR>
-let g:pdv_cfg_Author = "Vincent Jousse <vincent@jousse.org>"
-let g:pdv_cfg_License = "LGPL 3.0 {@link http://www.opensource.org/licenses/lgpl-3.0.html}"
-
 let mapleader = ","
 
 " TagList
 let Tlist_Show_One_File = 1
 nnoremap <silent> <F7> :TlistToggle<CR>
 
-" Nerd Tree
-map <Leader>nf :NERDTree<Enter>
-map <Leader>nr :NERDTree %:p:h<Enter>
-let NERDTreeQuitOnOpen=1
-
 " Snipmate
 let g:snips_author = 'Vincent Jousse <vincent@jousse.org>'
 
 " Encoding
 set statusline+=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
-
-
-"jquery color
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-
-"Latex
-
-let g:Tex_ViewRule_pdf = 'okular'
-let g:Tex_MultipleCompileFormats = 'dvi,ps,pdf'
-let g:Tex_DefaultTargetFormat = 'pdf'
 
 
 "Spell
@@ -285,13 +257,6 @@ nmap ySS <Plug>YSsurround
 " Disable default mappings
 let g:loaded_AlignMapsPlugin=1
 
-" Use Scalariform to format scala files
-
-au BufEnter *.scala setl formatprg=java\ -jar\ /home/vjousse/usr/lib/scalariform.jar\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ --stdin\ --stdout
-
-" Format with scalariform then save
-nmap <leader>i mygggqG'y:w<cr>
-
 "  Clean code function
 function! CleanCode()
   %retab          " Replace tabs with spaces
@@ -315,45 +280,10 @@ nmap <leader>s :<C-U>exe "cprevious ".(v:count ? v:count : "")<cr>
 
 nmap <leader>d :!tig<cr>
 
-" CTAGS
-" Rebuild tags
-nmap <leader>ct :!ctags&<cr><cr>
-" Jump to next tag match
-nmap ]t :bd<cr>:tnext<cr>
-" Jump to previous tag match
-nmap [t :bd<cr>:tprevious<cr>
-nmap <leader>ts <C-]>
-
 source ~/.vim/vimrc.bepo
-
-" LaTeX specific mappings
-let g:Tex_ViewRule_pdf = 'evince'
-let g:Tex_DefaultTargetFormat = 'pdf'
-let b:atp_Viewer = "xpdf"
 
 " CtrlP config
 let g:ctrlp_map = '<leader>p'
-
-" YouCompleteMe config
-"let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
-"let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
-"let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
-"let g:ycm_complete_in_comments = 1 " Completion in comments
-"let g:ycm_complete_in_strings = 1 " Completion in string
-
-"let g:ycm_semantic_triggers = {
-"     \ 'elm' : ['.'],
-"     \}
-
-" make YCM compatible with UltiSnips (using supertab)
-"let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-"let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-"let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<c-l>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-j>"
 
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 
@@ -365,3 +295,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
 let g:elm_syntastic_show_warnings = 1
+
+
+let g:alchemist_tag_map = '<leader>ll'
+let g:alchemist_tag_stack_map = '<leader>rr'
+let g:alchemist#elixir_erlang_src = "/usr/local/share/src"
+
