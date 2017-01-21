@@ -17,10 +17,7 @@ call vundle#begin()
 " required!
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'mileszs/ack.vim'
-Plugin 'kien/ctrlp.vim'
 Plugin 'hallison/vim-markdown'
-Plugin 'tpope/vim-surround'
 Plugin 'LustyExplorer'
 Plugin 'jwhitley/vim-matchit'
 Plugin 'Align'
@@ -29,7 +26,6 @@ Plugin 'nvie/vim-flake8'
 Plugin 'ElmCast/elm-vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/syntastic'
-"Plugin 'w0ng/vim-hybrid'
 Plugin 'mhartington/oceanic-next'
 Plugin 'slashmili/alchemist.vim'
 
@@ -281,9 +277,6 @@ nmap <leader>s :<C-U>exe "cprevious ".(v:count ? v:count : "")<cr>
 nmap <leader>d :!tig<cr>
 
 source ~/.vim/vimrc.bepo
-
-" CtrlP config
-let g:ctrlp_map = '<leader>p'
 
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 
