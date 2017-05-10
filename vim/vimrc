@@ -25,9 +25,15 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'nvie/vim-flake8'
 Plugin 'ElmCast/elm-vim'
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'mhartington/oceanic-next'
 Plugin 'slashmili/alchemist.vim'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'lepture/vim-jinja'
+Plugin 'neovimhaskell/haskell-vim'
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,20 +61,43 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
  " Theme
 syntax enable
 " for vim 7
-set t_Co=256
+"set t_Co=16
 
 " for vim 8
 "if (has("termguicolors"))
 " set termguicolors
 "endif
+"colorscheme hybrid_material
+"colorscheme OceanicNext
 
-colorscheme OceanicNext
+set t_Co=256   " This is may or may not needed.
 
-if (&background == 'light')
-  let g:Powerline_colorscheme='solarizedLightLC'
-else
-  let g:Powerline_colorscheme='solarizedDarkLC'
+set background=dark
+colorscheme base16-material-dark
+
+if has("gui_running")
+    colorscheme iawriter
+    set guifont=Droid\ Sans\ Mono\ 13
+    "set guifont=Cousine\ 13
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right scroll bar
+    set guioptions-=L  "remove left scroll bar
+"    let g:vimroom_guibackground="white"
+    setlocal spell spelllang=fr
+    autocmd VimEnter * Limelight
+    autocmd VimEnter * Goyo
 endif
+"colorscheme nord
+
+"highlight LineNr ctermfg=grey ctermbg=white
+
+
+"
+"highlight Normal ctermbg=NONE
+"highlight NonText ctermbg=NONE
+"
+"
 
 " Set title on X window
 set title
@@ -278,9 +307,6 @@ nmap <leader>d :!tig<cr>
 
 source ~/.vim/vimrc.bepo
 
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-
-autocmd BufEnter,WinEnter *.py match OverLength /\%81v.\+/
 let g:elm_format_autosave = 1
 
 
@@ -294,3 +320,4 @@ let g:alchemist_tag_map = '<leader>ll'
 let g:alchemist_tag_stack_map = '<leader>rr'
 let g:alchemist#elixir_erlang_src = "/usr/local/share/src"
 
+let g:syntastic_enable_elixir_checker=1
