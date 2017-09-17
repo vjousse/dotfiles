@@ -25,7 +25,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'nvie/vim-flake8'
 Plugin 'ElmCast/elm-vim'
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'vim-syntastic/syntastic'
+" Plugin 'vim-syntastic/syntastic'
 Plugin 'mhartington/oceanic-next'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'NLKNguyen/papercolor-theme'
@@ -34,6 +34,8 @@ Plugin 'neovimhaskell/haskell-vim'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+Plugin 'w0rp/ale'
+Plugin 'evidens/vim-twig'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -310,14 +312,17 @@ source ~/.vim/vimrc.bepo
 let g:elm_format_autosave = 1
 
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
 
-let g:elm_syntastic_show_warnings = 1
+" let g:elm_syntastic_show_warnings = 1
 
 
 let g:alchemist_tag_map = '<leader>ll'
 let g:alchemist_tag_stack_map = '<leader>rr'
 let g:alchemist#elixir_erlang_src = "/usr/local/share/src"
 
-let g:syntastic_enable_elixir_checker=1
+" let g:syntastic_enable_elixir_checker=1
+
+nmap <silent> <C-h> <Plug>(ale_previous_wrap)
+nmap <silent> <C-g> <Plug>(ale_next_wrap)
