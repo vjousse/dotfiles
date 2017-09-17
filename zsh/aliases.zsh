@@ -41,6 +41,7 @@ alias v='vim'
 alias taf='tail -f'
 alias w='workon'
 alias d='deactivate'
+alias open='gio open'
 
 # Reload zshrc conf
 alias zreload='. ~/.zshrc'
