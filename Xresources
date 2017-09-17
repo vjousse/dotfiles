@@ -2,8 +2,7 @@
 Xcursor.theme: CG
 
 ! Colors
-#include "/home/vjousse/.xcolors/solarized.dark.xcolors"
-
+#include "/home/vjousse/.xcolors/nord"
 
 ! Fonts {{{
 Xft.antialias: true
@@ -15,15 +14,20 @@ Xft.dpi:       180
 ! }}}
 
 ! Urxvt {{{
+!
+!urxvt.font: xft:DejaVu Sans Mono:size=6
+!urxvt.boldFont: xft:DejaVu Sans Mono:size=6
+
+urxvt.font: xft:Consolas:size=12
 !urxvt.font:  xft:Inconsolata:size=8
 !urxvt.boldFont:   xft:Inconsolata:size=8
-urxvt.font:  xft:DejaVuSansMonoForPowerLine:size=12, \
-             -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+!urxvt.font:  xft:DejaVuSansMonoForPowerLine:size=12, \
+!             -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 
 !urxvt.boldFont:  xft:DejaVuSansMonoForPowerLine:size=10
 
-urxvt.boldFont:  xft:DejaVuSansMonoForPowerLine:size=12, \
-                 -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+!urxvt.boldFont:  xft:DejaVuSansMonoForPowerLine:size=12, \
+!                 -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 
 !urxvt.boldFont:  xft:DejaVuSansMono:size=11
 !urxvt.font:  xft:DroidSansMono:size=11
@@ -43,9 +47,8 @@ URxvt*shading:     100
 
 URxvt*intensityStyles: false
 URxvt*termName:        rxvt-unicode-256color
-URxvt*urgentOnBell:    true
 URxvt.imLocale: en_US.utf8
-
+URxvt*background:  #2E3440
 URxvt*cursorBlink:     true
 
 !Stop using my shortcuts
