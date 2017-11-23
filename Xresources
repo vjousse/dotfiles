@@ -1,5 +1,5 @@
 ! Cursor theme
-Xcursor.theme: CG
+Xcursor.theme: Adwaita
 
 ! Colors
 #include "/home/vjousse/.xcolors/nord"
@@ -9,8 +9,8 @@ Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
 Xft.hintstyle: hintfull
-Xft.dpi:       180
-!Xft.dpi:       96
+!Xft.dpi:       180
+Xft.dpi:       96
 ! }}}
 
 ! Urxvt {{{

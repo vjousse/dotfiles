@@ -1,8 +1,13 @@
 #!/bin/sh
 #$HOME/dotfiles/scripts/external-screen
 
-# Start a D-Bus session
-#source /etc/X11/xinit/xinitrc.d/30-dbus.sh
+# Activate default xinitrc scripts
+if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+    for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
+fi
 pulseaudio --start
 /usr/bin/start-pulseaudio-x11
 
@@ -13,11 +18,11 @@ setxkbmap -option terminate:ctrl_alt_bksp
 
 # Light Background color (solarized)
 xsetroot -solid "#002630"
-xrdb -merge $HOME/.Xresources
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 xset s 300 300                              # set monitor to sleep
 xset -b                                     # Disable system bell
 xset r rate 280 50                          # Repeat keys way faster please
-urxvtd -q -f -o                             # start urxvt server
+#urxvtd -q -f -o                             # start urxvt server
 
 # Check if my TypeMatrix keyboard is connected
 # If not, modify default bindings for the macbook air keyboard
@@ -27,6 +32,6 @@ $HOME/dotfiles/scripts/check-typematrix.zsh
 
 #/bin/dropboxd &
 
-#exec i3
-exec awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
+exec i3
+#exec awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
 #exec gnome-session

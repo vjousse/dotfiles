@@ -10,7 +10,7 @@ order += "battery_level"
 order += "load"
 order += "online_status"
 order += "volume master"
-order += "pymodoroi3"
+# order += "pymodoroi3"
 order += "tztime local"
 
 volume master {
