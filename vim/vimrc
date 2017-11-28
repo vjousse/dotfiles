@@ -326,3 +326,7 @@ let g:alchemist#elixir_erlang_src = "/usr/local/share/src"
 
 nmap <silent> <C-h> <Plug>(ale_previous_wrap)
 nmap <silent> <C-g> <Plug>(ale_next_wrap)
+
+let g:ale_linters = {
+\   'haskell': [],
+\}
