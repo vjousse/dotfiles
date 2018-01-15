@@ -33,7 +33,7 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+border-size = 1
 border-color = #00000000
 
 padding-left = 0
@@ -48,7 +48,7 @@ font-2 = "Wuncon Siji:pixelsize=10;1"
 
 modules-left = bspwm i3
 modules-center = 
-modules-right = filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = xwindow filesystem xkeyboard memory cpu wlan eth battery temperature date
 
 tray-position = right
 tray-padding = 2
@@ -242,7 +242,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
+date = " %d-%m-%Y"
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
