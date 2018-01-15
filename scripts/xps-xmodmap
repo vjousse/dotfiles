@@ -1,0 +1,6 @@
+clear shift
+clear control
+add control = Shift_L
+add shift = Shift_R
+keycode 50 = Control_L
+keycode 66 = Shift_L
