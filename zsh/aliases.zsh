@@ -1,4 +1,5 @@
 # Push and pop directories on directory stack
+alias startx='ssh-agent startx'
 alias pu='pushd'
 alias po='popd'
 
@@ -37,6 +38,7 @@ alias gsub='git submodule'
 alias t='tig'
 alias ya='yaourt'
 alias s='source'
+alias nv='nvim'
 alias v='vim'
 alias taf='tail -f'
 alias w='workon'
