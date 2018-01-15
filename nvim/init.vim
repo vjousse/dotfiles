@@ -1,19 +1,22 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.nvim/plugged')
 
 " Make sure you use single quotes
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'kien/ctrlp.vim'
-Plug 'vim-scripts/LustyExplorer'
+Plug 'sjbach/lusty'
 Plug 'junegunn/fzf.vim'
-Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'ElmCast/elm-vim'
+Plug 'neomake/neomake'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'evidens/vim-twig'
+Plug 'ElmCast/elm-vim'
 
 " Add plugins to &runtimepath
 call plug#end()
 
 " == Color configuration
 "set background=dark
-colorscheme quantum
 
 " == Plugins configuration
 
@@ -36,7 +39,6 @@ set shiftwidth=2        " Indentation amount for < and > commands.
 
 set noerrorbells        " No beeps.
 set modeline            " Enable modeline.
-set esckeys             " Cursor keys in insert mode.
 set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
 
@@ -52,6 +54,9 @@ if !&sidescrolloff
 endif
 set nostartofline       " Do not jump to first character with page comma
 
+" Copy to/from system clippboard
+set clipboard+=unnamedplus
+
 " /== End Global conf
 
 " Tell Vim which characters to show for expanded TABs,
@@ -64,5 +69,12 @@ set list                " Show problematic characters.
 " Press i to enter insert mode, and ii to exit.
 :inoremap éé <Esc>
 
+" Enable syntax checking
+autocmd! BufWritePost * Neomake
+
 set pastetoggle=<f2>
+
+" Elm 
+let g:elm_format_autosave = 1
+
 source ~/.vim/vimrc.bepo
