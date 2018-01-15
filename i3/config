@@ -9,10 +9,13 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-exec --no-startup-id dunst
+#exec --no-startup-id dunst
+exec --no-startup-id /usr/lib/notification-daemon-1.0/notification-daemon
 exec --no-startup-id pa-applet --disable-notifications
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id xset r rate 280 50
+exec --no-startup-id xss-lock -- i3lock -n -i $HOME/dotfiles/images/lockscreen.png
+exec --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id xset r rate 280 50
+exec --no-startup-id compton -b -d :0
 
 set $mod Mod4
 
@@ -52,9 +55,9 @@ bindsym $mod+Shift+h exec touch ~/.pomodoro_session
 
 # change focus
 bindsym $mod+t focus left
-bindsym $mod+s focus down
+bindsym $mod+n focus down
 bindsym $mod+r focus up
-bindsym $mod+n focus right
+bindsym $mod+s focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -75,7 +78,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym $mod+c split h
+bindsym $mod+c split h
 
 # split in vertical orientation
 bindsym $mod+period split v
