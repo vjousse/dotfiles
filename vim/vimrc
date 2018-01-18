@@ -36,6 +36,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'w0rp/ale'
 Plugin 'evidens/vim-twig'
+Plugin 'dracula/vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -72,11 +73,12 @@ syntax enable
 "colorscheme hybrid_material
 "colorscheme OceanicNext
 
-set t_Co=256   " This is may or may not needed.
+"set t_Co=256   " This is may or may not needed.
 
-set background=dark
-colorscheme base16-material-dark
+"set background=dark
+"colorscheme base16-material-dark
 
+color dracula
 if has("gui_running")
     colorscheme iawriter
     set guifont=Droid\ Sans\ Mono\ 13
