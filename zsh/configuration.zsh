@@ -6,7 +6,7 @@ export PATH="$JAVA_HOME/bin:$PATH:$HOME/usr/bin/ant-tools:$HOME/usr/bin:$DOTFILE
 export SBT_OPTS="-Dfile.encoding=UTF8 -Xms256M -Xmx2048M -Xss4M -XX:+CMSClassUnloadingEnabled"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-export BROWSER="chromium"
+export BROWSER="firefox-nightly"
 export EDITOR='vim'
 export GIT_EDITOR='vim'
 export CLASSPATH=$CLASSPATH:$HOME/usr/lib
