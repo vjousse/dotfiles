@@ -2,7 +2,7 @@
 Xcursor.theme: Adwaita
 
 ! Colors
-#include "/home/vjousse/.xcolors/nord"
+#include "/home/vjousse/.xcolors/dracula.xcolors"
 
 ! Fonts {{{
 Xft.antialias: true
@@ -56,5 +56,5 @@ URxvt.searchable-scrollback: CM-s
 
 URxvt.perl-ext:      default,url-select
 URxvt.keysym.M-u:    perl:url-select:select_next
-URxvt.url-select.launcher:   /usr/bin/firefox-developer -new-tab
+URxvt.url-select.launcher:   /bin/firefox-nightly -new-tab
 URxvt.url-select.underline: true
