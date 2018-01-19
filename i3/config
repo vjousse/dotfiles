@@ -12,7 +12,7 @@
 #exec --no-startup-id dunst
 exec --no-startup-id /usr/lib/notification-daemon-1.0/notification-daemon
 exec --no-startup-id pa-applet --disable-notifications
-exec --no-startup-id xautolock -time 5 -locker "/bin/i3lock-fancy -- scrot -z" &
+exec --no-startup-id xss-lock -- /bin/i3lock-fancy -- scrot -z
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id xset r rate 280 50
 exec --no-startup-id compton -b -d :0
