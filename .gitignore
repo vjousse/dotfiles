@@ -28,3 +28,4 @@ mpd/mpd.db
 mpd/mpd.pid
 mpd/mpdstate
 *=
+nvim/plugged/
