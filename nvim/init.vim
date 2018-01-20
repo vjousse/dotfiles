@@ -1,4 +1,4 @@
-call plug#begin('~/.nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Make sure you use single quotes
 
@@ -11,12 +11,17 @@ Plug 'neomake/neomake'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'evidens/vim-twig'
 Plug 'ElmCast/elm-vim'
+Plug 'dracula/vim'
+Plug 'nbouscal/vim-stylish-haskell'
+Plug 'alx741/vim-hindent'
 
 " Add plugins to &runtimepath
 call plug#end()
 
 " == Color configuration
 "set background=dark
+
+color dracula
 
 " == Plugins configuration
 
@@ -74,7 +79,7 @@ autocmd! BufWritePost * Neomake
 
 set pastetoggle=<f2>
 
-" Elm 
+" Elm
 let g:elm_format_autosave = 1
 
 source ~/.vim/vimrc.bepo
