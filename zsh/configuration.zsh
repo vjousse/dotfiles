@@ -7,6 +7,6 @@ export SBT_OPTS="-Dfile.encoding=UTF8 -Xms256M -Xmx2048M -Xss4M -XX:+CMSClassUnl
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 export BROWSER="firefox-nightly"
-export EDITOR='vim'
-export GIT_EDITOR='vim'
+export EDITOR='nvim'
+export GIT_EDITOR='nvim'
 export CLASSPATH=$CLASSPATH:$HOME/usr/lib
