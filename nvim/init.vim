@@ -14,6 +14,8 @@ Plug 'ElmCast/elm-vim'
 Plug 'dracula/vim'
 Plug 'nbouscal/vim-stylish-haskell'
 Plug 'alx741/vim-hindent'
+Plug 'scrooloose/nerdcommenter'
+Plug 'elixir-editors/vim-elixir'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -41,6 +43,11 @@ set textwidth=0         " Hard-wrap long lines as you type them.
 set expandtab           " Insert spaces when TAB is pressed.
 set tabstop=2           " Render TABs using this many spaces.
 set shiftwidth=2        " Indentation amount for < and > commands.
+set ignorecase          " Case-insensitive searching.
+set smartcase           " But case-sensitive if expression contains a capital letter.
+set incsearch           " Highlight matches as you type.
+set hlsearch            " Highlight matches.
+
 
 set noerrorbells        " No beeps.
 set modeline            " Enable modeline.
@@ -82,4 +89,9 @@ set pastetoggle=<f2>
 " Elm
 let g:elm_format_autosave = 1
 
+let g:neomake_python_enabled_makers = ['flake8']
+
+let g:NERDDefaultAlign = 'left'
+
 source ~/.vim/vimrc.bepo
+
