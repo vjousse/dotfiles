@@ -36,3 +36,5 @@ mkdir -p ~/.config/i3status
 link i3/config ~/.i3/config
 link i3/statusbar/config ~/.config/i3status/config
 link compton.conf ~/.config/compton.conf
+link polybar ~/.config/polybar
+link nvim ~/.config/nvim
