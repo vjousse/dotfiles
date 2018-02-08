@@ -71,6 +71,10 @@ set clipboard+=unnamedplus
 
 " /== End Global conf
 
+
+" Pressing ,/ will clear the search buffer
+nmap <silent> ,/ :let @/=""<CR>
+
 " Tell Vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
 if &listchars ==# 'eol:$'
