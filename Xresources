@@ -54,7 +54,12 @@ URxvt*cursorBlink:     true
 !Stop using my shortcuts
 URxvt.searchable-scrollback: CM-s
 
-URxvt.perl-ext:      default,url-select
+URxvt.perl-ext:      default,url-select,resize-font
 URxvt.keysym.M-u:    perl:url-select:select_next
 URxvt.url-select.launcher:   /bin/firefox-nightly -new-tab
 URxvt.url-select.underline: true
+
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
