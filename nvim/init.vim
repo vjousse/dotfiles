@@ -16,6 +16,7 @@ Plug 'nbouscal/vim-stylish-haskell'
 Plug 'alx741/vim-hindent'
 Plug 'scrooloose/nerdcommenter'
 Plug 'elixir-editors/vim-elixir'
+Plug 'fatih/vim-go'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -93,9 +94,11 @@ set pastetoggle=<f2>
 " Elm
 let g:elm_format_autosave = 1
 
-let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_python_enabled_makers = ['flake8', 'pep8', 'vulture']
 
 let g:NERDDefaultAlign = 'left'
 
-source ~/.vim/vimrc.bepo
+" Don't display hidden chars for Go (tabs)
+au FileType go set nolist
 
+source ~/.vim/vimrc.bepo
