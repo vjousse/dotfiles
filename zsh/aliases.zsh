@@ -46,6 +46,8 @@ alias w='workon'
 alias d='deactivate'
 alias open='gio open'
 
+alias go='grc go'
+
 # Reload zshrc conf
 alias zreload='. ~/.zshrc'
 
@@ -62,4 +64,8 @@ alias -g G='|grep '
 alias -g L='|less ' 
 alias -g C='|wc -l' 
 
-alias c='pygmentize -g'
+alias c='cargo'
+alias e='exa -hla'
+alias er='exa -hla -s modified'
+
+alias todo=todo.sh
