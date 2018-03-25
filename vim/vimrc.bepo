@@ -18,7 +18,7 @@ noremap C H
 noremap R L
 
 noremap T J
-noremap S K
+" noremap S K
 
 noremap zs zj
 noremap zt zk

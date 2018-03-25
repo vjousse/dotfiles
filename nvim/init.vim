@@ -17,6 +17,10 @@ Plug 'alx741/vim-hindent'
 Plug 'scrooloose/nerdcommenter'
 Plug 'elixir-editors/vim-elixir'
 Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -42,7 +46,7 @@ set number              " Show the line numbers on the left side.
 set formatoptions+=o    " Continue comment marker in new lines.
 set textwidth=0         " Hard-wrap long lines as you type them.
 set expandtab           " Insert spaces when TAB is pressed.
-set tabstop=2           " Render TABs using this many spaces.
+set tabstop=4           " Render TABs using this many spaces.
 set shiftwidth=2        " Indentation amount for < and > commands.
 set ignorecase          " Case-insensitive searching.
 set smartcase           " But case-sensitive if expression contains a capital letter.
@@ -94,11 +98,28 @@ set pastetoggle=<f2>
 " Elm
 let g:elm_format_autosave = 1
 
-let g:neomake_python_enabled_makers = ['flake8', 'pep8', 'vulture']
+let g:neomake_python_enabled_makers = ['flake8', 'pep8']
 
 let g:NERDDefaultAlign = 'left'
 
 " Don't display hidden chars for Go (tabs)
 au FileType go set nolist
+
+" Rust autoformating
+let g:rustfmt_autosave = 1
+
+" Remap surround by hand
+" Thanks https://stackoverflow.com/questions/17537182/is-there-anyway-to-change-vim-surrounds-keymapping
+let g:surround_no_mappings = 1
+
+nmap ds  <Plug>Dsurround
+nmap ls  <Plug>Csurround
+nmap ys  <Plug>Ysurround
+nmap yS  <Plug>YSurround
+nmap yss <Plug>Yssurround
+nmap ySs <Plug>YSsurround
+nmap ySS <Plug>YSsurround
+xmap S   <Plug>VSurround
+xmap gS  <Plug>VgSurround
 
 source ~/.vim/vimrc.bepo
