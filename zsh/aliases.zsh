@@ -48,6 +48,9 @@ alias open='gio open'
 
 alias go='grc go'
 
+alias ip='ip --color'
+alias ipb='ip --color --brief'
+
 # Reload zshrc conf
 alias zreload='. ~/.zshrc'
 
@@ -69,3 +72,6 @@ alias e='exa -hla'
 alias er='exa -hla -s modified'
 
 alias todo=todo.sh
+alias to='todo.sh'
+alias tol='todo.sh ls'
+alias tod='todo.sh do'
