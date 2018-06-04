@@ -5,6 +5,10 @@ export GOBIN=$GOPATH/bin
 
 export PATH="./node_modules/elm-format/bin/:$JAVA_HOME/bin:$PATH:$HOME/usr/bin/ant-tools:$HOME/usr/bin:$DOTFILES/scripts:$DOTFILES/scripts/private:$HOME/usr/src/scala/play-2.2.1:/usr/share/java/apache-ant/bin:/home/vjousse/.cabal/bin:$HOME/.gem/ruby/2.5.0/bin:$HOME/.npm-global/bin:$HOME/.local/bin/:$GOROOT/bin:$GOBIN"
 
+export TODO_DIR="$HOME/Nextcloud"
+export TODO_FILE="$TODO_DIR/todo.txt"
+export DONE_FILE="$TODO_DIR/done.txt"
+
 # Java/SBT configuration
 export SBT_OPTS="-Dfile.encoding=UTF8 -Xms256M -Xmx2048M -Xss4M -XX:+CMSClassUnloadingEnabled"
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -12,7 +16,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export BROWSER="firefox-nightly"
 export EDITOR='nvim'
 export GIT_EDITOR='nvim'
-export CLASSPATH=$CLASSPATH:$HOME/usr/lib
 
 NPM_PACKAGES="${HOME}/.npm-packages"
 
