@@ -122,4 +122,7 @@ nmap ySS <Plug>YSsurround
 xmap S   <Plug>VSurround
 xmap gS  <Plug>VgSurround
 
+set undofile " Maintain undo history between sessions
+set undodir=~/.config/nvim/undodir
+
 source ~/.vim/vimrc.bepo
