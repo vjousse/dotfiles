@@ -8,12 +8,9 @@ Plug 'sjbach/lusty'
 Plug 'junegunn/fzf.vim'
 Plug 'ElmCast/elm-vim'
 Plug 'neomake/neomake'
-Plug 'neovimhaskell/haskell-vim'
 Plug 'evidens/vim-twig'
 Plug 'ElmCast/elm-vim'
 Plug 'dracula/vim'
-Plug 'nbouscal/vim-stylish-haskell'
-Plug 'alx741/vim-hindent'
 Plug 'scrooloose/nerdcommenter'
 Plug 'elixir-editors/vim-elixir'
 Plug 'fatih/vim-go'
@@ -21,6 +18,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'godlygeek/tabular'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -99,6 +97,7 @@ set pastetoggle=<f2>
 let g:elm_format_autosave = 1
 
 let g:neomake_python_enabled_makers = ['flake8', 'pep8']
+let g:neomake_open_list = 2
 
 let g:NERDDefaultAlign = 'left'
 
@@ -124,5 +123,13 @@ xmap gS  <Plug>VgSurround
 
 set undofile " Maintain undo history between sessions
 set undodir=~/.config/nvim/undodir
+
+" Tabular.vim
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
 
 source ~/.vim/vimrc.bepo
