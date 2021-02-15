@@ -72,42 +72,27 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux) monospace
-    #   - (Windows) Consolas
-    family: Source Code Pro Medium
-
+    # family: Source Code Pro for Powerline
+    family: SauceCodePro Nerd Font Mono
     # The `style` can be specified to pick a specific face.
     style: Regular
 
-  # Bold font face
+  # Italic font face
   bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-
-    family: Source Code Pro Medium
-
+    # family: Source Code Pro for Powerline
+    family: SauceCodePro Nerd Font Mono
     # The `style` can be specified to pick a specific face.
     style: Bold
 
   # Italic font face
   italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    family: Source Code Pro Medium
-
+    # family: Source Code Pro for Powerline
+    family: SauceCodePro Nerd Font Mono
     # The `style` can be specified to pick a specific face.
     style: Italic
 
   # Point size
-  size: 12.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -148,34 +133,38 @@ debug:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Dracula)
+# Colors (Rigel)
 colors:
   # Default colors
   primary:
-    background: '0x282a36'
-    foreground: '0xf8f8f2'
+    background: '0x002635'
+    foreground: '0xe6e6dc'
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xff5555'
-    green:   '0x50fa7b'
-    yellow:  '0xf1fa8c'
-    blue:    '0xcaa9fa'
-    magenta: '0xff79c6'
-    cyan:    '0x8be9fd'
-    white:   '0xbfbfbf'
+    black:   '0x00384d'
+    red:     '0xc43061'
+    green:   '0x7fc06e'
+    yellow:  '0xf08e48'
+    blue:    '0x1c8db2'
+    magenta: '0xc694ff'
+    cyan:    '0x00cccc'
+    white:   '0x77929e'
 
   # Bright colors
   bright:
-    black:   '0x575b70'
-    red:     '0xff6e67'
-    green:   '0x5af78e'
-    yellow:  '0xf4f99d'
-    blue:    '0xcaa9fa'
-    magenta: '0xff92d0'
-    cyan:    '0x9aedfe'
-    white:   '0xe6e6e6'
+    black:   '0x517f8d'
+    red:     '0xff5a67'
+    green:   '0x9cf087'
+    yellow:  '0xffcc1b'
+    blue:    '0x7eb2dd'
+    magenta: '0xfb94ff'
+    cyan:    '0x00ffff'
+    white:   '0xb7cff9'
+
+  cursor:
+    text: "0x002635"
+    cursor: "0xffcc1b"
 
   # Dim colors
   #
