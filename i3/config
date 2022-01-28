@@ -10,12 +10,12 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 #exec --no-startup-id dunst
-exec --no-startup-id /usr/lib/notification-daemon-1.0/notification-daemon
-exec --no-startup-id pa-applet --disable-notifications
+#exec --no-startup-id /usr/lib/notification-daemon-1.0/notification-daemon
 exec --no-startup-id xss-lock -- /bin/i3lock-fancy -- scrot -z
 exec --no-startup-id xset r rate 280 50
 # exec --no-startup-id compton -b -d :0
 exec --no-startup-id nm-applet
+exec --no-startup-id nextcloud
 exec --no-startup-id nitrogen --restore
 
 # Windows or / home on my Typematrix
@@ -56,6 +56,11 @@ bindsym $mod+space exec "/bin/rofi -combi-modi window,drun,ssh -theme Arc-Dark -
 bindsym $mod+Shift+f exec rm ~/.pomodoro_session
 # start/reset a pomodoro
 bindsym $mod+Shift+h exec touch ~/.pomodoro_session
+
+# Sound
+bindsym XF86AudioMute exec ~/dotfiles/scripts/music toggle
+bindsym XF86AudioLowerVolume exec ~/dotfiles/scripts/music down
+bindsym XF86AudioRaiseVolume exec ~/dotfiles/scripts/music up
 
 # change focus
 bindsym $mod+c focus left
@@ -108,29 +113,40 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
 # switch to workspace
-bindsym $mod+q workspace 1
-bindsym $mod+g workspace 2
-bindsym $mod+h workspace 3
-bindsym $mod+f workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+q workspace $ws1
+bindsym $mod+g workspace $ws2
+bindsym $mod+h workspace $ws3
+bindsym $mod+f workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Control+q move container to workspace 1
-bindsym $mod+Control+g move container to workspace 2
-bindsym $mod+Control+h move container to workspace 3
-bindsym $mod+Control+f move container to workspace 4
-bindsym $mod+Control+5 move container to workspace 5
-bindsym $mod+Control+6 move container to workspace 6
-bindsym $mod+Control+7 move container to workspace 7
-bindsym $mod+Control+8 move container to workspace 8
-bindsym $mod+Control+9 move container to workspace 9
-bindsym $mod+Control+0 move container to workspace 10
+bindsym $mod+Control+q move container to workspace $ws1
+bindsym $mod+Control+g move container to workspace $ws2
+bindsym $mod+Control+h move container to workspace $ws3
+bindsym $mod+Control+f move container to workspace $ws4
+bindsym $mod+Control+5 move container to workspace $ws5
+bindsym $mod+Control+6 move container to workspace $ws6
+bindsym $mod+Control+7 move container to workspace $ws7
+bindsym $mod+Control+8 move container to workspace $ws8
+bindsym $mod+Control+9 move container to workspace $ws9
+bindsym $mod+Control+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+x reload
@@ -168,8 +184,21 @@ bindsym $mod+o mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
 bar {
-    i3bar_command $HOME/.config/polybar/launch.sh
+    font pango:DejaVu Sans Mono, FontAwesome 8.9
+    position bottom
+    height 16
+    status_command /bin/i3status-rs /home/vjousse/dotfiles/i3status-rust/config.toml
+    colors {
+        separator #666666
+        background #222222
+        statusline #dddddd
+        focused_workspace #0088CC #0088CC #ffffff
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace #2f343a #900000 #ffffff
+    }
 }
 
 # bindsym XF86AudioRaiseVolume exec --no-startup-id /home/vjousse/dotfiles/scripts/volume_pa.pl 1 up 4 && killall -SIGUSR1 i3status
