@@ -14,17 +14,19 @@ exec --no-startup-id /usr/lib/notification-daemon-1.0/notification-daemon
 exec --no-startup-id pa-applet --disable-notifications
 exec --no-startup-id xss-lock -- /bin/i3lock-fancy -- scrot -z
 exec --no-startup-id xset r rate 280 50
-exec --no-startup-id compton -b -d :0
+# exec --no-startup-id compton -b -d :0
 exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
 
-set $mod Mod4
+# Windows or / home on my Typematrix
+# set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 10
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -36,14 +38,15 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec /bin/urxvt -e tmux
+bindsym $mod+Return exec /bin/alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+space exec /home/vjousse/dotfiles/scripts/path-dmenu
-bindsym $mod+space exec $HOME/dotfiles/i3/j4-dmenu-desktop.sh
+# bindsym $mod+space exec $HOME/dotfiles/i3/j4-dmenu-desktop.sh
+bindsym $mod+space exec "/bin/rofi -combi-modi window,drun,ssh -theme Arc-Dark -show combi"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -55,10 +58,11 @@ bindsym $mod+Shift+f exec rm ~/.pomodoro_session
 bindsym $mod+Shift+h exec touch ~/.pomodoro_session
 
 # change focus
-bindsym $mod+t focus left
-bindsym $mod+n focus down
-bindsym $mod+r focus up
-bindsym $mod+s focus right
+bindsym $mod+c focus left
+bindsym $mod+Tab focus left
+bindsym $mod+t focus down
+bindsym $mod+s focus up
+bindsym $mod+r focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -79,18 +83,18 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+c split h
+bindsym $mod+d split h
 
 # split in vertical orientation
-bindsym $mod+period split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+m fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+j layout stacking
+#  bindsym $mod+j layout stacking
 bindsym $mod+l layout tabbed
-bindsym $mod+d layout toggle split
+bindsym $mod+j layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -176,11 +180,14 @@ bar {
 # class                 border  backgr. text    indicator
 client.focused          #586e75 #002b36 #839496 #586e75
 
-new_window 1pixel
 
+default_border pixel 1
+
+# borders, lol
+hide_edge_borders both
 # smartborders and gaps
-for_window [class="^.*"] border pixel 2
-smart_borders on
+#for_window [class="^.*"] border pixel 2
+#smart_borders on
 
 set $bgb             #282a36
 set $bg             #282a36AA
@@ -198,7 +205,7 @@ set $rd             #ff5555
 set $id             #ff79c6
 #
 # # set some nice colors      border  background  text  indicator
-client.focused              $id     $pk         $tx     $id
+client.focused              $bg     $bgb         $fg     $id
 client.unfocused            $bg     $bg         $tf     $id
 client.focused_inactive     $bg     $bg         $pk     $id
 client.urgent               $yw     $yw         $tx     $id
