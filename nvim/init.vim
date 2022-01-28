@@ -3,47 +3,37 @@ call plug#begin('~/.config/nvim/plugged')
 " Make sure you use single quotes
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'kien/ctrlp.vim'
 Plug 'sjbach/lusty'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf'
-Plug 'ElmCast/elm-vim'
-"Plug 'andys8/vim-elm-syntax'
-Plug 'neomake/neomake'
-Plug 'evidens/vim-twig'
-Plug 'dracula/vim'
+" Plug 'ElmCast/elm-vim'
+" Plug 'neomake/neomake'
+" Plug 'vim-syntastic/syntastic'
+" Plug 'davidhalter/jedi-vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'elixir-editors/vim-elixir'
-Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'godlygeek/tabular'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'vim-crystal/vim-crystal'
-Plug 'sainnhe/edge'
+" Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-repeat'
+" Plug 'pangloss/vim-javascript'
+" Plug 'vim-crystal/vim-crystal'
 Plug 'sheerun/vim-polyglot'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'datwaft/bubbly.nvim'
+" Plug 'datwaft/bubbly.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Rigellute/rigel'
-Plug 'evanleck/vim-svelte'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'codechips/coc-svelte', {'do': 'npm install'}
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+" Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'brentyi/isort.vim'
+Plug 'jremmen/vim-ripgrep'
+Plug 'junegunn/goyo.vim'
+"Plug 'autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': 'bash install.sh',
+"    \ }
 
 " Add plugins to &runtimepath
 call plug#end()
 
 " == Color configuration
 "set background=dark
-
-let g:edge_style = 'aura'
-let g:edge_enable_italic = 1
-let g:edge_disable_italic_comment = 1
 
 set termguicolors
 
@@ -53,7 +43,6 @@ colorscheme rigel
 " == Plugins configuration
 "
 
-let g:ctrlp_follow_symlinks = 1
 
 " Rigel bubbly theme
 let g:bubbly_palette = #{
@@ -111,11 +100,38 @@ set nostartofline       " Do not jump to first character with page comma
 " Copy to/from system clippboard
 set clipboard+=unnamedplus
 
+
+" Give more space for displaying messages.
+" set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+" set shortmess+=c
+
+set signcolumn=number
+
+
 " /== End Global conf
 
 
 " Pressing ,/ will clear the search buffer
 nmap <silent> ,/ :let @/=""<CR>
+
+" Lusty explorer conf
+
+let g:LustyExplorerDefaultMappings = 0
+
+nmap <silent> <Leader>lf :LustyFilesystemExplorer<CR>
+nmap <silent> <Leader>lr :LustyFilesystemExplorerFromHere<CR>
+nmap <silent> <Leader>lb :LustyBufferExplorer<CR>
+
+" FZF conf
+nnoremap <silent> <leader>l :GFiles<CR>
+" nnoremap <silent> <leader>dl :Rg<CR>
+" nmap <silent> <Leader>lb :Buffers<CR>
 
 " Tell Vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
@@ -125,25 +141,42 @@ endif
 set list                " Show problematic characters.
 
 " Press i to enter insert mode, and ii to exit.
-:inoremap éé <Esc>
+" :inoremap éé <Esc>
+:inoremap ii <Esc>
 
 " Enable syntax checking
-autocmd! BufWritePost * Neomake
+" autocmd! BufWritePost * Neomake
 
 set pastetoggle=<f2>
 
 " Elm
 let g:elm_format_autosave = 1
 
-let g:neomake_python_enabled_makers = ['flake8', 'pep8']
-let g:neomake_open_list = 2
+
+let g:LanguageClient_serverCommands = {
+  \ 'elm': ['elm-language-server'],
+  \ }
+
+let g:LanguageClient_rootMarkers = {
+  \ 'elm': ['elm.json'],
+  \ }
+
+" let g:neomake_python_enabled_makers = ['flake8']
+" let g:neomake_open_list = 2
+" let g:neomake_python_flake8_maker = { 'args': ['--ignore=E501'], }
 
 let g:NERDDefaultAlign = 'left'
 
 " Prettier Settings
 let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat_require_pragma = 0
-au BufWritePre *.css,*.svelte,*.pcss,*.html,*.ts,*.js,*.json PrettierAsync
+" Deactivate html formatting due to problems with Jinja templates
+" au BufWritePre *.css,*.svelte,*.pcss,*.html,*.ts,*.js,*.json PrettierAsync
+au BufWritePre *.css,*.svelte,*.pcss,*.ts,*.js,*.json PrettierAsync
+
+" Fix for prettier failed to parse buffer: https://github.com/prettier/vim-prettier/issues/268
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#trailing_comma = 'all'
 
 " spell languages
 set spelllang=en,fr
@@ -182,4 +215,16 @@ if exists(":Tabularize")
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
 
+" let g:jedi#completions_enabled = 0
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+source ~/.vim/vimrc.coc
 source ~/.vim/vimrc.bepo
