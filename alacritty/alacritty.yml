@@ -427,7 +427,8 @@ key_bindings:
 
   # Vi Mode
   - { key: F10,                     action: ToggleViMode            }
-    #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
+    #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }key_bindings:
+  - { key: Return,   mods: Alt|Shift, action: SpawnNewInstance }
   - { key: Space,  mods: Control,  action: ToggleViMode            }
   - { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
   - { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
