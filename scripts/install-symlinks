@@ -35,6 +35,11 @@ mkdir -p ~/.i3/
 mkdir -p ~/.config/i3status
 link i3/config ~/.i3/config
 link i3/statusbar/config ~/.config/i3status/config
-link compton.conf ~/.config/compton.conf
+link alacritty/ ~/.config/alacritty
+link picom.conf ~/.config/picom.conf
 link polybar ~/.config/polybar
 link nvim ~/.config/nvim
+mkdir -p ~/.config/amfora
+link amfora ~/.config/amfora
+mkdir -p ~/.config/mutt
+link mutt ~/.config/mutt
