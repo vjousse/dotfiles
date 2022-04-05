@@ -14,21 +14,25 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'rust-lang/rust.vim'
 " Plug 'tpope/vim-surround'
 " Plug 'tpope/vim-repeat'
-" Plug 'pangloss/vim-javascript'
 " Plug 'vim-crystal/vim-crystal'
+Plug 'pangloss/vim-javascript'
+Plug 'jparise/vim-graphql'
 Plug 'sheerun/vim-polyglot'
-" Plug 'datwaft/bubbly.nvim'
+Plug 'datwaft/bubbly.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Rigellute/rigel'
-" Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'leafgarland/typescript-vim'
 Plug 'brentyi/isort.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/goyo.vim'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 "Plug 'autozimu/LanguageClient-neovim', {
 "    \ 'branch': 'next',
 "    \ 'do': 'bash install.sh',
 "    \ }
-
+"Plug 'hiphish/jinja.vim'
+Plug 'lepture/vim-jinja'
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -167,11 +171,12 @@ let g:LanguageClient_rootMarkers = {
 
 let g:NERDDefaultAlign = 'left'
 
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+
 " Prettier Settings
 let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat_require_pragma = 0
 " Deactivate html formatting due to problems with Jinja templates
-" au BufWritePre *.css,*.svelte,*.pcss,*.html,*.ts,*.js,*.json PrettierAsync
 au BufWritePre *.css,*.svelte,*.pcss,*.ts,*.js,*.json PrettierAsync
 
 " Fix for prettier failed to parse buffer: https://github.com/prettier/vim-prettier/issues/268
@@ -225,6 +230,8 @@ endif
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
+
+let g:svelte_preprocessors = ['typescript']
 
 source ~/.vim/vimrc.coc
 source ~/.vim/vimrc.bepo
