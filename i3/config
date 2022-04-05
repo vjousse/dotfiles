@@ -12,13 +12,13 @@
 #exec --no-startup-id dunst
 #exec --no-startup-id /usr/lib/notification-daemon-1.0/notification-daemon
 exec --no-startup-id xss-lock -- /bin/i3lock-fancy
-#exec --no-startup-id xset r rate 280 50
-exec --no-startup-id compton -b -d :0
+exec --no-startup-id xset r rate 280 50
+#exec --no-startup-id picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id nextcloud
 exec --no-startup-id nitrogen --restore
-exec_always --no-startup-id ~/.xinitrc
-exec_always --no-startup-id /home/vjousse/dotfiles/scripts/check-typematrix.zsh
+exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-3 --off
+# exec_always --no-startup-id /home/vjousse/dotfiles/scripts/check-typematrix.zsh
 # Windows or / home on my Typematrix
 # set $mod Mod4
 set $mod Mod1
@@ -125,12 +125,18 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+workspace $ws1 output DP-2
+workspace $ws2 output DP-2
+workspace $ws3 output DP-2
+workspace $ws4 output DP-2
+workspace $ws4 output eDP-1
+
 # switch to workspace
 bindsym $mod+q workspace $ws1
 bindsym $mod+g workspace $ws2
 bindsym $mod+h workspace $ws3
 bindsym $mod+f workspace $ws4
-bindsym $mod+5 workspace $ws5
+bindsym $mod+ç workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
@@ -193,8 +199,6 @@ bindsym $mod+a scratchpad show
 # finds out, if available)
 
 bar {
-    mode hide
-    hidden_state hide
     modifier Mod4
     font pango:DejaVu Sans Mono, FontAwesome 8.9
     position bottom
