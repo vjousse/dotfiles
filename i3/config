@@ -17,7 +17,8 @@ exec --no-startup-id xset r rate 280 50
 exec --no-startup-id nm-applet
 exec --no-startup-id nextcloud
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-3 --off
+#exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-3 --off
+exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --primary --mode 2560x1440 --pos 1920x0 --rotate normal --output DP-3 --off
 # exec_always --no-startup-id /home/vjousse/dotfiles/scripts/check-typematrix.zsh
 # Windows or / home on my Typematrix
 # set $mod Mod4
@@ -43,6 +44,9 @@ bindsym $mod+Return exec /bin/alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
+
+# lock current screen
+bindsym $mod+Shift+o exec /bin/i3lock-fancy
 
 # start dmenu (a program launcher)
 # bindsym $mod+space exec /home/vjousse/dotfiles/scripts/path-dmenu
@@ -109,7 +113,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+i focus mode_toggle
 
 # focus the parent container
-# bindsym $mod+a focus parent
+bindsym $mod+u focus parent
 
 # focus the child container
 # bindsym $mod+u focus child
@@ -129,14 +133,14 @@ workspace $ws1 output DP-2
 workspace $ws2 output DP-2
 workspace $ws3 output DP-2
 workspace $ws4 output DP-2
-workspace $ws4 output eDP-1
+# workspace $ws4 output eDP-1
 
 # switch to workspace
 bindsym $mod+q workspace $ws1
 bindsym $mod+g workspace $ws2
 bindsym $mod+h workspace $ws3
 bindsym $mod+f workspace $ws4
-bindsym $mod+ç workspace $ws5
+# bindsym $mod+ç workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
@@ -225,6 +229,7 @@ client.focused          #586e75 #002b36 #839496 #586e75
 
 
 default_border pixel 1
+#default_border normal
 
 # borders, lol
 hide_edge_borders both
