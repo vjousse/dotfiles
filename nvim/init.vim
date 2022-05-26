@@ -22,6 +22,7 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'lepture/vim-jinja'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'lewis6991/gitsigns.nvim'
 " Add plugins to &runtimepath
 
 call plug#end()
@@ -38,8 +39,10 @@ colorscheme rigel
 "
 
 lua <<EOF
+require('gitsigns').setup()
 require'nvim-tree'.setup {
   view = {
+    side = "right",
     mappings = {
       custom_only = true,
       list = {
@@ -89,6 +92,12 @@ require'nvim-tree'.setup {
 }
 EOF
 
+nnoremap <C-t> :m .+1<CR>==
+nnoremap <C-s> :m .-2<CR>==
+inoremap <C-t> <Esc>:m .+1<CR>==gi
+inoremap <C-s> <Esc>:m .-2<CR>==gi
+vnoremap <C-t> :m '>+1<CR>gv=gv
+vnoremap <C-s> :m '<-2<CR>gv=gv
 
 " Rigel bubbly theme
 let g:bubbly_palette = #{
