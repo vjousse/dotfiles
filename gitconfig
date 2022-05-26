@@ -11,7 +11,7 @@
 [core]
   editor = vim
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = /home/vjousse/dotfiles/gitignore_global
+	excludesfile = ~/.gitignore
 
 [web]
   browser = firefox
@@ -31,3 +31,10 @@
   # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
   # instead of a/b/c/d as prefixes for patches
   mnemonicprefix = true
+
+[alias]
+  changelog = "!f() { r=${1:-`git describe --tags --abbrev=0`..HEAD}; echo Changelog for $r; git log --reverse --no-merges --format='* %s' $r; }; f"
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
