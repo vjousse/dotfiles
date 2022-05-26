@@ -2,19 +2,11 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Make sure you use single quotes
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'sjbach/lusty'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'ElmCast/elm-vim'
-" Plug 'neomake/neomake'
-" Plug 'vim-syntastic/syntastic'
-" Plug 'davidhalter/jedi-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'rust-lang/rust.vim'
-" Plug 'tpope/vim-surround'
-" Plug 'tpope/vim-repeat'
-" Plug 'vim-crystal/vim-crystal'
 Plug 'pangloss/vim-javascript'
 Plug 'jparise/vim-graphql'
 Plug 'sheerun/vim-polyglot'
@@ -27,13 +19,9 @@ Plug 'brentyi/isort.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/goyo.vim'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
-"Plug 'autozimu/LanguageClient-neovim', {
-"    \ 'branch': 'next',
-"    \ 'do': 'bash install.sh',
-"    \ }
-"Plug 'hiphish/jinja.vim'
 Plug 'lepture/vim-jinja'
 " Add plugins to &runtimepath
+
 call plug#end()
 
 " == Color configuration
@@ -219,17 +207,6 @@ if exists(":Tabularize")
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
-
-" let g:jedi#completions_enabled = 0
-
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
 
 let g:svelte_preprocessors = ['typescript']
 
