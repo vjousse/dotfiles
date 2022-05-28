@@ -166,7 +166,7 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 " set shortmess+=c
 
-set signcolumn=number
+set signcolumn=auto
 
 
 " /== End Global conf

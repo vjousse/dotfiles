@@ -8,7 +8,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     done
     unset f
 fi
-pulseaudio --start
 /usr/bin/start-pulseaudio-x11
 
 setxkbmap fr bepo
@@ -26,5 +25,14 @@ xset r rate 280 50                          # Repeat keys way faster please
 # If not, modify default bindings for the macbook air keyboard
 $HOME/dotfiles/scripts/check-typematrix.zsh
 
+export XDG_SESSION_TYPE=x11
+export GDK_BACKEND=x11
+
 exec i3
 #exec gnome-session
+#exec startxfce4
+#export XDG_CURRENT_DESKTOP=Budgie:GNOME
+#exec budgie-desktop
+
+#exec gnome-session
+#exec mate-session

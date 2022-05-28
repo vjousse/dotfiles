@@ -309,6 +309,8 @@ nmap <leader>s :<C-U>exe "cprevious ".(v:count ? v:count : "")<cr>
 
 nmap <leader>d :!tig<cr>
 
+nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
+
 source ~/.vim/vimrc.bepo
 
 let g:elm_format_autosave = 1

@@ -1,8 +1,0 @@
-key_up = 's'
-key_down = 't'
-key_prev_column = 'c' 
-key_next_column = 'r' 
-
-key_edit_tags = 'E'
-key_toggle_repeat = 'R'
-key_toggle_consume = 'F'

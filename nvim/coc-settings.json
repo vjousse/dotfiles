@@ -1,11 +1,21 @@
 {
   "svelte.enable-ts-plugin": true,
   "rust-analyzer.server.path": "/bin/rust-analyzer",
+  "rust-analyzer.inlayHints.typeHints": true,
+  "coc.preferences.formatOnSaveFiletypes": ["python", "elm"],
+  "pyright.organizeimports.provider": "isort",
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
       "filetypes": ["elm"],
       "rootPatterns": ["elm.json"]
     }
-  }
+  },
+  // autopep8
+  //"python.formatting.autopep8Path": "~/.local/bin/autopep8",
+  // black
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "/bin/black",
+  // python
+  "python.sortImports.path": "/bin/isort"
 }

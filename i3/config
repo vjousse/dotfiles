@@ -232,7 +232,7 @@ default_border pixel 1
 #default_border normal
 
 # borders, lol
-hide_edge_borders both
+hide_edge_borders smart
 # smartborders and gaps
 #for_window [class="^.*"] border pixel 2
 #smart_borders on
