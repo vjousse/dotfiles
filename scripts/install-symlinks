@@ -19,27 +19,15 @@ link (){
 
 link tigrc ~/.tigrc
 link gitconfig ~/.gitconfig
-link vim ~/.vim
-link vim/vimrc ~/.vimrc
-link xcolors ~/.xcolors
 link xinitrc ~/.xinitrc
 link Xresources ~/.Xresources
 link zshrc ~/.zshrc
-link weechat ~/.weechat
 link tmux ~/.tmux
 link tmux/tmux.conf ~/.tmux.conf
 link scripts ~/.scripts
-mkdir -p ~/.config/solarized/
-link colors.ini ~/.config/solarized/colors.ini
 mkdir -p ~/.i3/
 mkdir -p ~/.config/i3status
 link i3/config ~/.i3/config
-link i3/statusbar/config ~/.config/i3status/config
 link alacritty/ ~/.config/alacritty
 link picom.conf ~/.config/picom.conf
-link polybar ~/.config/polybar
 link nvim ~/.config/nvim
-mkdir -p ~/.config/amfora
-link amfora ~/.config/amfora
-mkdir -p ~/.config/mutt
-link mutt ~/.config/mutt
