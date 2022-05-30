@@ -2,9 +2,9 @@
 
 let g:LustyExplorerDefaultMappings = 0
 
-nmap <silent> <Leader>lf :LustyFilesystemExplorer<CR>
-nmap <silent> <Leader>lr :LustyFilesystemExplorerFromHere<CR>
-nmap <silent> <Leader>lb :LustyBufferExplorer<CR>
+nmap <silent> <Leader>li :LustyFilesystemExplorer<CR>
+nmap <silent> <Leader>lu :LustyFilesystemExplorerFromHere<CR>
+nmap <silent> <Leader>la :LustyBufferExplorer<CR>
 
 " Elm
 let g:elm_format_autosave = 1
