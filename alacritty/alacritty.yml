@@ -96,7 +96,7 @@ font:
     style: Italic
 
   # Point size
-  size: 14.0
+  size: 8.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -460,8 +460,8 @@ key_bindings:
   - { key: Left,                        mode: Vi|~Search, action: Left                    }
   - { key: Right,                       mode: Vi|~Search, action: Right                   }
   - { key: Key0,                        mode: Vi|~Search, action: First                   }
-  - { key: Key4,   mods: Shift,         mode: Vi|~Search, action: Last                    }
-  - { key: Key6,   mods: Shift,         mode: Vi|~Search, action: FirstOccupied           }
+  - { key: L,   mods: Shift,         mode: Vi|~Search, action: Last                    }
+  - { key: D,   mods: Shift,         mode: Vi|~Search, action: FirstOccupied           }
   - { key: C,      mods: Shift,         mode: Vi|~Search, action: High                    }
   - { key: M,      mods: Shift,         mode: Vi|~Search, action: Middle                  }
   - { key: R,      mods: Shift,         mode: Vi|~Search, action: Low                     }
