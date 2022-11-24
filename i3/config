@@ -140,7 +140,7 @@ bindsym $mod+q workspace $ws1
 bindsym $mod+g workspace $ws2
 bindsym $mod+h workspace $ws3
 bindsym $mod+f workspace $ws4
-# bindsym $mod+ç workspace $ws5
+bindsym $mod+z workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
