@@ -1,4 +1,7 @@
 " == Global conf
+
+filetype plugin on
+
 let mapleader = " "
 set hidden
 
