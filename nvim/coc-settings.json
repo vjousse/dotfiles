@@ -1,21 +1,34 @@
 {
   "svelte.enable-ts-plugin": true,
+  "coc.preferences.willSaveHandlerTimeout": 1000,
   "rust-analyzer.server.path": "/bin/rust-analyzer",
   "rust-analyzer.inlayHints.typeHints": true,
-  "coc.preferences.formatOnSaveFiletypes": ["python", "elm"],
-  "pyright.organizeimports.provider": "isort",
+  "coc.preferences.formatOnSave": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "elm", "python"
+  ],
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
-      "filetypes": ["elm"],
-      "rootPatterns": ["elm.json"]
+      "filetypes": [
+        "elm"
+      ],
+      "rootPatterns": [
+        "elm.json"
+      ],
+      "trace.server": "verbose",
+      "initializationOptions": {
+        "elmPath": "elm",
+        "elmFormatPath": "elm-format",
+        "elmTestPath": "elm-test",
+        "disableElmLSDiagnostics": false,
+        "skipInstallPackageConfirmation": false
+      }
     }
   },
-  // autopep8
-  //"python.formatting.autopep8Path": "~/.local/bin/autopep8",
-  // black
+  "pyright.organizeimports.provider": "isort",
   "python.formatting.provider": "black",
-  "python.formatting.blackPath": "/bin/black",
-  // python
-  "python.sortImports.path": "/bin/isort"
+  "python.formatting.blackdHTTPHeaders": {
+    "X-Fast-Or-Safe": "fast"
+  }
 }
