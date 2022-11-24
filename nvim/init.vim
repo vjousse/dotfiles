@@ -5,7 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'sjbach/lusty'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'jparise/vim-graphql'
