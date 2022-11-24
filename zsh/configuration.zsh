@@ -18,12 +18,6 @@ export GIT_EDITOR='nvim'
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-eval "$(pyenv virtualenv-init -)"
-
 if type "keychain" > /dev/null; then
     eval $(keychain --eval -Q --nogui --quiet id_rsa)
 fi
@@ -40,3 +34,8 @@ else
     eval `ssh-agent | tee ~/.ssh/agent.env`
     ssh-add
 fi
+
+# https://github.com/pre-commit/pre-commit/issues/2178
+SETUPTOOLS_USE_DISTUTILS=stdlib
+
+. /opt/asdf-vm/asdf.sh
