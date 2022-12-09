@@ -1,12 +1,11 @@
 # Export common variables
 export CARGOBIN=$HOME/.cargo/bin
-export VOLTA_HOME="$HOME/.volta"
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/usr/src/python
 
 NPM_PACKAGES="${HOME}/.npm-packages"
 
-export PATH="$VOLTA_HOME/bin:$HOME/usr/bin:$DOTFILES/scripts:$HOME/.local/bin/:$CARGOBIN:$HOME/.yarn/bin:$NPM_PACKAGES/bin:$PATH"
+export PATH="$HOME/usr/bin:$DOTFILES/scripts:$HOME/.local/bin/:$CARGOBIN:$HOME/.yarn/bin:$NPM_PACKAGES/bin:$PATH"
 
 export PYTHONPATH=".:$PYTHONPATH"
 
@@ -38,4 +37,9 @@ fi
 # https://github.com/pre-commit/pre-commit/issues/2178
 SETUPTOOLS_USE_DISTUTILS=stdlib
 
-. /opt/asdf-vm/asdf.sh
+. $HOME/.asdf/asdf.sh
+
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
