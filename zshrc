@@ -11,7 +11,8 @@ antigen bundle extract
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-history-substring-search  
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-autosuggestions
 
 # Load the theme.
 antigen theme robbyrussell
@@ -29,9 +30,14 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# Bind Ctrl+n to accept autosuggest
+bindkey '^n' autosuggest-accept
+
 DOTFILES=$HOME/dotfiles
 
 [[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
 
 source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/configuration.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
