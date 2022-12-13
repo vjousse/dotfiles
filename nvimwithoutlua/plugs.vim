@@ -1,22 +1,27 @@
 " Lusty explorer conf
 
-let g:LustyExplorerDefaultMappings = 0
+" let g:LustyExplorerDefaultMappings = 0
 
-nmap <silent> <Leader>li :LustyFilesystemExplorer<CR>
-nmap <silent> <Leader>lu :LustyFilesystemExplorerFromHere<CR>
-nmap <silent> <Leader>la :LustyBufferExplorer<CR>
+" nmap <silent> <Leader>li :LustyFilesystemExplorer<CR>
+" nmap <silent> <Leader>lu :LustyFilesystemExplorerFromHere<CR>
+" nmap <silent> <Leader>la :LustyBufferExplorer<CR>
 
 " Elm
 let g:elm_format_autosave = 1
 
-let g:LanguageClient_serverCommands = {
-  \ 'elm': ['elm-language-server'],
-  \ }
+" let g:LanguageClient_serverCommands = {
+"  \ 'elm': ['elm-language-server'],
+"  \ }
 
-let g:LanguageClient_rootMarkers = {
-  \ 'elm': ['elm.json'],
-  \ }
+"let g:LanguageClient_rootMarkers = {
+"  \ 'elm': ['elm.json'],
+"  \ }
 
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fé <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Prettier Settings
 let g:prettier#quickfix_enabled = 0

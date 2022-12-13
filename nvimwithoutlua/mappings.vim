@@ -6,12 +6,12 @@ inoremap <C-s> <Esc>:m .-2<CR>==gi
 vnoremap <C-t> :m '>+1<CR>gv=gv
 vnoremap <C-s> :m '<-2<CR>gv=gv
 
-" Pressing ,/ will clear the search buffer
-nmap <silent> ,/ :let @/=""<CR>
+" Pressing <Leader>/ will clear the search buffer
+nmap <silent> <Leader>/ :let @/=""<CR>
 
 " Press i to enter insert mode, and ii to exit.
 " :inoremap éé <Esc>
-:inoremap ii <Esc>
+:inoremap éé <Esc>
 
 nnoremap <silent> <F11> :set spell!<cr>
 inoremap <silent> <F11> <C-O>:set spell!<cr>
