@@ -26,6 +26,9 @@ keymap("n", "<C-t>", "<C-w>j", opts)
 keymap("n", "<C-s>", "<C-w>k", opts)
 keymap("n", "<C-r>", "<C-w>l", opts)
 
+keymap("n", "<leader>e", ":NvimTreeFindFileToggle<cr>", opts)
+keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)
+
 -- Close window with Ctrl+a (bépo, q in azerty)
 keymap("n", "<C-a>", "<C-w>c", opts)
 
@@ -74,3 +77,9 @@ keymap("x", "<S-d>", ":move '<-2<CR>gv-gv", opts)
 -- Move text up and down with JK (TS bépo) in visual block mode
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
