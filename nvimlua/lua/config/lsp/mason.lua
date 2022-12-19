@@ -45,3 +45,13 @@ for _, server in pairs(servers) do
 
 	lspconfig[server].setup(opts)
 end
+
+lspconfig.sumneko_lua.setup({
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = {"vim"},
+      },
+    },
+  },
+})
