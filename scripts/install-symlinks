@@ -22,12 +22,10 @@ link gitconfig ~/.gitconfig
 link xinitrc ~/.xinitrc
 link Xresources ~/.Xresources
 link zshrc ~/.zshrc
-link tmux ~/.tmux
-link tmux/tmux.conf ~/.tmux.conf
 link scripts ~/.scripts
 mkdir -p ~/.i3/
-mkdir -p ~/.config/i3status
 link i3/config ~/.i3/config
 link alacritty/ ~/.config/alacritty
 link picom.conf ~/.config/picom.conf
 link nvim ~/.config/nvim
+link rofi ~/.config/rofi
