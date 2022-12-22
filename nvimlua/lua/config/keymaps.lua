@@ -19,6 +19,14 @@ vim.cmd [[set langmap=ba,éz,pe,or,èt,çy,vu,di,lo,jp,w$,z^,aq,us,id,ef,\\,g,ch
 --   command_mode = "c",
 
 -- Normal --
+
+
+-- When wrap is on, move visible line per visible line
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
+keymap("n", "0", "g0", opts)
+keymap("n", "$", "g$", opts)
+
 -- Better window navigation
 -- Bépo mapping
 keymap("n", "<C-c>", "<C-w>h", opts)
