@@ -52,6 +52,8 @@ return packer.startup(function(use)
     },
   }
   use "evanleck/vim-svelte"
+  use "lukas-reineke/indent-blankline.nvim"
+
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -87,6 +89,9 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
+
+  use "p00f/nvim-ts-rainbow"
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
