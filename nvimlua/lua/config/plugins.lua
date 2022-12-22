@@ -82,6 +82,12 @@ return packer.startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics and code actions
   use "RRethy/vim-illuminate"
 
+  -- Treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

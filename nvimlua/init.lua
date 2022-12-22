@@ -9,5 +9,6 @@ require "config.colorscheme"
 require "config.cmp"
 require "config.lsp"
 require "config.telescope"
+require "config.treesitter"
 
 require("nvim-tree").setup()
