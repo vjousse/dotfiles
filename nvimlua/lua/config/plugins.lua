@@ -53,6 +53,7 @@ return packer.startup(function(use)
   }
   use "evanleck/vim-svelte"
   use "lukas-reineke/indent-blankline.nvim"
+  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 
 
   -- cmp plugins

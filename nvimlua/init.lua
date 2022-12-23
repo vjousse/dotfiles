@@ -11,5 +11,6 @@ require "config.indentline"
 require "config.lsp"
 require "config.telescope"
 require "config.treesitter"
+require "config.autopairs"
 
 require("nvim-tree").setup()
