@@ -1,6 +1,6 @@
 local fn = vim.fn
 
--- Automatically install packer
+-- Automatically install packem
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
@@ -64,6 +64,13 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
+  }
+  use "JoosepAlviste/nvim-ts-context-commentstring"
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
