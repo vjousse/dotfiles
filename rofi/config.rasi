@@ -1,0 +1,8 @@
+configuration {
+	font: "FiraCode Nerd Font 12";
+	terminal: "alacritty";
+	drun-match-fields: "name";
+	sidebar-mode: true;
+	dpi: 192;
+}
+@theme "solarized_alternate"
