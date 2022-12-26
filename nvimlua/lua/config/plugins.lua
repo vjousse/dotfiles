@@ -45,6 +45,7 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used in lots of plugins
   use 'folke/tokyonight.nvim' -- Beautiful tokyonight theme
+  use "moll/vim-bbye" -- Add :Bdelete commande to replace :bd and avoid closing vim
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
@@ -54,6 +55,7 @@ return packer.startup(function(use)
   use "evanleck/vim-svelte"
   use "lukas-reineke/indent-blankline.nvim"
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use "akinsho/bufferline.nvim"
 
 
   -- cmp plugins
