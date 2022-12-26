@@ -94,6 +94,10 @@ return packer.startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics and code actions
   use "RRethy/vim-illuminate"
 
+
+  -- Git
+  use { "lewis6991/gitsigns.nvim", commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }
+
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
