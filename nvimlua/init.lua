@@ -13,5 +13,6 @@ require "config.telescope"
 require "config.treesitter"
 require "config.autopairs"
 require "config.bufferline"
+require "config.gitsigns"
 
 require("nvim-tree").setup()
