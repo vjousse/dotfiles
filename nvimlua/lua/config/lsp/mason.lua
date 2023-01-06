@@ -1,3 +1,4 @@
+-- List of servers here: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 local servers = {
   "cucumber_language_server",
   "elmls",
