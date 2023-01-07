@@ -42,3 +42,4 @@ vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters
 vim.opt.textwidth = 0 -- Hard-wrap long lines as you type them
 vim.opt.linebreak = true
 vim.opt.list = true -- List NBSP and special chars
+vim.opt.listchars = "tab:>\\ ,trail:-,extends:>,precedes:<,nbsp:+"
