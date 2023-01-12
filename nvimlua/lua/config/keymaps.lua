@@ -8,8 +8,9 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 --Bepo/Azerty langmap
-vim.cmd [[set langmap=ba,éz,pe,or,èt,çy,vu,di,lo,jp,w$,z^,aq,us,id,ef,\\,g,ch,tj,sk,rl,nm,mù,^*,ê<,àw,yx,xc,.v,kb,'n,q\\,,g\\;,h:,f!,BA,ÉZ,PE,OR,ÈT,ÇY,VU,DI,LO,FP,JP,Z£,AQ,US,ID,EF,?G,CH,TJ,SK,RL,NM,M%,!*,Ê>,ÀW,YX,XC,:V,KB,\\;G,QG,G.,H/,F§,@œ,_&,"é,«",»',((,)-,+è,-_,*ç,/à,=),%=,$Œ,^°,µ+,#“,{´,}~,<#,>{,\[\[,\]|,±`,¬\,×^,÷@,¯\],%}ba,éz,pe,or,èt,çy,vu,di,lo,jp,z^,aq,us,id,ef,\\,g,ch,tj,sk,rl,nm,mù,^*,ê<,yx,xc,.v,kb,'n,q\\,,g\\;,h:,f!,BA,ÉZ,PE,OR,ÈT,ÇY,VU,DI,LO,FP,JP,Z£,AQ,US,ID,EF,?G,CH,TJ,SK,RL,NM,M%,!*,Ê>,ÀW,YX,XC,:V,KB,\\;N,QG,G.,H/,F§,@œ,_&,"é,«",»',((,)-,+è,-_,*ç,/à,=),%=,$Œ,^°,µ+,#“,{´,}~,<#,>{,\[\[,\]|,±`,¬\,×^,÷@,¯\],%}]]
-
+vim.cmd(
+	[[set langmap=ba,éz,pe,or,èt,çy,vu,di,lo,jp,w$,z^,aq,us,id,ef,\\,g,ch,tj,sk,rl,nm,mù,^*,ê<,àw,yx,xc,.v,kb,'n,q\\,,g\\;,h:,f!,BA,ÉZ,PE,OR,ÈT,ÇY,VU,DI,LO,FP,JP,Z£,AQ,US,ID,EF,?G,CH,TJ,SK,RL,NM,M%,!*,Ê>,ÀW,YX,XC,:V,KB,\\;G,QG,G.,H/,F§,@œ,_&,"é,«",»',((,)-,+è,-_,*ç,/à,=),%=,$Œ,^°,µ+,#“,{´,}~,<#,>{,\[\[,\]|,±`,¬\,×^,÷@,¯\],%}ba,éz,pe,or,èt,çy,vu,di,lo,jp,z^,aq,us,id,ef,\\,g,ch,tj,sk,rl,nm,mù,^*,ê<,yx,xc,.v,kb,'n,q\\,,g\\;,h:,f!,BA,ÉZ,PE,OR,ÈT,ÇY,VU,DI,LO,FP,JP,Z£,AQ,US,ID,EF,?G,CH,TJ,SK,RL,NM,M%,!*,Ê>,ÀW,YX,XC,:V,KB,\\;N,QG,G.,H/,F§,@œ,_&,"é,«",»',((,)-,+è,-_,*ç,/à,=),%=,$Œ,^°,µ+,#“,{´,}~,<#,>{,\[\[,\]|,±`,¬\,×^,÷@,¯\],%}]]
+)
 
 -- Modes
 --   normal_mode = "n",
@@ -86,11 +87,11 @@ keymap("x", "<S-d>", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
-local builtin = require('telescope.builtin')
-keymap('n', '<leader>ff', builtin.find_files, {})
-keymap('n', '<leader>fg', builtin.live_grep, {})
-keymap('n', '<leader>fb', builtin.buffers, {})
-keymap('n', '<leader>fh', builtin.help_tags, {})
+local builtin = require("telescope.builtin")
+keymap("n", "<leader>ff", builtin.find_files, {})
+keymap("n", "<leader>fg", builtin.live_grep, {})
+keymap("n", "<leader>fb", builtin.buffers, {})
+keymap("n", "<leader>fh", builtin.help_tags, {})
 
 -- Formatting
-keymap('n', '<leader>fd', ":Format<cr>", opts)
+keymap("n", "<leader>fd", ":Format<cr>", opts)
