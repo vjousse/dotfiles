@@ -1,26 +1,26 @@
 -- List of servers here: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 local servers = {
-  "cucumber_language_server",
-  "elmls",
-  "graphql",
-  "html",
+	"cucumber_language_server",
+	"elmls",
+	"graphql",
+	"html",
 	"jsonls",
 	"pyright",
-  "rust_analyzer",
-  "sqlls",
+	"rust_analyzer",
+	"sqlls",
 	"sumneko_lua",
-  "svelte",
-  "tsserver",
-  "yamlls"
+	"svelte",
+	"tsserver",
+	"yamlls",
 }
 
 local settings = {
 	ui = {
 		border = "none",
 		icons = {
-      package_installed = "✓",
-      package_pending = "➜",
-      package_uninstalled = "✗",
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
 		},
 	},
 	log_level = vim.log.levels.INFO,
