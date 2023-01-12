@@ -12,7 +12,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
 	debug = false,
-  -- Add on save auto formatting
+	-- Add on save auto formatting
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -26,11 +26,32 @@ null_ls.setup({
 		end
 	end,
 	sources = {
-		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+		formatting.prettier.with({
+			--extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+			filetypes = {
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact",
+				"vue",
+				"css",
+				"scss",
+				"less",
+				"html",
+				"json",
+				"jsonc",
+				"yaml",
+				"markdown",
+				"markdown.mdx",
+				"graphql",
+				"handlebars",
+				"svelte",
+			},
+		}),
 		formatting.black.with({ extra_args = { "--fast" } }),
-    formatting.isort,
+		formatting.isort,
 		formatting.stylua,
-    formatting.elm_format,
-    diagnostics.pylint
+		formatting.elm_format,
+		diagnostics.pylint.with({ extra_args = { "--disable=C0114,C0115,C0116" } }),
 	},
 })
