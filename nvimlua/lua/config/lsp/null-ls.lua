@@ -52,6 +52,10 @@ null_ls.setup({
 		formatting.isort,
 		formatting.stylua,
 		formatting.elm_format,
-		diagnostics.pylint.with({ extra_args = { "--disable=C0114,C0115,C0116" } }),
+		formatting.rustfmt,
+		diagnostics.flake8.with({ extra_args = { "--ignore=E501,W503" } }),
+		-- For whatever reason I can't get pylint to work, it doesn't take into account my virtualenvs
+		-- Using flake8 instead
+		--diagnostics.pylint.with({ extra_args = { "--disable=C0114,C0115,C0116" } }),
 	},
 })
