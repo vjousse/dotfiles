@@ -30,3 +30,4 @@ mpd/mpdstate
 *=
 nvim/plugged/
 nvim/undodir/
+nvimlua/plugin/packer_compiled.lua
