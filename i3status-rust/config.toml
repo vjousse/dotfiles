@@ -1,33 +1,26 @@
+[theme]
 theme = "dracula"
-icons = "awesome"
+[icons]
+icons = "awesome5"
 
 [[block]]
 block = "music"
 player = "spotify"
-buttons = ["play", "next"]
-marquee = false
-dynamic_width = true
-
-[[block]]
-block = "net"
-format = "{ssid} {speed_down;K*b} {speed_up;K*b}"
-interval = 5
 
 [[block]]
 block = "disk_space"
 path = "/"
-alias = "/"
 info_type = "available"
-unit = "GB"
+alert_unit = "GB"
 interval = 20
 warning = 5.0
 alert = 2.0
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "{mem_used_percents}"
-format_swap = "{swap_used_percents}"
+#display_type = "memory"
+#format_mem = "{mem_used_percents}"
+#format_swap = "{swap_used_percents}"
 
 [[block]]
 block = "cpu"
@@ -49,4 +42,7 @@ format = "{percentage} {time}"
 [[block]]
 block = "time"
 interval = 5
-format = "%a %d/%m %R"
+
+[block.format]
+full = "$icon $timestamp.datetime(f:'%a %d/%m %R', l:fr_FR)"
+short = "$icon $timestamp.datetime(f:%R)"
