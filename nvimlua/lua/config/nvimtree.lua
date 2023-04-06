@@ -1,5 +1,8 @@
 require("nvim-tree").setup({
 	sort_by = "case_sensitive",
+	diagnostics = {
+		enable = true,
+	},
 	view = {
 		adaptive_size = true,
 		mappings = {
@@ -62,5 +65,8 @@ require("nvim-tree").setup({
 	},
 	filters = {
 		dotfiles = true,
+	},
+	update_focused_file = {
+		enable = true,
 	},
 })
