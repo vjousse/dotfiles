@@ -66,21 +66,29 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/cmp-emoji")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("hrsh7th/cmp-nvim-lsp-signature-help")
+	use("hrsh7th/cmp-vsnip")
+	use("hrsh7th/vim-vsnip")
 
 	-- Comments
 	use("numToStr/Comment.nvim")
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
+	use("danilamihailov/beacon.nvim")
 	-- Lua line
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+	})
 	-- Programming languages plugins
 	use("jparise/vim-graphql")
 
@@ -108,7 +116,15 @@ return packer.startup(function(use)
 		run = ":TSUpdate",
 	})
 
+	use({
+		"m-demare/hlargs.nvim",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+	})
+
 	use("p00f/nvim-ts-rainbow")
+
+	-- Email management plugin
+	use("https://git.sr.ht/~soywod/himalaya-vim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
