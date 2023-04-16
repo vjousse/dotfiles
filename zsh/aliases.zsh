@@ -76,4 +76,4 @@ alias to='todo.sh'
 alias tol='todo.sh ls'
 alias tod='todo.sh do'
 
-alias cat='bat'
+#alias cat='bat'

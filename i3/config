@@ -9,6 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+exec "xrandr --dpi 192"
 #exec --no-startup-id dunst
 #exec --no-startup-id /usr/lib/notification-daemon-1.0/notification-daemon
 exec --no-startup-id xss-lock -- /bin/i3lock-fancy
@@ -28,7 +29,7 @@ set $mod Mod1
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 10
+font pango:FiraCode Nerd Font 10
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -41,6 +42,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec /bin/alacritty
+#bindsym $mod+Return exec /bin/xterm
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -51,7 +53,7 @@ bindsym $mod+Shift+o exec /bin/i3lock-fancy
 # start dmenu (a program launcher)
 # bindsym $mod+space exec /home/vjousse/dotfiles/scripts/path-dmenu
 # bindsym $mod+space exec $HOME/dotfiles/i3/j4-dmenu-desktop.sh
-bindsym $mod+space exec "/bin/rofi -combi-modi window,drun,ssh -theme Arc-Dark -show combi"
+bindsym $mod+space exec "/bin/rofi -combi-modi window,drun,ssh -theme Arc-Dark -show combi -icon-theme Papirus -show-icons"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -201,13 +203,13 @@ bindsym $mod+a scratchpad show
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-
 bar {
     modifier Mod4
-    font pango:DejaVu Sans Mono, FontAwesome 8.9
+    font pango:FiraCode Nerd Font 9
     position bottom
-    height 16
-    status_command /bin/i3status-rs /home/vjousse/dotfiles/i3status-rust/config.toml
+    # Added by i3-gaps
+    height 32
+    status_command "/bin/i3status-rs /home/vjousse/dotfiles/i3status-rust/config.toml"
     colors {
         separator #666666
         background #222222
@@ -236,6 +238,11 @@ hide_edge_borders smart
 # smartborders and gaps
 #for_window [class="^.*"] border pixel 2
 #smart_borders on
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+floating_maximum_size 2000 x 2000
 
 set $bgb             #282a36
 set $bg             #282a36AA

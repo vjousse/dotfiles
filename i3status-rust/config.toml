@@ -1,7 +1,7 @@
 [theme]
 theme = "dracula"
 [icons]
-icons = "awesome5"
+icons = "awesome4"
 
 [[block]]
 block = "music"
@@ -29,7 +29,6 @@ interval = 1
 [[block]]
 block = "load"
 interval = 1
-format = "{1m}"
 
 [[block]]
 block = "sound"
@@ -37,7 +36,7 @@ block = "sound"
 [[block]]
 block = "battery"
 interval = 10
-format = "{percentage} {time}"
+format = "$icon  $percentage $time"
 
 [[block]]
 block = "time"

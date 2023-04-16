@@ -50,18 +50,18 @@ M.setup = function()
 		border = "rounded",
 	})
 
-  -- Automatically open floating window with diagnostic
-  -- see https://www.reddit.com/r/neovim/comments/tvy18v/check_if_floating_window_exists/
-  -- OpenDiagFloat = function ()
-  --   for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
-  --     if vim.api.nvim_win_get_config(winid).zindex then
-  --       return
-  --     end
-  --   end
-  --   vim.diagnostic.open_float({focusable = false})
-  -- end
+	-- Automatically open floating window with diagnostic
+	-- see https://www.reddit.com/r/neovim/comments/tvy18v/check_if_floating_window_exists/
+	-- OpenDiagFloat = function ()
+	--   for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+	--     if vim.api.nvim_win_get_config(winid).zindex then
+	--       return
+	--     end
+	--   end
+	--   vim.diagnostic.open_float({focusable = false})
+	-- end
 
-  -- vim.cmd([[autocmd CursorHold <buffer> lua OpenDiagFloat()]])
+	-- vim.cmd([[autocmd CursorHold <buffer> lua OpenDiagFloat()]])
 end
 
 local function lsp_keymaps(bufnr)
@@ -81,7 +81,7 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 	keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()']]
+	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()']])
 end
 
 M.on_attach = function(client, bufnr)
@@ -89,7 +89,7 @@ M.on_attach = function(client, bufnr)
 		client.server_capabilities.documentFormattingProvider = false
 	end
 
-	if client.name == "sumneko_lua" then
+	if client.name == "lua_ls" then
 		client.server_capabilities.documentFormattingProvider = false
 	end
 
