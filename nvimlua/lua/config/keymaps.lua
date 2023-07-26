@@ -8,10 +8,10 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 --Bepo/Azerty langmap
-vim.cmd(
-	[[set langmap=ba,éz,pe,or,èt,çy,vu,di,lo,jp,w$,z^,aq,us,id,ef,\\,g,ch,tj,sk,rl,nm,mù,^*,ê<,àw,yx,xc,.v,kb,'n,q\\,,g\\;,h:,f!,BA,ÉZ,PE,OR,ÈT,ÇY,VU,DI,LO,FP,JP,Z£,AQ,US,ID,EF,?G,CH,TJ,SK,RL,NM,M%,!*,Ê>,ÀW,YX,XC,:V,KB,\\;G,QG,G.,H/,F§,@œ,_&,"é,«",»',((,)-,+è,-_,*ç,/à,=),%=,$Œ,^°,µ+,#“,{´,}~,<#,>{,\[\[,\]|,±`,¬\,×^,÷@,¯\],%}ba,éz,pe,or,èt,çy,vu,di,lo,jp,z^,aq,us,id,ef,\\,g,ch,tj,sk,rl,nm,mù,^*,ê<,yx,xc,.v,kb,'n,q\\,,g\\;,h:,f!,BA,ÉZ,PE,OR,ÈT,ÇY,VU,DI,LO,FP,JP,Z£,AQ,US,ID,EF,?G,CH,TJ,SK,RL,NM,M%,!*,Ê>,ÀW,YX,XC,:V,KB,\\;N,QG,G.,H/,F§,@œ,_&,"é,«",»',((,)-,+è,-_,*ç,/à,=),%=,$Œ,^°,µ+,#“,{´,}~,<#,>{,\[\[,\]|,±`,¬\,×^,÷@,¯\],%}]]
-)
-
+-- vim.cmd(
+-- 	[[set langmap=ba,éz,pe,or,èt,çy,vu,di,lo,jp,w$,z^,aq,us,id,ef,\\,g,ch,tj,sk,rl,nm,mù,^*,ê<,àw,yx,xc,.v,kb,'n,q\\,,g\\;,h:,f!,BA,ÉZ,PE,OR,ÈT,ÇY,VU,DI,LO,FP,JP,Z£,AQ,US,ID,EF,?G,CH,TJ,SK,RL,NM,M%,!*,Ê>,ÀW,YX,XC,:V,KB,\\;G,QG,G.,H/,F§,@œ,_&,"é,«",»',((,)-,+è,-_,*ç,/à,=),%=,$Œ,^°,µ+,#“,{´,}~,<#,>{,\[\[,\]|,±`,¬\,×^,÷@,¯\],%}ba,éz,pe,or,èt,çy,vu,di,lo,jp,z^,aq,us,id,ef,\\,g,ch,tj,sk,rl,nm,mù,^*,ê<,yx,xc,.v,kb,'n,q\\,,g\\;,h:,f!,BA,ÉZ,PE,OR,ÈT,ÇY,VU,DI,LO,FP,JP,Z£,AQ,US,ID,EF,?G,CH,TJ,SK,RL,NM,M%,!*,Ê>,ÀW,YX,XC,:V,KB,\\;N,QG,G.,H/,F§,@œ,_&,"é,«",»',((,)-,+è,-_,*ç,/à,=),%=,$Œ,^°,µ+,#“,{´,}~,<#,>{,\[\[,\]|,±`,¬\,×^,÷@,¯\],%}]]
+-- )
+--
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",

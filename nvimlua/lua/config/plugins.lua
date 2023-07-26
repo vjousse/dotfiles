@@ -126,6 +126,8 @@ return packer.startup(function(use)
 	-- Email management plugin
 	use("https://git.sr.ht/~soywod/himalaya-vim")
 
+	use("cljoly/bepo.nvim")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

@@ -2,6 +2,13 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+local status_ok, bepo = pcall(require, "bepo")
+if not status_ok then
+	return
+end
+
+bepo.setup()
+
 require("config.options")
 require("config.keymaps")
 require("config.plugins")
