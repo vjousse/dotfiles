@@ -1,8 +1,8 @@
 ! Cursor theme
-Xcursor.theme: Adwaita
+!Xcursor.theme: Adwaita
 
 ! Colors
-#include "/home/vjousse/.xcolors/dracula.xcolors"
+!#include "/home/vjousse/.xcolors/dracula.xcolors"
 
 ! Fonts {{{
 Xft.antialias: true
@@ -10,56 +10,7 @@ Xft.hinting:   true
 Xft.rgba:      rgb
 Xft.hintstyle: hintfull
 !Xft.dpi:       180
-Xft.dpi:       96
+Xft.dpi:       192
+!Xft.dpi:       96
 ! }}}
-
-! Urxvt {{{
-!
-!urxvt.font: xft:DejaVu Sans Mono:size=6
-!urxvt.boldFont: xft:DejaVu Sans Mono:size=6
-
-urxvt.font: xft:Consolas:size=12
-!urxvt.font:  xft:Inconsolata:size=8
-!urxvt.boldFont:   xft:Inconsolata:size=8
-!urxvt.font:  xft:DejaVuSansMonoForPowerLine:size=12, \
-!             -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-
-!urxvt.boldFont:  xft:DejaVuSansMonoForPowerLine:size=10
-
-!urxvt.boldFont:  xft:DejaVuSansMonoForPowerLine:size=12, \
-!                 -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-
-!urxvt.boldFont:  xft:DejaVuSansMono:size=11
-!urxvt.font:  xft:DroidSansMono:size=11
-!urxvt.font:  xft:Monaco:size=10
-
-URxvt*scrollBar:  false
-URxvt*jumpScroll: true
-URxvt*skipScroll: true
-URxvt*saveLines:  32767
-URxvt*visualBell: false
-Urxvt.urgentOnBell: true
-
-URxvt*depth:       24
-URxvt*buffered:    true
-URxvt*transparent: false
-URxvt*shading:     100
-
-URxvt*intensityStyles: false
-URxvt*termName:        rxvt-unicode-256color
-URxvt.imLocale: en_US.utf8
-URxvt*background:  #2E3440
-URxvt*cursorBlink:     true
-
-!Stop using my shortcuts
-URxvt.searchable-scrollback: CM-s
-
-URxvt.perl-ext:      default,url-select,resize-font
-URxvt.keysym.M-u:    perl:url-select:select_next
-URxvt.url-select.launcher:   /bin/firefox-nightly -new-tab
-URxvt.url-select.underline: true
-
-URxvt.keysym.C-minus:     resize-font:smaller
-URxvt.keysym.C-plus:      resize-font:bigger
-URxvt.keysym.C-equal:     resize-font:reset
-URxvt.keysym.C-question:  resize-font:show
+xterm*faceName: xft:monospace:pixelsize=35
