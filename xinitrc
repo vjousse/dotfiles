@@ -15,11 +15,11 @@ setxkbmap fr bepo
 # Kill X with C-A-BS
 setxkbmap -option terminate:ctrl_alt_bksp
 
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+xrdb -merge ~/.Xresources
 xset s 300 300                              # set monitor to sleep
 xset -b                                     # Disable system bell
 xset r rate 280 50                          # Repeat keys way faster please
-#urxvtd -q -f -o                             # start urxvt server
+xrandr --dpi 192
 
 # Check if my TypeMatrix keyboard is connected
 # If not, modify default bindings for the macbook air keyboard
@@ -27,6 +27,8 @@ $HOME/dotfiles/scripts/check-typematrix.zsh
 
 export XDG_SESSION_TYPE=x11
 export GDK_BACKEND=x11
+
+#exec gnome-session
 
 exec i3
 #exec gnome-session
