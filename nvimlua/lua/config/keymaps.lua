@@ -23,8 +23,8 @@ vim.g.mapleader = " "
 -- Normal --
 
 -- When wrap is on, move visible line per visible line
-keymap("n", "j", "gj", opts)
-keymap("n", "k", "gk", opts)
+keymap("n", "t", "gj", opts)
+keymap("n", "s", "gk", opts)
 keymap("n", "0", "g0", opts)
 keymap("n", "$", "g$", opts)
 
@@ -50,8 +50,8 @@ keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 -- Navigate buffers
 -- <S-r> means capital R (Shift + R)
 -- Bépo mapping
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-r>", ":bnext<CR>", opts)
+keymap("n", "<S-c>", ":bprevious<CR>", opts)
 
 -- Clear highlights
 -- Bépo mapping
@@ -87,11 +87,12 @@ keymap("x", "<S-d>", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
-local builtin = require("telescope.builtin")
-keymap("n", "<leader>ff", builtin.find_files, {})
-keymap("n", "<leader>fg", builtin.live_grep, {})
-keymap("n", "<leader>fb", builtin.buffers, {})
-keymap("n", "<leader>fh", builtin.help_tags, {})
+local telescope_builtin = require("telescope.builtin")
+keymap("n", "<leader>ff", telescope_builtin.find_files, {})
+keymap("n", "<leader>fg", telescope_builtin.live_grep, {})
+keymap("n", "<leader>fb", telescope_builtin.buffers, {})
+keymap("n", "<leader>fh", telescope_builtin.help_tags, {})
+keymap("n", "<leader>fx", telescope_builtin.grep_string, {})
 
 -- Formatting
 keymap("n", "<leader>fd", ":Format<cr>", opts)

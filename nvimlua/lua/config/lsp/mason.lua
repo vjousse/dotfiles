@@ -23,7 +23,7 @@ local settings = {
 			package_uninstalled = "✗",
 		},
 	},
-	log_level = vim.log.levels.INFO,
+	log_level = vim.log.levels.DEBUG,
 	max_concurrent_installers = 4,
 }
 

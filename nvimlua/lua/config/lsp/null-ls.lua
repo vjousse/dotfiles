@@ -48,12 +48,12 @@ null_ls.setup({
 				"svelte",
 			},
 		}),
-		formatting.black.with({ extra_args = { "--fast" } }),
+		formatting.black.with({ extra_args = { "--line-length=88" } }),
 		formatting.isort,
 		formatting.stylua,
 		formatting.elm_format,
 		formatting.rustfmt,
-		diagnostics.flake8.with({ extra_args = { "--ignore=E501,W503" } }),
+		--diagnostics.flake8.with({ extra_args = { "--ignore=E501,W503", "--max-line-length=88" } }),
 		-- For whatever reason I can't get pylint to work, it doesn't take into account my virtualenvs
 		-- Using flake8 instead
 		--diagnostics.pylint.with({ extra_args = { "--disable=C0114,C0115,C0116" } }),

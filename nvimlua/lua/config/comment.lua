@@ -7,15 +7,15 @@ comment.setup({
 	---LHS of toggle mappings in NORMAL mode
 	toggler = {
 		---Line-comment toggle keymap
-		line = "gjj",
+		line = "gy",
 		---Block-comment toggle keymap
-		block = "ghj",
+		block = "gx",
 	},
 	---LHS of operator-pending mappings in NORMAL and VISUAL mode
 	opleader = {
 		---Line-comment keymap
-		line = "gj",
+		line = "gy",
 		---Block-comment keymap
-		block = "gh",
+		block = "gx",
 	},
 })
