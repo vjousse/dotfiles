@@ -37,9 +37,12 @@ fi
 # https://github.com/pre-commit/pre-commit/issues/2178
 SETUPTOOLS_USE_DISTUTILS=stdlib
 
-. $HOME/.asdf/asdf.sh
+eval "$(starship init zsh)"
+
+. "$HOME/.asdf/asdf.sh"
 
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
+
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
