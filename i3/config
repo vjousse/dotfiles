@@ -142,7 +142,7 @@ bindsym $mod+q workspace $ws1
 bindsym $mod+g workspace $ws2
 bindsym $mod+h workspace $ws3
 bindsym $mod+f workspace $ws4
-bindsym $mod+z workspace $ws5
+bindsym $mod+n workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
@@ -154,7 +154,7 @@ bindsym $mod+Control+q move container to workspace $ws1
 bindsym $mod+Control+g move container to workspace $ws2
 bindsym $mod+Control+h move container to workspace $ws3
 bindsym $mod+Control+f move container to workspace $ws4
-bindsym $mod+Control+5 move container to workspace $ws5
+bindsym $mod+Control+n move container to workspace $ws5
 bindsym $mod+Control+6 move container to workspace $ws6
 bindsym $mod+Control+7 move container to workspace $ws7
 bindsym $mod+Control+8 move container to workspace $ws8
