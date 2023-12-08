@@ -48,7 +48,7 @@ null_ls.setup({
 				"svelte",
 			},
 		}),
-		formatting.black.with({ extra_args = { "--line-length=88" } }),
+		formatting.black,
 		formatting.isort,
 		formatting.stylua,
 		formatting.elm_format,
