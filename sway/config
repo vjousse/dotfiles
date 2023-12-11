@@ -9,6 +9,8 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+set $mod Mod1
+
 #exec "xrandr --dpi 192"
 #exec --no-startup-id dunst
 #exec --no-startup-id /usr/lib/notification-daemon-1.0/notification-daemon
@@ -27,8 +29,33 @@ exec --no-startup-id nextcloud
 
 # https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+#exec systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+#exec dbus-update-activation-environment WAYLAND_DISPLAY
 
-set $mod Mod1
+exec systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment DISPLAY \
+                                         SWAYSOCK \
+                                         WAYLAND_DISPLAY \
+                                         XDG_CURRENT_DESKTOP
+
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY \
+                                                  SWAYSOCK \
+                                                  XDG_CURRENT_DESKTOP=sway \
+                                                  WAYLAND_DISPLAY
+
+
+set $lock swaylock --clock --indicator --screenshots --effect-scale 0.4 --effect-vignette 0.2:0.5 --effect-blur 4x2 --datestr "%a %e.%m.%Y" --timestr "%k:%M"
+
+exec swayidle -w \
+    timeout 300 $lock \
+    timeout 570 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep $lock
+
+
+set $lockman exec bash ~/.config/sway/lockman.sh
+bindsym $mod+z exec $lockman
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -255,6 +282,7 @@ hide_edge_borders smart
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
+for_window [app_id="signal"] floating enable
 
 floating_maximum_size 2000 x 2000
 
