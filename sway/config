@@ -284,11 +284,17 @@ client.placeholder $bg $bg $bg $bg
 output eDP-1 scale 2
 
 input "type:keyboard" {
-    # Modified programmer Dvorak. File at ~/.xkb/symbols/dvp_alt_gr_remapped_to_super
-    xkb_layout "bepo_with_ctrl_to_shift_and_shift_to_capslock"
+    xkb_layout "fr(bepo)"
 
     repeat_delay 280
     repeat_rate 50
+}
+
+input "1:1:AT_Translated_Set_2_keyboard" {
+    # Modified programmer Dvorak. File at ~/.xkb/symbols/dvp_alt_gr_remapped_to_super
+    xkb_layout "bepo_with_ctrl_to_shift_and_shift_to_capslock"
+    xkb_variant ""
+
 }
 
 output * bg #000000 solid_color
