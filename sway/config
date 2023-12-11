@@ -291,9 +291,9 @@ input "type:keyboard" {
 }
 
 input "1:1:AT_Translated_Set_2_keyboard" {
-    # Modified programmer Dvorak. File at ~/.xkb/symbols/dvp_alt_gr_remapped_to_super
+    # Use a modified Bépo mapping for my Dell keyboard.
+    # It's the default Bépo layout, but withr Caps lock remapped to Left Shift, and Left Shift to Control
     xkb_layout "bepo_with_ctrl_to_shift_and_shift_to_capslock"
-    xkb_variant ""
 
 }
 
