@@ -103,8 +103,8 @@ bindsym $mod+Shift+o exec /bin/i3lock-fancy
 # start dmenu (a program launcher)
 # bindsym $mod+space exec /home/vjousse/dotfiles/scripts/path-dmenu
 # bindsym $mod+space exec $HOME/dotfiles/i3/j4-dmenu-desktop.sh
-#bindsym $mod+space exec "/bin/rofi -combi-modi window,drun,ssh -theme Arc-Dark -show combi -icon-theme Papirus -show-icons"
-bindsym $mod+space exec wofi --show drun --allow-images -D key_down=Control_L -D key_up=Shift_L -D key_expand=Tab
+bindsym $mod+space exec "/bin/rofi -combi-modi window,drun,ssh -theme Arc-Dark -show combi -icon-theme Papirus -show-icons"
+#bindsym $mod+space exec wofi --show drun --allow-images -D key_down=Control_L -D key_up=Shift_L -D key_expand=Tab
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
