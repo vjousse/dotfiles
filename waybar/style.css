@@ -25,6 +25,7 @@ window#waybar {
 #clock.3,
 #pulseaudio,
 #memory,
+#network,
 #cpu,
 #battery,
 #disk,

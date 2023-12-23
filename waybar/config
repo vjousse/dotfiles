@@ -11,6 +11,10 @@
     ],
     "modules-right": [
       "custom/left-arrow-dark",
+
+    "network",
+    "custom/left-arrow-light",
+      "custom/left-arrow-dark",
     "pulseaudio",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
@@ -74,11 +78,11 @@
     },
     "memory": {
       "interval": 5,
-      "format": "Mem {}%"
+      "format": "  {}%"
     },
     "cpu": {
       "interval": 5,
-      "format": "⚙️ {usage:2}%"
+      "format": "  {usage:2}%"
     },
     "battery": {
       "states": {
@@ -99,6 +103,17 @@
       "interval": 5,
       "format": "🖴  {percentage_used:2}%",
       "path": "/"
+    },
+    "network": {
+        "format": "{ifname}",
+        "interval": 1,
+        "format-wifi": " {bandwidthUpOctets}↑ {bandwidthDownOctets}↓ {essid} ({signalStrength}%)  ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗 ",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
+        "tooltip-format-ethernet": "{ifname}  ",
+        "tooltip-format-disconnected": "Disconnected",
     },
     "tray": {
       "icon-size": 15
