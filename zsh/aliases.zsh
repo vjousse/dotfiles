@@ -14,13 +14,13 @@ alias -- -='cd -'
 alias _='sudo -E '
 
 alias psg='ps aux | grep'
-
-alias ls='ls -G --color=auto'
+alias ls='lsd -Fl'
 alias lsa='ls -G -lah --color=auto'
 alias l='ls -G -la --color=auto'
 alias ll='ls -G -al --color=auto'
 alias lr='ls -G -altr --color=auto'
 alias lrh='ls -G -altrh --color=auto'
+alias b='bat'
 
 #Preserve my lovely env when in root
 alias su='su -m'
