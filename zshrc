@@ -39,5 +39,3 @@ DOTFILES=$HOME/dotfiles
 
 source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/configuration.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
