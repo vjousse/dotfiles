@@ -31,7 +31,10 @@
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "clock#1",
-    "tray"
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "tray",
+    "privacy"
     ],
 
     "custom/left-arrow-dark": {
@@ -91,6 +94,8 @@
         "critical": 15
       },
       "format": "{icon}  {capacity}%",
+      "format-charging": "{capacity}% ",
+      "format-plugged": "{capacity}% ",
       "format-icons": [
         "",
       "",
@@ -107,8 +112,8 @@
     "network": {
         "format": "{ifname}",
         "interval": 1,
-        "format-wifi": " {bandwidthUpOctets}↑ {bandwidthDownOctets}↓ {essid} ({signalStrength}%)  ",
-        "format-ethernet": "{ipaddr}/{cidr} 󰊗 ",
+        "format-wifi": " ↑{bandwidthUpOctets} ↓{bandwidthDownOctets} {essid} ({signalStrength}%)  ",
+        "format-ethernet": " ↑{bandwidthUpOctets} ↓{bandwidthDownOctets} {ipaddr}/{cidr} 󰊗 ",
         "format-disconnected": "", //An empty format will hide the module.
         "tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
         "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
@@ -116,6 +121,29 @@
         "tooltip-format-disconnected": "Disconnected",
     },
     "tray": {
-      "icon-size": 15
-    }
+      "icon-size": 12,
+      "spacing": 5
+    },
+    "privacy": {
+      "icon-spacing": 4,
+      "icon-size": 18,
+      "transition-duration": 250,
+      "modules": [
+        {
+          "type": "screenshare",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        },
+        {
+          "type": "audio-out",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        },
+        {
+          "type": "audio-in",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        }
+      ]
+    },
 }

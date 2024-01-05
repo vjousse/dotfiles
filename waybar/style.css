@@ -40,6 +40,11 @@ window#waybar {
 #workspaces button.focused {
   color: #268bd2;
 }
+
+#workspaces button.urgent {
+  color: #b58900;
+}
+
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
