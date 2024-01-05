@@ -57,6 +57,16 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use("akinsho/bufferline.nvim")
 
+	use({
+		"Pocco81/true-zen.nvim",
+		config = function()
+			require("true-zen").setup({
+				-- your config goes here
+				-- or just leave it empty :)
+			})
+		end,
+	})
+
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
 	use("hrsh7th/cmp-buffer") -- buffer completions
