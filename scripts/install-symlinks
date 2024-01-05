@@ -29,3 +29,7 @@ link alacritty/ ~/.config/alacritty
 link picom.conf ~/.config/picom.conf
 link nvim ~/.config/nvim
 link rofi ~/.config/rofi
+link waybar ~/.config/waybar
+link sway ~/.config/sway
+link lsd ~/.config/lsd
+link kitty ~/.config/kitty

@@ -45,7 +45,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
                                                   WAYLAND_DISPLAY
 
 
-set $lock swaylock --clock --indicator --screenshots --effect-scale 0.4 --effect-vignette 0.2:0.5 --effect-blur 4x2 --datestr "%a %e.%m.%Y" --timestr "%k:%M"
+set $lock bash ~/.config/sway/lockman.sh
 
 exec swayidle -w \
     timeout 300 $lock \
@@ -54,8 +54,7 @@ exec swayidle -w \
     before-sleep $lock
 
 
-set $lockman exec bash ~/.config/sway/lockman.sh
-bindsym $mod+z exec $lockman
+bindsym $mod+z exec $lock
 
 # capture all screens to clipboard
 bindsym Shift+Print exec grim - | wl-copy
@@ -91,7 +90,7 @@ set $bg #000000
 client.unfocused        $bg         $bg$opacity $accent   $bg         $bg
 
 # start a terminal
-bindsym $mod+Return exec /bin/alacritty
+bindsym $mod+Return exec /usr/bin/kitty
 #bindsym $mod+Return exec /bin/xterm
 
 # kill focused window
