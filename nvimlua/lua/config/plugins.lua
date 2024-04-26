@@ -102,6 +102,8 @@ return packer.startup(function(use)
 	-- Programming languages plugins
 	use("jparise/vim-graphql")
 
+	use("mrcjkb/rustaceanvim")
+
 	use({
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
@@ -130,7 +132,7 @@ return packer.startup(function(use)
 		requires = { "nvim-treesitter/nvim-treesitter" },
 	})
 
-	use("p00f/nvim-ts-rainbow")
+	use("hiphish/rainbow-delimiters.nvim")
 
 	-- Email management plugin
 	use("https://git.sr.ht/~soywod/himalaya-vim")
