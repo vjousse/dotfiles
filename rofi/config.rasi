@@ -1,8 +1,15 @@
 configuration {
-	font: "FiraCode Nerd Font 12";
-	terminal: "alacritty";
-	drun-match-fields: "name";
-	sidebar-mode: true;
-	dpi: 192;
+  font: "FiraCode Nerd Font 10";
+  terminal: "alacritty";
+ 	drun-match-fields: "name";
+  sidebar-mode: true;
+  dpi: 192;
+  kb-element-next: "";
+  kb-mode-next: "Tab";
+  kb-element-next: "T";
+  kb-element-prev: "S";
+  kb-mode-next: "Control-s";
+  kb-mode-previous: "Control-t";
 }
+
 @theme "solarized_alternate"

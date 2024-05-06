@@ -1,4 +1,0 @@
-rofi.combi-modi:    window,drun,ssh,combi
-rofi.theme:         solarized
-rofi.font:          "FiraCode Nerd Font 12"
-rofi.modi:          combi
