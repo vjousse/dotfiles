@@ -35,7 +35,7 @@ bindkey '^n' autosuggest-accept
 
 DOTFILES=$HOME/dotfiles
 
-[[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
+eval "$(zoxide init zsh)"
 
 source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/configuration.zsh
