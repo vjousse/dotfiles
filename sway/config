@@ -44,6 +44,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
                                                   XDG_CURRENT_DESKTOP=sway \
                                                   WAYLAND_DISPLAY
 
+exec /home/vjousse/dotfiles/scripts/check-external-monitor.zsh
 
 set $lock bash ~/.config/sway/lockman.sh
 
@@ -63,7 +64,10 @@ bindsym Shift+Print exec grim - | wl-copy
 bindsym Shift+Alt+Print exec grim -g "$(slurp)" - | wl-copy
 
 # capture the focused monitor to clipboard
-bindsym Shift+Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
+#bindsym Shift+Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
+
+# Scheenshot the focused window
+bindsym Shift+Control+Print exec swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -g - ~/screenshot-focused.png
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -102,7 +106,7 @@ bindsym $mod+Shift+o exec /bin/i3lock-fancy
 # start dmenu (a program launcher)
 # bindsym $mod+space exec /home/vjousse/dotfiles/scripts/path-dmenu
 # bindsym $mod+space exec $HOME/dotfiles/i3/j4-dmenu-desktop.sh
-bindsym $mod+space exec "/bin/rofi -combi-modi window,drun,ssh -theme Arc-Dark -show combi -icon-theme Papirus -show-icons"
+bindsym $mod+space exec "/bin/rofi -modes run,ssh -combi-modi window,drun,ssh --allow-images -theme Arc-Dark -show combi -icon-theme Papirus -show-icons -D k"
 #bindsym $mod+space exec wofi --show drun --allow-images -D key_down=Control_L -D key_up=Shift_L -D key_expand=Tab
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -226,10 +230,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym t resize shrink width 10 px or 10 ppt
-        bindsym s resize grow height 10 px or 10 ppt
-        bindsym r resize shrink height 10 px or 10 ppt
-        bindsym n resize grow width 10 px or 10 ppt
+        bindsym c resize shrink width 10 px or 10 ppt
+        bindsym r resize grow height 10 px or 10 ppt
+        bindsym s resize shrink height 10 px or 10 ppt
+        bindsym t resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -305,6 +309,7 @@ client.urgent               $yw     $yw         $tx     $id
 client.placeholder $bg $bg $bg $bg
 
 output eDP-1 scale 2
+output DP-3 scale 1.5
 
 input "type:keyboard" {
     xkb_layout "fr(bepo)"
@@ -320,4 +325,5 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 
 }
 
-output * bg #000000 solid_color
+#output * bg #000000 solid_color
+output "*" bg /home/vjousse/Pictures/arch_pink.png fill
