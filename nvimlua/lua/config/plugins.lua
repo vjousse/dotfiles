@@ -127,6 +127,10 @@ return packer.startup(function(use)
 		run = ":TSUpdate",
 	})
 
+	use({ "stsewd/sphinx.nvim", run = ":UpdateRemotePlugins" })
+
+	use("nvim-treesitter/nvim-treesitter-context")
+
 	use({
 		"m-demare/hlargs.nvim",
 		requires = { "nvim-treesitter/nvim-treesitter" },
