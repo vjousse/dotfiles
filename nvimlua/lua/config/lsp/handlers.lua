@@ -93,6 +93,23 @@ M.on_attach = function(client, bufnr)
 		client.server_capabilities.documentFormattingProvider = false
 	end
 
+	-- Sort imports on save
+	-- Taken from https://github.com/astral-sh/ruff-lsp/issues/95
+	if client.name == "ruff_lsp" then
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			callback = function()
+				vim.lsp.buf.code_action({
+					context = {
+						diagnostics = vim.lsp.diagnostic.get_line_diagnostics(),
+						only = { "source.organizeImports" },
+					},
+					apply = true,
+				})
+				vim.wait(100)
+			end,
+		})
+	end
+
 	lsp_keymaps(bufnr)
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then

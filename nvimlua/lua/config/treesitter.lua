@@ -10,24 +10,25 @@ end
 
 configs.setup({
 	ensure_installed = {
+		"bash",
+		"dockerfile",
+		"gitignore",
+		"graphql",
+		"haskell",
+		"html",
+		"javascript",
+		"json",
 		"lua",
 		"markdown",
 		"markdown_inline",
-		"bash",
 		"python",
-		"graphql",
-		"javascript",
 		"rasi",
+		"rst",
 		"rust",
+		"svelte",
 		"typescript",
 		"vim",
 		"yaml",
-		"svelte",
-		"rst",
-		"html",
-		"json",
-		"gitignore",
-		"dockerfile",
 	}, -- put the language you want in this array
 	-- ensure_installed = "all", -- one of "all" or a list of languages
 	ignore_install = { "" }, -- List of parsers to ignore installing

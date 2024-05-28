@@ -5,7 +5,7 @@ local servers = {
 	"graphql",
 	--"html",
 	"jsonls",
-	"pyright",
+	"ruff_lsp",
 	"rust_analyzer",
 	"sqlls",
 	"lua_ls",

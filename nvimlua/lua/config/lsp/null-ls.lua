@@ -48,11 +48,9 @@ null_ls.setup({
 				"svelte",
 			},
 		}),
-		formatting.black,
 		formatting.isort,
 		formatting.stylua,
 		formatting.elm_format,
-		formatting.rustfmt,
 		--diagnostics.flake8.with({ extra_args = { "--ignore=E501,W503", "--max-line-length=88" } }),
 		-- For whatever reason I can't get pylint to work, it doesn't take into account my virtualenvs
 		-- Using flake8 instead

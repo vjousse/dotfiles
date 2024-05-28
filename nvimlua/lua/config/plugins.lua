@@ -102,8 +102,6 @@ return packer.startup(function(use)
 	-- Programming languages plugins
 	use("jparise/vim-graphql")
 
-	use("mrcjkb/rustaceanvim")
-
 	use({
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
@@ -115,7 +113,7 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/mason.nvim") -- simple to use language server installer
 	use("williamboman/mason-lspconfig.nvim") -- simple to use language server installer
-	use("jose-elias-alvarez/null-ls.nvim") -- LSP diagnostics and code actions
+	use("nvimtools/none-ls.nvim") -- LSP diagnostics and code actions
 	use("RRethy/vim-illuminate")
 
 	-- Git
@@ -129,7 +127,8 @@ return packer.startup(function(use)
 
 	use({ "stsewd/sphinx.nvim", run = ":UpdateRemotePlugins" })
 
-	use("nvim-treesitter/nvim-treesitter-context")
+	--use("nvim-treesitter/nvim-treesitter-context")
+	use("/home/vjousse/usr/src/vim/nvim-treesitter-context")
 
 	use({
 		"m-demare/hlargs.nvim",
@@ -137,9 +136,6 @@ return packer.startup(function(use)
 	})
 
 	use("hiphish/rainbow-delimiters.nvim")
-
-	-- Email management plugin
-	use("https://git.sr.ht/~soywod/himalaya-vim")
 
 	use("cljoly/bepo.nvim")
 
