@@ -45,6 +45,9 @@ map_all("J", "R")
 map_all("k", "s")
 map_all("K", "S")
 
+map_all("é", "w")
+map_all("É", "W")
+
 --Window
 map_normal("w", "<C-w>")
 map_normal("W", "<C-w><C-w>")
@@ -57,8 +60,8 @@ map_normal("wT", "<C-w>J")
 map_normal("wS", "<C-w>K")
 map_normal("wR", "<C-w>L")
 map_normal("wh", "<C-w>s")
-map_normal("w\195\169", "<C-w>t")
-map_normal("w\195\137", "<C-w>T")
+map_normal("wé", "<C-w>t")
+map_normal("wÉ", "<C-w>T")
 
 -- When wrap is on, move visible line per visible line
 keymap("n", "t", "gj", opts)
@@ -67,7 +70,7 @@ keymap("n", "0", "g0", opts)
 keymap("n", "$", "g$", opts)
 
 -- Redo
-keymap("n", "U", "<C-R>", opts)
+keymap("n", "U", "<C-R>", { silent = true, desc = "Redo" })
 
 -- Better window navigation
 -- Bépo mapping
