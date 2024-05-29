@@ -12,4 +12,5 @@ configuration {
   kb-mode-previous: "Control-t";
 }
 
-@theme "solarized_alternate"
+//@theme "solarized_alternate"
+@theme "/home/vjousse/.config/rofi/tokyonight.rasi"
