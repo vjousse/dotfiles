@@ -94,7 +94,7 @@ set $bg #000000
 client.unfocused        $bg         $bg$opacity $accent   $bg         $bg
 
 # start a terminal
-bindsym $mod+Return exec /usr/bin/kitty -o allow_remote_control=yes -o enabled_layouts=tall
+bindsym $mod+Return exec /usr/bin/wezterm
 #bindsym $mod+Return exec /bin/xterm
 
 # kill focused window
