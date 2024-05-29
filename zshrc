@@ -68,6 +68,9 @@ bindkey '^n' autosuggest-accept
 
 zinit light zdharma-continuum/fast-syntax-highlighting
 
+# Auto-activate/switch python venvs
+zinit wait lucid for MichaelAquilina/zsh-autoswitch-virtualenv
+
 
 #########################################################################
 # ALIASES
@@ -154,7 +157,7 @@ else
 fi
 
 
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 eval "$(/home/vjousse/.local/bin/mise activate zsh)"
 
 
