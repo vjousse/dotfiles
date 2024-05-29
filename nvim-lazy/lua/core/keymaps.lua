@@ -91,6 +91,12 @@ keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
+-- Navigate buffers
+-- <S-r> means capital R (Shift + R)
+-- Bépo mapping
+keymap("n", "<S-r>", ":bnext<CR>", opts)
+keymap("n", "<S-c>", ":bprevious<CR>", opts)
+
 -- Clear highlights
 -- Bépo mapping
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
