@@ -6,51 +6,68 @@ local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
 
+-- Taken from https://github.com/cljoly/bepo.nvim/blob/main/lua/bepo.lua
+local function map_text_object(key, target)
+	vim.api.nvim_set_keymap("o", key, target, { noremap = true })
+	vim.api.nvim_set_keymap("x", key, target, { noremap = true })
+	return nil
+end
+local function map_normal(key, target)
+	vim.api.nvim_set_keymap("n", key, target, { noremap = true })
+	return nil
+end
+local function map_all(key, target)
+	map_normal(key, target)
+	return map_text_object(key, target)
+end
 -- Bépo mappings
 -- Movements
-keymap("n", "c", "h", { noremap = true })
-keymap("n", "t", "j", { noremap = true })
-keymap("n", "s", "k", { noremap = true })
-keymap("n", "r", "l", { noremap = true })
-keymap("n", "C", "H", { noremap = true })
-keymap("n", "T", "J", { noremap = true })
-keymap("n", "S", "K", { noremap = true })
-keymap("n", "R", "L", { noremap = true })
-keymap("n", "gt", "gj", { noremap = true })
-keymap("n", "gs", "gk", { noremap = true })
-keymap("n", "zT", "zt", { noremap = true })
-keymap("n", "zt", "zj", { noremap = true })
-keymap("n", "zk", "zs", { noremap = true })
-keymap("n", "zs", "zk", { noremap = true })
-keymap("n", "h", "t", { noremap = true })
-keymap("n", "H", "T", { noremap = true })
-keymap("n", "l", "c", { noremap = true })
-keymap("n", "L", "C", { noremap = true })
-keymap("n", "j", "r", { noremap = true })
-keymap("n", "J", "R", { noremap = true })
-keymap("n", "k", "s", { noremap = true })
-keymap("n", "K", "S", { noremap = true })
+map_all("c", "h")
+map_all("t", "j")
+map_all("s", "k")
+map_all("r", "l")
+map_all("C", "H")
+map_all("T", "J")
+map_all("S", "K")
+map_all("R", "L")
+map_all("gt", "gj")
+map_all("gs", "gk")
+map_all("zT", "zt")
+map_all("zt", "zj")
+map_all("zk", "zs")
+map_all("zs", "zk")
+map_all("h", "t")
+map_all("H", "T")
+map_all("l", "c")
+map_all("L", "C")
+map_all("j", "r")
+map_all("J", "R")
+map_all("k", "s")
+map_all("K", "S")
 
 --Window
-keymap("n", "w", "<C-w>", { noremap = true })
-keymap("n", "W", "<C-w><C-w>", { noremap = true })
-keymap("n", "wc", "<C-w>h", { noremap = true })
-keymap("n", "wt", "<C-w>j", { noremap = true })
-keymap("n", "ws", "<C-w>k", { noremap = true })
-keymap("n", "wr", "<C-w>l", { noremap = true })
-keymap("n", "wC", "<C-w>H", { noremap = true })
-keymap("n", "wT", "<C-w>J", { noremap = true })
-keymap("n", "wS", "<C-w>K", { noremap = true })
-keymap("n", "wR", "<C-w>L", { noremap = true })
-keymap("n", "wh", "<C-w>s", { noremap = true })
-keymap("n", "w\195\169", "<C-w>t", { noremap = true })
-keymap("n", "w\195\137", "<C-w>T", { noremap = true })
+map_normal("w", "<C-w>")
+map_normal("W", "<C-w><C-w>")
+map_normal("wc", "<C-w>h")
+map_normal("wt", "<C-w>j")
+map_normal("ws", "<C-w>k")
+map_normal("wr", "<C-w>l")
+map_normal("wC", "<C-w>H")
+map_normal("wT", "<C-w>J")
+map_normal("wS", "<C-w>K")
+map_normal("wR", "<C-w>L")
+map_normal("wh", "<C-w>s")
+map_normal("w\195\169", "<C-w>t")
+map_normal("w\195\137", "<C-w>T")
 
 -- When wrap is on, move visible line per visible line
 keymap("n", "t", "gj", opts)
 keymap("n", "s", "gk", opts)
 keymap("n", "0", "g0", opts)
 keymap("n", "$", "g$", opts)
+
+-- Redo
+keymap("n", "U", "<C-R>", opts)
 
 -- Better window navigation
 -- Bépo mapping
