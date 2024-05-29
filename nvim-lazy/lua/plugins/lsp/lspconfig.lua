@@ -92,18 +92,21 @@ return {
 					filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
 				})
 			end,
-			["pyright"] = function()
-				-- configure graphql language server
-				lspconfig["pyright"].setup({
+			["pylsp"] = function()
+				-- configure pylsp language server
+				lspconfig["pylsp"].setup({
 					capabilities = capabilities,
 					settings = {
-						pyright = { autoImportCompletion = true },
-						python = {
-							analysis = {
-								autoSearchPaths = true,
-								diagnosticMode = "openFilesOnly",
-								useLibraryCodeForTypes = true,
-								typeCheckingMode = "off",
+						pylsp = {
+							plugins = {
+								pyflakes = { enabled = true },
+								pylint = { args = { "--ignore=E501,E231", "-" }, enabled = true, debounce = 200 },
+								pylsp_mypy = { enabled = true },
+								pycodestyle = {
+									enabled = true,
+									ignore = { "E501", "E231" },
+									maxLineLength = 120,
+								},
 							},
 						},
 					},

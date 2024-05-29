@@ -32,6 +32,7 @@ return {
 				"html",
 				"lua_ls",
 				"prismals",
+				"pylsp",
 				"ruff_lsp",
 				"rust_analyzer",
 				"sqlls",
