@@ -130,3 +130,7 @@ keymap("x", "<S-d>", ":move '<-2<CR>gv-gv", opts)
 -- Move text up and down with JK (TS bépo) in visual block mode
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+
+keymap("n", "<leader>i", function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
+end)

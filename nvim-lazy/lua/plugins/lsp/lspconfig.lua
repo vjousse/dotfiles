@@ -104,7 +104,7 @@ return {
 								pylsp_mypy = { enabled = true },
 								pycodestyle = {
 									enabled = true,
-									ignore = { "E501", "E231" },
+									ignore = { "E501", "E231", "W503" },
 									maxLineLength = 120,
 								},
 							},
@@ -127,6 +127,15 @@ return {
 							},
 						},
 					},
+				})
+			end,
+			["rust_analyzer"] = function()
+				-- configure lua server (with special settings)
+				lspconfig["rust_analyzer"].setup({
+					capabilities = capabilities,
+					on_attach = function(client, bufnr)
+						vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+					end,
 				})
 			end,
 			["svelte"] = function()
