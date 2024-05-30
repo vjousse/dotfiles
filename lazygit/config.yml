@@ -1,0 +1,163 @@
+# Keybindings
+keybinding:
+  universal:
+    quit: q
+    quit-alt1: <c-c>
+    return: <esc>
+    quitWithoutChangingDirectory: Q
+    togglePanel: <tab>
+    prevItem: <up>
+    nextItem: <down>
+    prevItem-alt: s
+    nextItem-alt: t
+    prevPage: ","
+    nextPage: .
+    scrollLeft: C
+    scrollRight: R
+    gotoTop: <
+    gotoBottom: ">"
+    toggleRangeSelect: v
+    rangeSelectDown: <s-down>
+    rangeSelectUp: <s-up>
+    prevBlock: <c-s>
+    nextBlock: <c-t>
+    prevBlock-alt: c
+    nextBlock-alt: r
+    nextBlock-alt2: <tab>
+    prevBlock-alt2: <backtab>
+    jumpToBlock:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+    nextMatch: "n"
+    prevMatch: "N"
+    startSearch: /
+    optionMenu: <disabled>
+    optionMenu-alt1: "?"
+    select: <space>
+    goInto: <enter>
+    confirm: <enter>
+    confirmInEditor: <a-enter>
+    remove: d
+    new: "n"
+    edit: e
+    openFile: o
+    scrollUpMain: <pgup>
+    scrollDownMain: <pgdown>
+    scrollUpMain-alt1: S
+    scrollDownMain-alt1: T
+    scrollUpMain-alt2: <c-S>
+    scrollDownMain-alt2: <c-D>
+    executeCustomCommand: ":"
+    createRebaseOptionsMenu: m
+
+    # 'Files' appended for legacy reasons
+    pushFiles: P
+
+    # 'Files' appended for legacy reasons
+    pullFiles: p
+    refresh: L
+    createPatchOptionsMenu: <c-p>
+    nextTab: "]"
+    prevTab: "["
+    nextScreenMode: +
+    prevScreenMode: _
+    undo: z
+    redo: <c-z>
+    filteringMenu: <c-s>
+    diffingMenu: W
+    diffingMenu-alt: <c-e>
+    copyToClipboard: <c-o>
+    openRecentRepos: <c-r>
+    submitEditorText: <enter>
+    extrasMenu: "@"
+    toggleWhitespaceInDiffView: <c-w>
+    increaseContextInDiffView: "}"
+    decreaseContextInDiffView: "{"
+    openDiffTool: <c-d>
+  status:
+    checkForUpdate: u
+    recentRepos: <enter>
+    allBranchesLogGraph: a
+  files:
+    commitChanges: c
+    commitChangesWithoutHook: w
+    amendLastCommit: A
+    commitChangesWithEditor: C
+    findBaseCommitForFixup: <c-f>
+    confirmDiscard: x
+    ignoreFile: i
+    refreshFiles: r
+    stashAllChanges: s
+    viewStashOptions: S
+    toggleStagedAll: a
+    viewResetOptions: D
+    fetch: f
+    toggleTreeView: "`"
+    openMergeTool: M
+    openStatusFilter: <c-b>
+    copyFileInfoToClipboard: "y"
+  branches:
+    createPullRequest: o
+    viewPullRequestOptions: O
+    copyPullRequestURL: <c-y>
+    checkoutBranchByName: c
+    forceCheckoutBranch: F
+    rebaseBranch: r
+    renameBranch: R
+    mergeIntoCurrentBranch: M
+    viewGitFlowOptions: i
+    fastForward: f
+    createTag: T
+    pushTag: P
+    setUpstream: u
+    fetchRemote: f
+    sortOrder: s
+  worktrees:
+    viewWorktreeOptions: w
+  commits:
+    squashDown: s
+    renameCommit: r
+    renameCommitWithEditor: R
+    viewResetOptions: g
+    markCommitAsFixup: f
+    createFixupCommit: F
+    squashAboveCommits: S
+    moveDownCommit: <c-j>
+    moveUpCommit: <c-k>
+    amendToCommit: A
+    resetCommitAuthor: a
+    pickCommit: p
+    revertCommit: t
+    cherryPickCopy: C
+    pasteCommits: V
+    markCommitAsBaseForRebase: B
+    tagCommit: T
+    checkoutCommit: <space>
+    resetCherryPick: <c-R>
+    copyCommitAttributeToClipboard: "y"
+    openLogMenu: <c-l>
+    openInBrowser: o
+    viewBisectOptions: b
+    startInteractiveRebase: i
+  amendAttribute:
+    resetAuthor: a
+    setAuthor: A
+    addCoAuthor: c
+  stash:
+    popStash: g
+    renameStash: r
+  commitFiles:
+    checkoutCommitFile: c
+  main:
+    toggleSelectHunk: a
+    pickBothHunks: b
+    editSelectHunk: E
+  submodules:
+    init: i
+    update: u
+    bulkMenu: b
+  commitMessage:
+    commitMenu: <c-o>
