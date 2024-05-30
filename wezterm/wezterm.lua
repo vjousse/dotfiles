@@ -5,6 +5,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
+--
 
 -- For example, changing the color scheme:
 config.color_scheme = "Tokyo Night"
@@ -21,6 +22,22 @@ config.keys = {
 
 	-- paste from the primary selection
 	{ key = "V", mods = "CTRL|SHIFT", action = wezterm.action.PasteFrom("PrimarySelection") },
+
+	{
+		key = "L",
+		mods = "SHIFT|CTRL",
+		action = wezterm.action.QuickSelectArgs({
+			label = "open url",
+			patterns = {
+				"https?://\\S+",
+			},
+			action = wezterm.action_callback(function(window, pane)
+				local url = window:get_selection_text_for_pane(pane)
+				wezterm.log_info("opening: " .. url)
+				wezterm.open_with(url)
+			end),
+		}),
+	},
 }
 
 -- and finally, return the configuration to wezterm
