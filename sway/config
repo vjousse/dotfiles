@@ -219,8 +219,6 @@ bindsym $mod+Control+0 move container to workspace $ws10
 bindsym $mod+Shift+x reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+p exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -312,7 +310,7 @@ output eDP-1 scale 2
 output DP-3 scale 1.5
 
 input "type:keyboard" {
-    xkb_layout "fr(bepo)"
+    xkb_layout "fr(bepo)","custom"
 
     repeat_delay 280
     repeat_rate 50

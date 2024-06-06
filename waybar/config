@@ -30,6 +30,9 @@
     "disk",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
+    "custom/layout",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
     "clock#1",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
@@ -65,7 +68,7 @@
     },
 
     "pulseaudio": {
-      "format": "{icon} {volume:2}%",
+      "format": "{icon}  {volume:2}%",
       "format-bluetooth": "{icon}  {volume}%",
       "format-muted": "MUTE",
       "format-icons": {
@@ -123,6 +126,11 @@
     "tray": {
       "icon-size": 12,
       "spacing": 5
+    },
+    "custom/layout": {
+        "exec": "~/dotfiles/scripts/get-current-layout.zsh",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+        "interval": 1,
     },
     "privacy": {
       "icon-spacing": 4,
