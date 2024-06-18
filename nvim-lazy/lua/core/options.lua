@@ -41,3 +41,6 @@ opt.swapfile = false
 opt.undofile = true -- enable persistent undo
 
 opt.iskeyword:append("-") -- treats words with `-` as single words
+
+opt.list = true
+opt.listchars:append({ nbsp = "␣", trail = "•", precedes = "«", extends = "»", tab = "> " })
