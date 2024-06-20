@@ -40,7 +40,7 @@ map_all("h", "t")
 map_all("H", "T")
 map_all("l", "c")
 map_all("L", "C")
-map_all("j", "r")
+map_all("j", "r") -- Replace character under cursor
 map_all("J", "R")
 map_all("k", "s")
 map_all("K", "S")

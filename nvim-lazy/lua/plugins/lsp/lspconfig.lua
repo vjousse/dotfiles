@@ -4,7 +4,7 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
-		{ "folke/neodev.nvim", opts = {} },
+		{ "folke/lazydev.nvim", opts = {} },
 	},
 	config = function()
 		-- import lspconfig plugin
@@ -99,7 +99,7 @@ return {
 					settings = {
 						pylsp = {
 							plugins = {
-								pyflakes = { enabled = true },
+								pyflakes = { enabled = false },
 								pylint = { args = { "--ignore=E501,E231", "-" }, enabled = true, debounce = 200 },
 								pylsp_mypy = { enabled = true },
 								pycodestyle = {
