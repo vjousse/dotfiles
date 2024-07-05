@@ -34,8 +34,8 @@ config.keys = {
 	-- paste from the primary selection
 	{ key = "V", mods = "CTRL|SHIFT", action = wezterm.action.PasteFrom("PrimarySelection") },
 
-	{ key = "b", mods = "CTRL", action = wezterm.action.ScrollByPage(-1) },
-	{ key = "f", mods = "CTRL", action = wezterm.action.ScrollByPage(1) },
+	{ key = "b", mods = "ALT|SHIFT", action = wezterm.action.ScrollByPage(-1) },
+	{ key = "p", mods = "ALT|SHIFT", action = wezterm.action.ScrollByPage(1) },
 
 	{ key = "s", mods = "CTRL|SHIFT", action = act.ScrollToPrompt(-1) },
 	{ key = "t", mods = "CTRL|SHIFT", action = act.ScrollToPrompt(1) },
