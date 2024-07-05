@@ -310,7 +310,7 @@ output eDP-1 scale 2
 output DP-3 scale 1.5
 
 input "type:keyboard" {
-    xkb_layout "fr(bepo)","custom"
+    xkb_layout "fr(bepo)","custom","fr"
 
     repeat_delay 280
     repeat_rate 50
