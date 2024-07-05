@@ -93,6 +93,7 @@ alias -- -='cd -'
 alias _='sudo -E '
 
 alias psg='ps aux | grep'
+alias lg='lazygit'
 alias ls='lsd -Fl'
 alias lsa='ls -G -lah --color=auto'
 alias l='ls -G -la --color=auto'
