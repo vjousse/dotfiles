@@ -1,81 +1,113 @@
 * {
+  border: none;
+  border-radius: 0;
+  font-family: "FiraCode Nerd Font";
   font-size: 12px;
-  font-family: monospace;
   min-height: 0;
 }
 
 window#waybar {
-  background: #292b2e;
-  color: #fdf6e3;
+  background: transparent;
+  color: white;
 }
 
-#custom-right-arrow-dark,
-#custom-left-arrow-dark {
-  color: #1a1a1a;
+#workspaces {
+  background-color: #24283b;
+  margin: 5px;
+  margin-left: 5px;
+  border-radius: 5px;
 }
-#custom-right-arrow-light,
-#custom-left-arrow-light {
-  color: #292b2e;
-  background: #1a1a1a;
-}
-
-#workspaces,
-#clock.1,
-#clock.2,
-#clock.3,
-#pulseaudio,
-#memory,
-#network,
-#cpu,
-#battery,
-#disk,
-#tray {
-  background: #1a1a1a;
-}
-
 #workspaces button {
-  padding: 0 2px;
-  color: #fdf6e3;
+  padding: 0px 15px 0px 10px;
+  color: #c0caf5;
 }
+
 #workspaces button.focused {
-  color: #268bd2;
+  color: #24283b;
+  background-color: #7aa2f7;
+  border-radius: 5px;
+}
+
+#workspaces button:hover {
+  background-color: #7dcfff;
+  color: #24283b;
+  border-radius: 5px;
 }
 
 #workspaces button.urgent {
-  color: #b58900;
+  color: #db4b4b;
 }
 
-#workspaces button:hover {
-  box-shadow: inherit;
-  text-shadow: inherit;
+#custom-date,
+#clock,
+#battery,
+#disk,
+#pulseaudio,
+#custom-layout,
+#network {
+  background-color: #24283b;
+  padding: 5px 10px;
+  margin: 5px 0px;
 }
-#workspaces button:hover {
-  background: #1a1a1a;
-  border: #1a1a1a;
-  padding: 0 3px;
+
+#custom-date {
+  color: #7dcfff;
+}
+
+#tray {
+  background-color: #1f2335;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  padding: 5px 10px;
+}
+
+#custom-power {
+  color: #24283b;
+  background-color: #db4b4b;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  padding: 5px 10px;
+}
+
+#custom-layout {
+  color: #b48ead;
+}
+
+#clock {
+  color: #c0caf5;
+  border-radius: 0px 5px 5px 0px;
+  margin-right: 10px;
+}
+
+#battery {
+  color: #9ece6a;
+}
+
+#battery.charging {
+  color: #9ece6a;
+}
+
+#battery.warning:not(.charging) {
+  background-color: #f7768e;
+  color: #24283b;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#network {
+  color: #f7768e;
+  border-radius: 5px 0px 0px 5px;
 }
 
 #pulseaudio {
-  color: #268bd2;
-}
-#memory {
-  color: #2aa198;
-}
-#cpu {
-  color: #6c71c4;
-}
-#battery {
-  color: #859900;
-}
-#disk {
-  color: #b58900;
+  color: #e0af68;
 }
 
-#clock,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
 #disk {
-  padding: 0 10px;
+  color: #7aa2f7;
 }

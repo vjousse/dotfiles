@@ -84,14 +84,18 @@ font pango:FiraCode Nerd Font 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Style
+default_border pixel 0
+titlebar_border_thickness 0
+gaps outer 5
+gaps inner 5
 
-# Opacity as a value from 00 to FF
-set $opacity FF
-set $accent #cc0000
-set $bg #000000
-
-# Window type           bar border  bar bg      text    indicator   window border
-client.unfocused        $bg         $bg$opacity $accent   $bg         $bg
+## Window decoration
+# class                 border  backgr. text    indicator child_border
+client.focused          #7aa2f7 #394b70 #c0caf5 #7dcfff   #7aa2f7
+client.focused_inactive #7aa2f7 #394b70 #c0caf5 #7dcfff   #7aa2f7
+client.unfocused        #414868 #24283b #a9b1d6 #7dcfff   #414868
+client.urgent           #e0af68 #e0af68 #1d202f #7dcfff   #e0af68
 
 # start a terminal
 bindsym $mod+Return exec /usr/bin/wezterm
@@ -263,10 +267,6 @@ bar {
 # bindsym XF86AudioLowerVolume exec --no-startup-id /home/vjousse/dotfiles/scripts/volume_pa.pl 1 down 4 && killall -SIGUSR1 i3status
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 
-# Window title bar colors
-# class                 border  backgr. text    indicator
-client.focused          #586e75 #002b36 #839496 #586e75
-
 
 default_border pixel 1
 #default_border normal
@@ -282,29 +282,6 @@ for_window [window_role="task_dialog"] floating enable
 for_window [app_id="signal"] floating enable
 
 floating_maximum_size 2000 x 2000
-
-set $bgb             #282a36
-set $bg             #282a36AA
-set $fg             #f8f8f2
-set $tf             #f8f8f2AA
-set $hi             #f1fa7c
-set $tx             #040404
-set $pk             #ff79c6
-# yellow
-set $yw             #f1fa7c
-# green
-set $gn             #50fa7b
-# # red
-set $rd             #ff5555
-set $id             #ff79c6
-#
-# # set some nice colors      border  background  text  indicator
-client.focused              $bg     $bgb         $fg     $id
-client.unfocused            $bg     $bg         $tf     $id
-client.focused_inactive     $bg     $bg         $pk     $id
-client.urgent               $yw     $yw         $tx     $id
-#border & indicator are ignored
-client.placeholder $bg $bg $bg $bg
 
 output eDP-1 scale 2
 output DP-3 scale 1.5

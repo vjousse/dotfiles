@@ -33,3 +33,4 @@ link waybar ~/.config/waybar
 link sway ~/.config/sway
 link lsd ~/.config/lsd
 link kitty ~/.config/kitty
+link swaynag ~/.config/swaynag

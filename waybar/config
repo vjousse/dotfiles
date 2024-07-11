@@ -1,157 +1,66 @@
-// -*- mode: json -*-
-
 {
-  "layer": "top",
-    "position": "bottom",
-    "height": 12,
+  "position": "bottom", 
+  "height": 30,
+  "modules-left": ["sway/workspaces"],
+  "modules-right": ["network", "pulseaudio", "battery", "disk", "custom/date", "custom/layout", "clock", "tray", "custom/power"],
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "format": "{icon}",
+  },
+  "custom/power": {
+    "format": "󰐥",
+    "on-click": "$HOME/dotfiles/scripts/sway-power.sh"
+  },
+  "clock": {
+    "format": "󰅐 {:%a %d-%m-%Y %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰂄{capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-full": "󱈑 {capacity}%",
+    "format-icons": ["󱊡", "󱊢", "󱊣"]
+  },
+  "network": {
+    "format-wifi": "↑ {bandwidthUpOctets} ↓ {bandwidthDownOctets}   {essid}",
+    "format-ethernet": "↑ {bandwidthUpOctets} ↓ {bandwidthDownOctets} {ifname}: {ipaddr}/{cidr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "󰤮 Disconnected",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
 
-    "modules-left": [
-      "sway/workspaces",
-    "custom/right-arrow-dark"
-    ],
-    "modules-right": [
-      "custom/left-arrow-dark",
-
-    "network",
-    "custom/left-arrow-light",
-      "custom/left-arrow-dark",
-    "pulseaudio",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
-    "memory",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
-    "cpu",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
-    "battery",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
-    "disk",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
-    "custom/layout",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
-    "clock#1",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
-    "tray",
-    "privacy"
-    ],
-
-    "custom/left-arrow-dark": {
-      "format": "",
-      "tooltip": false
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰖁 Muted",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
     },
-    "custom/left-arrow-light": {
-      "format": "",
-      "tooltip": false
-    },
-    "custom/right-arrow-dark": {
-      "format": "",
-      "tooltip": false
-    },
-    "custom/right-arrow-light": {
-      "format": "",
-      "tooltip": false
-    },
-
-    "sway/workspaces": {
-      "disable-scroll": true,
-      "format": "{icon} "
-    },
-
-    "clock#1": {
-      "format": "{:%a %d-%m-%Y %H:%M}",
-      "tooltip": false
-    },
-
-    "pulseaudio": {
-      "format": "{icon}  {volume:2}%",
-      "format-bluetooth": "{icon}  {volume}%",
-      "format-muted": "MUTE",
-      "format-icons": {
-        "headphones": "",
-        "default": [
-          "",
-        ""
-        ]
-      },
-      "scroll-step": 5,
-      "on-click": "pamixer -t",
-      "on-click-right": "pavucontrol"
-    },
-    "memory": {
-      "interval": 5,
-      "format": "  {}%"
-    },
-    "cpu": {
-      "interval": 5,
-      "format": "  {usage:2}%"
-    },
-    "battery": {
-      "states": {
-        "good": 95,
-        "warning": 30,
-        "critical": 15
-      },
-      "format": "{icon}  {capacity}%",
-      "format-charging": "{capacity}% ",
-      "format-plugged": "{capacity}% ",
-      "format-icons": [
-        "",
-      "",
-      "",
-      "",
-      ""
-      ]
-    },
-    "disk": {
-      "interval": 5,
-      "format": "🖴  {percentage_used:2}%",
-      "path": "/"
-    },
-    "network": {
-        "format": "{ifname}",
-        "interval": 1,
-        "format-wifi": " ↑{bandwidthUpOctets} ↓{bandwidthDownOctets} {essid} ({signalStrength}%)  ",
-        "format-ethernet": " ↑{bandwidthUpOctets} ↓{bandwidthDownOctets} {ipaddr}/{cidr} 󰊗 ",
-        "format-disconnected": "", //An empty format will hide the module.
-        "tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
-        "tooltip-format-ethernet": "{ifname}  ",
-        "tooltip-format-disconnected": "Disconnected",
-    },
-    "tray": {
-      "icon-size": 12,
-      "spacing": 5
-    },
-    "custom/layout": {
-        "exec": "~/dotfiles/scripts/get-current-layout.zsh",
-        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
-        "interval": 1,
-    },
-    "privacy": {
-      "icon-spacing": 4,
-      "icon-size": 18,
-      "transition-duration": 250,
-      "modules": [
-        {
-          "type": "screenshare",
-          "tooltip": true,
-          "tooltip-icon-size": 24
-        },
-        {
-          "type": "audio-out",
-          "tooltip": true,
-          "tooltip-icon-size": 24
-        },
-        {
-          "type": "audio-in",
-          "tooltip": true,
-          "tooltip-icon-size": 24
-        }
-      ]
-    },
+  },
+  "tray": {
+    "icon-size": 12,
+    "spacing": 5
+  },
+  "custom/layout": {
+    "exec": "~/dotfiles/scripts/get-current-layout.zsh",
+    "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+    "interval": 1,
+  },
+  "disk": {
+    "interval": 5,
+    "format": "  {percentage_used:2}%",
+    "path": "/"
+  },
 }
