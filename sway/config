@@ -47,16 +47,15 @@ font pango:FiraCode Nerd Font 10
 floating_modifier $mod
 
 # Style
-default_border pixel 0
 titlebar_border_thickness 0
-gaps outer 5
-gaps inner 5
+gaps outer 0
+gaps inner 0
 
 ## Window decoration
 # class                 border  backgr. text    indicator child_border
-client.focused          #7aa2f7 #394b70 #c0caf5 #7dcfff   #7aa2f7
-client.focused_inactive #7aa2f7 #394b70 #c0caf5 #7dcfff   #7aa2f7
-client.unfocused        #414868 #24283b #a9b1d6 #7dcfff   #414868
+client.focused          #7aa2f7 #292e42 #c0caf5 #7dcfff   #7aa2f7
+client.focused_inactive #7aa2f7 #292e42 #c0caf5 #7dcfff   #7aa2f7
+client.unfocused        #414868 #1f2335 #a9b1d6 #7dcfff   #414868
 client.urgent           #e0af68 #e0af68 #1d202f #7dcfff   #e0af68
 
 # start a terminal
