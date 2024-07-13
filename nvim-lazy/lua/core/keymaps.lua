@@ -99,7 +99,7 @@ keymap("n", "<S-c>", ":bprevious<CR>", opts)
 
 -- Clear highlights
 -- Bépo mapping
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+keymap("n", "<leader>h", "<cmd>nohl<CR>", opts)
 
 -- Close buffers
 -- Bépo mapping
