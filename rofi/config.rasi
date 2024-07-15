@@ -1,6 +1,6 @@
 configuration {
   font: "FiraCode Nerd Font 10";
-  terminal: "alacritty";
+  terminal: "wezterm";
  	drun-match-fields: "name";
   sidebar-mode: true;
   dpi: 192;
@@ -11,6 +11,3 @@ configuration {
   kb-mode-next: "Control-s";
   kb-mode-previous: "Control-t";
 }
-
-//@theme "solarized_alternate"
-@theme "/home/vjousse/.config/rofi/tokyonight.rasi"

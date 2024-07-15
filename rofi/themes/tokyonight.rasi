@@ -1,6 +1,6 @@
 /*
  * Tokyonight colorscheme for rofi
- * User: w8ste
+ * User: vjousse
  */
 
 
@@ -20,23 +20,11 @@
     transparent: rgba(46,52,64,0);
 }
 
-// defines different aspects of the window
-window {
-    width: 700;
-    /*since line wont work with height, i comment it out 
-    if you rather control the size via height
-    just comment it out */
-    //height: 500;
 
-    orientation: horizontal;
-    location: center;
-    anchor: center;
-    transparency: "screenshot";
-    border-color: @transparent;   
-    border: 0px;
-    border-radius: 6px;
-    spacing: 0;
-    children: [ mainbox ];
+window {
+    background-color: @bg;
+    border:           1;
+    padding:          5;
 }
 
 mainbox {
