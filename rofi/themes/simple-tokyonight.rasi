@@ -1,6 +1,7 @@
 * {
   font:   "FiraCode Nerd Font 10";
 
+  white   : #ffffff;
   bg0     : #1a1b26;
   bg1     : #1f2335;
   bg2     : #24283b;
@@ -77,6 +78,7 @@ listview {
 element {
   padding : 4px 8px;
   spacing : 8px;
+
 }
 
 element normal urgent {
@@ -96,8 +98,8 @@ element.alternate.normal {
 }
 
 element selected {
-  text-color       : @bg1;
-  background-color : @accent;
+  text-color       : @white;
+  background-color : @blue;
 }
 
 element selected urgent {
@@ -129,5 +131,5 @@ button {
     text-color: @fg1;
 }
 button.selected {
-    text-color:       @yellow;
+    text-color:       @blue;
 }

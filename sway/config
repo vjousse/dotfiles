@@ -1,6 +1,6 @@
 set $mod Mod1
 
-exec swaync
+exec mako
 exec_always nm-applet --indicator
 exec --no-startup-id nextcloud
 
@@ -29,11 +29,10 @@ exec swayidle -w \
     resume 'swaymsg "output * dpms on"' \
     before-sleep $lock
 
-
 bindsym $mod+z exec $lock
 
 # capture all screens to clipboard
-bindsym Shift+Print exec grim - | wl-copy
+bindsym Print exec DESTINATION_FILE="$HOME/Downloads/$(date '+%y%m%d_%H-%M-%S').png" && grim -g "$(slurp)" $DESTINATION_FILE && notify-send Screenshot "File saved to $DESTINATION_FILE"
 
 # capture the specified screen area to clipboard
 bindsym Shift+Alt+Print exec grim -g "$(slurp)" - | wl-copy
@@ -64,15 +63,10 @@ bindsym $mod+Return exec /usr/bin/wezterm
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# lock current screen
-bindsym $mod+Shift+o exec /bin/i3lock-fancy
+bindsym $mod+space exec "/bin/rofi -modes run,ssh -combi-modi window,drun,ssh --allow-images -theme simple-tokyonight -show combi -icon-theme Papirus -show-icons -D k"
 
-bindsym $mod+space exec "/bin/rofi -modes run,ssh -combi-modi window,drun,ssh --allow-images -theme Arc-Dark -show combi -icon-theme Papirus -show-icons -D k"
-
-# stop a pomodoro
-bindsym $mod+Shift+f exec rm ~/.pomodoro_session
-# start/reset a pomodoro
-bindsym $mod+Shift+h exec touch ~/.pomodoro_session
+# Dismiss notifications
+bindsym Control+space exec makoctl dismiss
 
 # Sound
 bindsym XF86AudioMute exec ~/dotfiles/scripts/music toggle
