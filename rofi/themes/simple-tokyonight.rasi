@@ -87,6 +87,7 @@ element normal urgent {
 
 element normal active {
   text-color: @accent;
+
 }
 
 element alternate active {
@@ -98,8 +99,9 @@ element.alternate.normal {
 }
 
 element selected {
-  text-color       : @white;
-  background-color : @blue;
+  background-color : @bg3;
+  border:       2px 0px 0px 0px;
+  border-color: @magenta;
 }
 
 element selected urgent {
@@ -123,13 +125,15 @@ scrollbar {
 
 mode-switcher {
   border:       2px 0px 0px ;
-  border-color: @blue;
+  border-color: @bg3;
 }
 
 button {
-    spacing:    0;
-    text-color: @fg1;
+  spacing:    0;
+  text-color: @fg1;
+  border:       2px 0px 0px 0px;
 }
 button.selected {
-    text-color:       @blue;
+  background-color: @bg3;
+  border-color: @magenta;
 }
