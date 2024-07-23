@@ -1,3 +1,4 @@
+# Alt as modifier
 set $mod Mod1
 
 exec mako
@@ -5,19 +6,19 @@ exec_always nm-applet --indicator
 exec --no-startup-id nextcloud
 
 # https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+#exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
-exec systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
-exec systemctl --user import-environment DISPLAY \
-                                         SWAYSOCK \
-                                         WAYLAND_DISPLAY \
-                                         XDG_CURRENT_DESKTOP
+#exec systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
+#exec systemctl --user import-environment DISPLAY \
+#                                         SWAYSOCK \
+#                                         WAYLAND_DISPLAY \
+#                                         XDG_CURRENT_DESKTOP
 
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY \
-                                                  SWAYSOCK \
-                                                  XDG_CURRENT_DESKTOP=sway \
-                                                  WAYLAND_DISPLAY
+#exec hash dbus-update-activation-environment 2>/dev/null && \
+#     dbus-update-activation-environment --systemd DISPLAY \
+#                                                  SWAYSOCK \
+#                                                  XDG_CURRENT_DESKTOP=sway \
+#                                                  WAYLAND_DISPLAY
 
 exec /home/vjousse/dotfiles/scripts/check-external-monitor.zsh
 
@@ -28,17 +29,6 @@ exec swayidle -w \
     timeout 570 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
     before-sleep $lock
-
-bindsym $mod+z exec $lock
-
-# capture all screens to clipboard
-bindsym Print exec DESTINATION_FILE="$HOME/Downloads/$(date '+%y%m%d_%H-%M-%S').png" && grim -g "$(slurp)" $DESTINATION_FILE && notify-send Screenshot "File saved to $DESTINATION_FILE"
-
-# capture the specified screen area to clipboard
-bindsym Shift+Alt+Print exec grim -g "$(slurp)" - | wl-copy
-
-# Scheenshot the focused window
-bindsym Shift+Control+Print exec swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -g - ~/screenshot-focused.png
 
 font pango:FiraCode Nerd Font 10
 
@@ -57,72 +47,7 @@ client.focused_inactive #7aa2f7 #292e42 #c0caf5 #7dcfff   #7aa2f7
 client.unfocused        #414868 #1f2335 #a9b1d6 #7dcfff   #414868
 client.urgent           #e0af68 #e0af68 #1d202f #7dcfff   #e0af68
 
-# start a terminal
-bindsym $mod+Return exec /usr/bin/wezterm
-
-# kill focused window
-bindsym $mod+Shift+q kill
-
-bindsym $mod+space exec "/bin/rofi -modes run,ssh -combi-modi window,drun,ssh --allow-images -theme simple-tokyonight -show combi -icon-theme Papirus -show-icons -D k"
-
-# Dismiss notifications
-bindsym Control+space exec makoctl dismiss
-
-# Sound
-bindsym XF86AudioMute exec ~/dotfiles/scripts/music toggle
-bindsym XF86AudioLowerVolume exec ~/dotfiles/scripts/music down
-bindsym XF86AudioRaiseVolume exec ~/dotfiles/scripts/music up
-
-# change focus
-bindsym $mod+c focus left
-bindsym $mod+Tab focus left
-bindsym $mod+t focus down
-bindsym $mod+s focus up
-bindsym $mod+r focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+t move left
-bindsym $mod+Shift+s move down
-#bindsym $mod+Shift+r move up
-bindsym $mod+Shift+n move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+d split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+m fullscreen
-
-# change container layout (stacked, tabbed, toggle split)
-#  bindsym $mod+j layout stacking
-bindsym $mod+l layout tabbed
-bindsym $mod+j layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+i focus mode_toggle
-
-# focus the parent container
-bindsym $mod+u focus parent
-
-# focus the child container
-# bindsym $mod+u focus child
+## WORKSPACES
 
 set $ws1 "1: "
 set $ws2 "2: "
@@ -141,67 +66,10 @@ workspace $ws3 output DP-2
 workspace $ws4 output DP-2
 # workspace $ws4 output eDP-1
 
-# switch to workspace
-bindsym $mod+q workspace $ws1
-bindsym $mod+g workspace $ws2
-bindsym $mod+h workspace $ws3
-bindsym $mod+f workspace $ws4
-bindsym $mod+n workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
 
-# move focused container to workspace
-bindsym $mod+Control+q move container to workspace $ws1
-bindsym $mod+Control+g move container to workspace $ws2
-bindsym $mod+Control+h move container to workspace $ws3
-bindsym $mod+Control+f move container to workspace $ws4
-bindsym $mod+Control+n move container to workspace $ws5
-bindsym $mod+Control+6 move container to workspace $ws6
-bindsym $mod+Control+7 move container to workspace $ws7
-bindsym $mod+Control+8 move container to workspace $ws8
-bindsym $mod+Control+9 move container to workspace $ws9
-bindsym $mod+Control+0 move container to workspace $ws10
+## SHORTCUTS
 
-# reload the configuration file
-bindsym $mod+Shift+x reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym c resize shrink width 10 px or 10 ppt
-        bindsym r resize grow height 10 px or 10 ppt
-        bindsym s resize shrink height 10 px or 10 ppt
-        bindsym t resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $mod+o mode "resize"
-
-# Make the currently focused window a scratchpad
-bindsym $mod+Shift+a move scratchpad
-
-# Show the first scratchpad window
-bindsym $mod+a scratchpad show
-
+include bepo-shortcuts
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -238,3 +106,5 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 }
 
 output "*" bg /home/vjousse/dotfiles/arch_01_3840x2160.png fill
+
+include /etc/sway/config.d/*

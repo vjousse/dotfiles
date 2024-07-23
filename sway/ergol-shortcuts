@@ -1,0 +1,143 @@
+# vi: ft=swayconfig
+
+# Lock screen
+bindsym $mod+y exec $lock
+
+
+# capture all screens to clipboard
+bindsym Print exec DESTINATION_FILE="$HOME/Downloads/$(date '+%y%m%d_%H-%M-%S').png" && grim -g "$(slurp)" $DESTINATION_FILE && notify-send Screenshot "File saved to $DESTINATION_FILE"
+
+# capture the specified screen area to clipboard
+bindsym Shift+Alt+Print exec grim -g "$(slurp)" - | wl-copy
+
+# Scheenshot the focused window
+bindsym Shift+Control+Print exec swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -g - ~/screenshot-focused.png
+
+# start a terminal
+bindsym $mod+Return exec /usr/bin/wezterm
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+bindsym $mod+space exec "/bin/rofi -modes run,ssh -combi-modi window,drun,ssh --allow-images -theme simple-tokyonight -show combi -icon-theme Papirus -show-icons -D k"
+
+# Dismiss notifications
+bindsym Control+space exec makoctl dismiss
+
+# Sound
+bindsym XF86AudioMute exec ~/dotfiles/scripts/music toggle
+bindsym XF86AudioLowerVolume exec ~/dotfiles/scripts/music down
+bindsym XF86AudioRaiseVolume exec ~/dotfiles/scripts/music up
+
+# change focus
+bindsym $mod+l focus left
+bindsym $mod+Tab focus left
+bindsym $mod+r focus down
+bindsym $mod+t focus up
+bindsym $mod+i focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+l move left
+bindsym $mod+Shift+r move down
+bindsym $mod+Shift+t move up
+bindsym $mod+Shift+i move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+
+# Ergol Done
+
+# split in horizontal orientation
+bindsym $mod+d split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+m fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+#  bindsym $mod+j layout stacking
+bindsym $mod+h layout tabbed
+bindsym $mod+g layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+e focus mode_toggle
+
+# focus the parent container
+bindsym $mod+n focus parent
+
+# focus the child container
+# bindsym $mod+u focus child
+
+
+# switch to workspace
+bindsym $mod+h workspace $ws1
+bindsym $mod+g workspace $ws2
+bindsym $mod+comma workspace $ws3
+bindsym $mod+k workspace $ws4
+bindsym $mod+u workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Control+h move container to workspace $ws1
+bindsym $mod+Control+g move container to workspace $ws2
+bindsym $mod+Control+comma move container to workspace $ws3
+bindsym $mod+Control+k move container to workspace $ws4
+bindsym $mod+Control+u move container to workspace $ws5
+bindsym $mod+Control+6 move container to workspace $ws6
+bindsym $mod+Control+7 move container to workspace $ws7
+bindsym $mod+Control+8 move container to workspace $ws8
+bindsym $mod+Control+9 move container to workspace $ws9
+bindsym $mod+Control+0 move container to workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+x reload
+
+# Enter resize mode
+bindsym $mod+o mode "resize"
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+a move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+a scratchpad show
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        bindsym l resize shrink width 10 px or 10 ppt
+        bindsym r resize grow width 10 px or 10 ppt
+        bindsym t resize shrink height 10 px or 10 ppt
+        bindsym i resize grow height 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
