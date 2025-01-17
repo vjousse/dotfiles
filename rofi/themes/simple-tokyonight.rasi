@@ -1,5 +1,5 @@
 * {
-  font:   "FiraCode Nerd Font 10";
+  font:   "JetBrainsMono Nerd Font 10";
 
   white   : #ffffff;
   bg0     : #1a1b26;
@@ -135,5 +135,5 @@ button {
 }
 button.selected {
   background-color: @bg3;
-  border-color: @magenta;
+  border-color: @cyan;
 }
