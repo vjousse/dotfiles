@@ -37,16 +37,6 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-#########################################################################
-# PROMPT
-#########################################################################
-
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
-zinit light starship/starship
-
-
 
 #########################################################################
 # Plugins
@@ -158,10 +148,6 @@ else
 fi
 
 
-eval "$(zoxide init zsh --cmd cd)"
-eval "$(/home/vjousse/.local/bin/mise activate zsh)"
-
-
 #########################################################################
 # VARIABLES
 #########################################################################
@@ -172,11 +158,10 @@ export PROJECT_HOME=$HOME/usr/src/python
 
 export NPM_PACKAGES="${HOME}/.npm-packages"
 
-export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$HOME/usr/bin:$DOTFILES/scripts:$HOME/.local/bin/:$CARGOBIN:$HOME/.yarn/bin:$NPM_PACKAGES/bin:$PATH"
+export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$HOME/usr/bin:$HOME/usr/bin/roc:$DOTFILES/scripts:$HOME/.local/bin/:$CARGOBIN:$HOME/.yarn/bin:$NPM_PACKAGES/bin:$PATH"
 
 export PYTHONPATH=".:$PYTHONPATH"
 
-export BROWSER="firefox-nightly"
 export EDITOR='nvim'
 export GIT_EDITOR='nvim'
 export MOZ_ENABLE_WAYLAND=1
@@ -192,6 +177,8 @@ export INFOPATH="/usr/local/texlive/2024/texmf-dist/doc/info:$INFOPATH"
 SETUPTOOLS_USE_DISTUTILS=stdlib
 
 
+source "$HOME/.cargo/env"
+
 #########################################################################
 # HISTORY SEARCH 
 #########################################################################
@@ -206,3 +193,39 @@ bindkey '^S' history-substring-search-up
 bindkey '^T' history-substring-search-down
 bindkey -M vicmd 's' history-substring-search-up
 bindkey -M vicmd 't' history-substring-search-down
+
+
+#########################################################################
+# YAZI FILE MANAGER
+#########################################################################
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+
+#########################################################################
+# MISC
+#########################################################################
+
+eval "$(zoxide init zsh --cmd cd)"
+eval "$(/home/vjousse/.local/bin/mise activate zsh)"
+eval "$(starship init zsh)"
+
+. "$HOME/.local/bin/env"
+
+function osc7-pwd() {
+    emulate -L zsh # also sets localoptions for us
+    setopt extendedglob
+    local LC_ALL=C
+    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
+}
+
+function chpwd-osc7-pwd() {
+    (( ZSH_SUBSHELL )) || osc7-pwd
+}
+add-zsh-hook -Uz chpwd chpwd-osc7-pwd
