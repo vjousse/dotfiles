@@ -33,7 +33,8 @@
     "format-ethernet": "↑ {bandwidthUpOctets} ↓ {bandwidthDownOctets} {ifname}: {ipaddr}/{cidr} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "󰤮 Disconnected",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "interval": 1
   },
 
   "pulseaudio": {
