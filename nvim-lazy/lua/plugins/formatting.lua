@@ -14,7 +14,7 @@ return {
         liquid = { "prettier" },
         lua = { "stylua" },
         markdown = { "prettier" },
-        python = { "ruff_fix", "ruff_format", "ruff_organize_import" },
+        python = { "ruff_fix", "ruff_format" },
         rust = { "rustfmt" },
         svelte = { "prettier" },
         javascript = { "prettier" },
@@ -32,7 +32,7 @@ return {
 
     vim.keymap.set({ "n", "v" }, "<leader>mp", function()
       conform.format({
-        lsp_fallback = true,
+        lsp_format = "fallback",
         async = false,
         timeout_ms = 1000,
       })

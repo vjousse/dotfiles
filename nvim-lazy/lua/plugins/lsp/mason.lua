@@ -31,6 +31,7 @@ return {
     mason_tool_installer.setup({
       ensure_installed = {
         "elm-format",
+        "mypy",
         "prettier", -- prettier formatter
         "ruff",
         "stylua", -- lua formatter
@@ -39,7 +40,7 @@ return {
 
     mason_lspconfig.setup({
       -- Liste des serveurs à installer par défaut
-      -- List des serveurs possibles : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+      -- List des serveurs possibles : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
       -- Vous pouvez ne pas en mettre ici et tout installer en utilisant :Mason
       -- Mais au lieu de passer par :Mason pour installer, je vous recommande d'ajouter une entrée à cette liste
       -- Ça permettra à votre configuration d'être plus portable
@@ -49,12 +50,13 @@ return {
         "graphql",
         "html",
         "lua_ls",
+        "phpactor",
         "pylsp",
-        "ruff_lsp",
+        "ruff",
         "rust_analyzer",
         "sqlls",
         "svelte",
-        "tsserver",
+        "ts_ls",
         "yamlls",
       },
       handlers = {
@@ -75,6 +77,15 @@ return {
         -- le nom du lsp avant le `= function()` doit être le même que celui après `lspconfig.`
         -- le premier est la clé utilisée par mason_lspconfig, le deuxième est celle utilisée par lspconfig (ce sont les mêmes)
         -- ils correspondent aux entrées du ensure_installed
+
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
+        elmls = function()
+          lspconfig.elmls.setup({
+            init_options = {
+              elmReviewDiagnostics = "warning",
+            },
+          })
+        end,
 
         lua_ls = function()
           lspconfig.lua_ls.setup({
@@ -100,6 +111,7 @@ return {
                     enabled = true,
                     ignore = { "E501" },
                   },
+                  -- mccabe = { enabled = false },
                 },
               },
             },
@@ -107,8 +119,8 @@ return {
         end,
 
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
-        ruff_lsp = function()
-          lspconfig.ruff_lsp.setup({
+        ruff = function()
+          lspconfig.ruff.setup({
             init_options = {
               settings = {
                 -- Arguments par défaut de la ligne de commande ruff
@@ -124,12 +136,20 @@ return {
           lspconfig.rust_analyzer.setup({
             settings = {
               ["rust-analyzer"] = {
+                check = {
+                  command = "clippy",
+                },
+                inlayHints = {
+                  renderColons = true,
+                  typeHints = {
+                    enable = true,
+                    hideClosureInitialization = false,
+                    hideNamedConstructor = false,
+                  },
+                },
                 diagnostics = {
                   enable = true,
                   styleLints = {
-                    enable = true,
-                  },
-                  experimental = {
                     enable = true,
                   },
                 },
