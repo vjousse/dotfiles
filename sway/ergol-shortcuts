@@ -14,12 +14,15 @@ bindsym Shift+Alt+Print exec grim -g "$(slurp)" - | wl-copy
 bindsym Shift+Control+Print exec swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -g - ~/screenshot-focused.png
 
 # start a terminal
-bindsym $mod+Return exec /usr/bin/wezterm
+# bindsym $mod+BackSpace exec /usr/bin/alacritty
+bindsym $mod+BackSpace exec /usr/bin/ghostty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 bindsym $mod+space exec "/bin/rofi -modes run,ssh -combi-modi window,drun,ssh --allow-images -theme simple-tokyonight -show combi -icon-theme Papirus -show-icons -D k"
+
+bindsym $mod+period exec "/usr/bin/rofimoji --selector-args='-theme ~/dotfiles/rofi/themes/simple-tokyonight.rasi'"
 
 # Dismiss notifications
 bindsym Control+space exec makoctl dismiss
@@ -68,8 +71,8 @@ bindsym $mod+m fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 #  bindsym $mod+j layout stacking
-bindsym $mod+h layout tabbed
-bindsym $mod+g layout toggle split
+bindsym $mod+c layout tabbed
+bindsym $mod+o layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -112,7 +115,7 @@ bindsym $mod+Control+0 move container to workspace $ws10
 bindsym $mod+Shift+x reload
 
 # Enter resize mode
-bindsym $mod+o mode "resize"
+bindsym $mod+p mode "resize"
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+a move scratchpad

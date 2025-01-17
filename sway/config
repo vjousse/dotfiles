@@ -20,6 +20,7 @@ exec --no-startup-id nextcloud
 #                                                  XDG_CURRENT_DESKTOP=sway \
 #                                                  WAYLAND_DISPLAY
 
+
 exec /home/vjousse/dotfiles/scripts/check-external-monitor.zsh
 
 set $lock bash ~/.config/sway/lockman.sh
@@ -30,7 +31,7 @@ exec swayidle -w \
     resume 'swaymsg "output * dpms on"' \
     before-sleep $lock
 
-font pango:FiraCode Nerd Font 10
+font pango:JetBrainsMono Nerd Font 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -69,7 +70,8 @@ workspace $ws4 output DP-2
 
 ## SHORTCUTS
 
-include bepo-shortcuts
+#include bepo-shortcuts
+include ergol-shortcuts
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -90,20 +92,22 @@ floating_maximum_size 2000 x 2000
 
 output eDP-1 scale 2
 output DP-3 scale 1.5
+output DP-4 scale 1.5
 
 input "type:keyboard" {
-    xkb_layout "fr(bepo)","custom","fr"
+    #xkb_layout "fr(bepo)","custom","fr"
+    xkb_layout "custom","fr(bepo)","fr"
 
     repeat_delay 280
     repeat_rate 50
 }
 
-input "1:1:AT_Translated_Set_2_keyboard" {
+#input "1:1:AT_Translated_Set_2_keyboard" {
     # Use a modified Bépo mapping for my Dell keyboard.
     # It's the default Bépo layout, but withr Caps lock remapped to Left Shift, and Left Shift to Control
-    xkb_layout "bepo_with_ctrl_to_shift_and_shift_to_capslock"
+#    xkb_layout "bepo_with_ctrl_to_shift_and_shift_to_capslock"
 
-}
+#}
 
 output "*" bg /home/vjousse/dotfiles/arch_01_3840x2160.png fill
 
