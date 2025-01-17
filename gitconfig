@@ -36,7 +36,22 @@
 [alias]
   changelog = "!f() { r=${1:-`git describe --tags --abbrev=0`..HEAD}; echo Changelog for $r; git log --reverse --no-merges --format='* %s' $r; }; f"
   fixup = "!git log --oneline --no-decorate --no-merges | fzf -0 --preview 'git show --color=always --format=oneline {1}' | awk '{print $1}' | xargs -r git commit --fixup"
+	pfl = push --force-with-lease
 [pull]
 	rebase = false
 [init]
 	defaultBranch = main
+
+[sendemail]
+	smtpserver = smtp.fastmail.com
+	smtpuser = vincent@jousse.org
+	smtpencryption = ssl
+	smtpserverport = 465
+
+[credential]
+    helper = store
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
