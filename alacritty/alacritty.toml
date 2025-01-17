@@ -44,7 +44,7 @@ persistent_logging = false
 render_timer = false
 
 [font]
-size = 11.0
+size = 12.0
 
 [font.bold]
 family = "FiraCode Nerd Font"
@@ -877,7 +877,7 @@ history = 10000
 multiplier = 3
 
 [selection]
-save_to_clipboard = false
+save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
