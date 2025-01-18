@@ -85,8 +85,12 @@ bindsym $mod+e focus prev
 # focus the next container in the current layout
 bindsym $mod+n focus next
 
-# focus the parent container in the current layout
-bindsym $mod+q focus next
+# focus the parent of the focused container
+bindsym $mod+x focus parent
+
+# focus the child of the focused container
+bindsym $mod+z focus child
+
 
 # focus the child container
 # bindsym $mod+u focus child
