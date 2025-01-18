@@ -22,7 +22,7 @@ exec --no-startup-id nextcloud
 
 set $term foot
 
-exec /home/vjousse/dotfiles/scripts/check-external-monitor.zsh
+exec_always /home/vjousse/dotfiles/scripts/check-external-monitor.zsh
 
 set $lock bash ~/.config/sway/lockman.sh
 
