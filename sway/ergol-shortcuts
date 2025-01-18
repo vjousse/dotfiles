@@ -15,12 +15,12 @@ bindsym Shift+Control+Print exec swaymsg -t get_tree | jq -r '.. | select(.focus
 
 # start a terminal
 # bindsym $mod+BackSpace exec /usr/bin/alacritty
-bindsym $mod+BackSpace exec /usr/bin/ghostty
+bindsym $mod+BackSpace exec /usr/bin/foot
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-bindsym $mod+space exec "/bin/rofi -modes run,ssh -combi-modi window,drun,ssh --allow-images -theme simple-tokyonight -show combi -icon-theme Papirus -show-icons -D k"
+bindsym $mod+space exec "/bin/rofi -modes run,ssh,combi -combi-modi window,drun,ssh --allow-images -theme simple-tokyonight -show combi -icon-theme Papirus -show-icons -D k"
 
 bindsym $mod+period exec "/usr/bin/rofimoji --selector-args='-theme ~/dotfiles/rofi/themes/simple-tokyonight.rasi'"
 
@@ -60,14 +60,16 @@ bindsym $mod+Shift+Right move right
 
 # Ergol Done
 
+## Split
+
 # split in horizontal orientation
-bindsym $mod+d split h
+bindsym $mod+minus split v
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+v split h
 
 # enter fullscreen mode for the focused container
-bindsym $mod+m fullscreen
+bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 #  bindsym $mod+j layout stacking
@@ -77,11 +79,14 @@ bindsym $mod+o layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
-bindsym $mod+e focus mode_toggle
+# focus the previous container in the current layout
+bindsym $mod+e focus prev
 
-# focus the parent container
-bindsym $mod+n focus parent
+# focus the next container in the current layout
+bindsym $mod+n focus next
+
+# focus the parent container in the current layout
+bindsym $mod+q focus next
 
 # focus the child container
 # bindsym $mod+u focus child

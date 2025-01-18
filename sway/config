@@ -20,16 +20,17 @@ exec --no-startup-id nextcloud
 #                                                  XDG_CURRENT_DESKTOP=sway \
 #                                                  WAYLAND_DISPLAY
 
+set $term foot
 
 exec /home/vjousse/dotfiles/scripts/check-external-monitor.zsh
 
 set $lock bash ~/.config/sway/lockman.sh
 
 exec swayidle -w \
-    timeout 300 $lock \
+    timeout 300 '$lock' \
     timeout 570 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
-    before-sleep $lock
+    before-sleep '$lock'
 
 font pango:JetBrainsMono Nerd Font 10
 
@@ -86,9 +87,16 @@ hide_edge_borders smart
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
-for_window [app_id="signal"] floating enable
 
-floating_maximum_size 2000 x 2000
+assign [app_id="zen"] $ws2
+
+assign [app_id="spotify"] $ws3
+
+assign [app_id="thunderbird"] $ws4
+assign [class="Signal"] $ws4
+assign [class="discord"] $ws4
+
+floating_maximum_size 1800 x 1000
 
 output eDP-1 scale 2
 output DP-3 scale 1.5
