@@ -225,7 +225,20 @@ function osc7-pwd() {
     printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
 }
 
+# osc sequences for foot compatibility
 function chpwd-osc7-pwd() {
     (( ZSH_SUBSHELL )) || osc7-pwd
 }
 add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+
+function precmd {
+    if ! builtin zle; then
+        print -n "\e]133;D\e\\"
+    fi
+
+    print -Pn "\e]133;A\e\\"
+}
+
+function preexec {
+    print -n "\e]133;C\e\\"
+}
