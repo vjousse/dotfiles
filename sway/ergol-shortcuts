@@ -16,6 +16,7 @@ bindsym Shift+Control+Print exec swaymsg -t get_tree | jq -r '.. | select(.focus
 # start a terminal
 # bindsym $mod+BackSpace exec /usr/bin/alacritty
 bindsym $mod+BackSpace exec /usr/bin/foot
+bindsym $mod+Shift+n exec $HOME/dotfiles/scripts/open-current-sway-dir.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -83,7 +84,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+e focus prev
 
 # focus the next container in the current layout
-bindsym $mod+n focus next
+# bindsym $mod+n focus next
 
 # focus the parent of the focused container
 bindsym $mod+x focus parent
