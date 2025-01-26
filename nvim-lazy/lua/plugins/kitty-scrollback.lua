@@ -5,13 +5,6 @@ return {
   cmd = { "KittyScrollbackGenerateKittens", "KittyScrollbackCheckHealth" },
   event = { "User KittyScrollbackLaunch" },
   config = function()
-    require("kitty-scrollback").setup({
-      -- builtin configuration override
-      ksb_builtin_get_text_all = {
-        kitty_get_text = {
-          ansi = false,
-        },
-      },
-    })
+    require("kitty-scrollback").setup()
   end,
 }

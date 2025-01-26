@@ -15,8 +15,8 @@ bindsym Shift+Control+Print exec swaymsg -t get_tree | jq -r '.. | select(.focus
 
 # start a terminal
 # bindsym $mod+BackSpace exec /usr/bin/alacritty
-bindsym $mod+BackSpace exec /usr/bin/foot
-bindsym $mod+Shift+n exec $HOME/dotfiles/scripts/open-current-sway-dir.sh
+bindsym $mod+BackSpace exec /usr/bin/kitty
+# bindsym $mod+Shift+n exec $HOME/dotfiles/scripts/open-current-sway-dir.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
