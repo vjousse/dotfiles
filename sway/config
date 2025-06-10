@@ -117,6 +117,6 @@ input "type:keyboard" {
 
 #}
 
-output "*" bg /home/vjousse/dotfiles/arch_01_3840x2160.png fill
+output "*" bg /home/vjousse/dotfiles/wallpapers/arch_01_3840x2160.png fill
 
 include /etc/sway/config.d/*
