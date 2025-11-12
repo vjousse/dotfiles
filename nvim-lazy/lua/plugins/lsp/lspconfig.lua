@@ -56,7 +56,7 @@ return {
         pylsp = {
           plugins = {
             -- formatter options
-            black = { enabled = true },
+            black = { enabled = false },
             autopep8 = { enabled = false },
             yapf = { enabled = false },
             -- linter options
@@ -66,14 +66,14 @@ return {
               ignore = { "E501" },
             },
             -- type checker
-            pylsp_mypy = { enabled = true },
+            pylsp_mypy = { enabled = false },
             -- auto-completion options
-            jedi_completion = { fuzzy = true },
+            jedi_completion = { fuzzy = false },
             -- import sorting
             pylsp_isort = { enabled = true },
-            rope_completion = { enabled = true },
+            rope_completion = { enabled = false },
             rope_autoimport = {
-              enabled = true,
+              enabled = false,
             },
           },
         },
