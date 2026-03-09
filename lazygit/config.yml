@@ -1,3 +1,11 @@
+# Config relating to git
+git:
+  # If true, parse emoji strings in commit messages e.g. render :rocket: as 🚀
+  # (This should really be under 'gui', not 'git')
+  parseEmoji: true
+  pagers:
+    - externalDiffCommand: difft
+#
 # Keybindings
 keybinding:
   universal:

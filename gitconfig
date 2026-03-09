@@ -1,6 +1,7 @@
 [user]
   name = Vincent Jousse
   email = vincent@jousse.org
+	signingkey = E83AD0A191649A7C
 
 [color]
   ui = true
@@ -32,6 +33,7 @@
   # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
   # instead of a/b/c/d as prefixes for patches
   mnemonicprefix = true
+  external = difft
 
 [alias]
   changelog = "!f() { r=${1:-`git describe --tags --abbrev=0`..HEAD}; echo Changelog for $r; git log --reverse --no-merges --format='* %s' $r; }; f"
@@ -55,3 +57,7 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
