@@ -22,7 +22,7 @@ return {
       ignore_install = {},
 
       -- enable indentation
-      indent = { enable = true },
+      indent = { enable = false },
 
       autopairs = {
         enable = true,
@@ -33,6 +33,7 @@ return {
         "dockerfile",
         "gitignore",
         "graphql",
+        "gren",
         "haskell",
         "html",
         "javascript",

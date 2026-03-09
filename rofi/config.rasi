@@ -1,6 +1,6 @@
 configuration {
   font: "JetBrainsMono Nerd Font 10";
-  terminal: "foot";
+  terminal: "kitty";
  	drun-match-fields: "name";
   sidebar-mode: true;
   dpi: 192;
