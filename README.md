@@ -1,13 +1,5 @@
 # My beloved dotfiles
 
-## Installation
-
-    ./scripts/install-symlinks
-
-## Screenshot
-
-![Screenshot](./screenshot.png)
-
-## Some inspiration
-
-https://github.com/lokesh-krishna/dotfiles/tree/main/tokyo-night
+> ## ⚠️ Migrated to Codeberg
+>
+> This project has [migrated to Codeberg](https://codeberg.org/vjousse/dotfiles).

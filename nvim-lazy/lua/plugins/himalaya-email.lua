@@ -1,3 +1,0 @@
-return {
-  "pimalaya/himalaya-vim",
-}
